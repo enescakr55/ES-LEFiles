@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LEFiles.Client.Core/1.0.0": {
+        "runtime": {
+          "LEFiles.Client.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LEFiles.Client.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
