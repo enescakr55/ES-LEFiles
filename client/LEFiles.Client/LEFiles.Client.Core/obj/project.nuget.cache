@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "YKMFoXWViqOF1ayuOIkL3vsC6BXW3PkBK0cEFioVrBmnz6/72u9vqgWGB2Zg1WNMlWKyxGIEhqGxzRHKzGt5VQ==",
+  "dgSpecHash": "9ypFzD8rY6CnsQ17lRch8XX26t5drUE6L9JOD48d9Qr6fOCeLBXhqdqPO4sZvnl1CQlP5WJsqZghhSxydujsPg==",
   "success": true,
   "projectFilePath": "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\enesc\\.nuget\\packages\\flurl\\3.0.7\\flurl.3.0.7.nupkg.sha512",
+    "C:\\Users\\enesc\\.nuget\\packages\\flurl.http\\3.2.4\\flurl.http.3.2.4.nupkg.sha512",
+    "C:\\Users\\enesc\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\enesc\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\enesc\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\enesc\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512"
+  ],
   "logs": []
 }

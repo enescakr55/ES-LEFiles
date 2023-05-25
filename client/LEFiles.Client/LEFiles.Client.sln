@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Client.Core", "LEFiles.Client.Core\LEFiles.Client.Core.csproj", "{E59DE77D-7A99-4EFD-9DFE-681104824C93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Client.Core", "LEFiles.Client.Core\LEFiles.Client.Core.csproj", "{E59DE77D-7A99-4EFD-9DFE-681104824C93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Client.WindowsApplication", "LEFiles.Client.WindowsApplication\LEFiles.Client.WindowsApplication.csproj", "{E2080BB7-865F-46CB-9FD4-1228F487C477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Client.UI", "LEFiles.Client.UI\LEFiles.Client.UI.csproj", "{11510C3F-E7B9-4B7C-BE32-96611FBA5447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Client.Console", "LEFiles.Client.Console\LEFiles.Client.Console.csproj", "{634B7323-C42F-4400-BD54-5A6A4F639372}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{E59DE77D-7A99-4EFD-9DFE-681104824C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E59DE77D-7A99-4EFD-9DFE-681104824C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E59DE77D-7A99-4EFD-9DFE-681104824C93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2080BB7-865F-46CB-9FD4-1228F487C477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2080BB7-865F-46CB-9FD4-1228F487C477}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2080BB7-865F-46CB-9FD4-1228F487C477}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2080BB7-865F-46CB-9FD4-1228F487C477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11510C3F-E7B9-4B7C-BE32-96611FBA5447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11510C3F-E7B9-4B7C-BE32-96611FBA5447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11510C3F-E7B9-4B7C-BE32-96611FBA5447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11510C3F-E7B9-4B7C-BE32-96611FBA5447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634B7323-C42F-4400-BD54-5A6A4F639372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634B7323-C42F-4400-BD54-5A6A4F639372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634B7323-C42F-4400-BD54-5A6A4F639372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634B7323-C42F-4400-BD54-5A6A4F639372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

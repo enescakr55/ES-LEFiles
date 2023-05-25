@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Core", "LEFiles.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Models", "LEFiles.Models\LEFiles.Models.csproj", "{42ED8306-4146-4531-96C5-DE7EC0F5C924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Business", "LEFiles.Business\LEFiles.Business.csproj", "{6F69CDEE-E5D7-4906-BB43-DA416B5BC7FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Business", "LEFiles.Business\LEFiles.Business.csproj", "{6F69CDEE-E5D7-4906-BB43-DA416B5BC7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.DataAccess", "LEFiles.DataAccess\LEFiles.DataAccess.csproj", "{1CF7F690-8D21-4905-A457-A32F67CF6CA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6F69CDEE-E5D7-4906-BB43-DA416B5BC7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F69CDEE-E5D7-4906-BB43-DA416B5BC7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F69CDEE-E5D7-4906-BB43-DA416B5BC7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

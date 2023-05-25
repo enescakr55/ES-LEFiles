@@ -1,4 +1,4 @@
-﻿namespace LEFiles.Client.Core
+﻿namespace LEFiles.DataAccess
 {
   public class Class1
   {
