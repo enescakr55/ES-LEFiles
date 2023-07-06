@@ -1,12 +1,14 @@
-﻿using System;
+﻿using LEFiles.Core.Entities.Abstract;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LEFiles.Models.Entities
 {
-  public class Client
+  public class Client:IEntity
   {
     public Client()
     {
@@ -32,7 +34,7 @@ namespace LEFiles.Models.Entities
       IsActive = isActive;
       EndDate = endDate;
     }
-
+    [Key]
     public string ClientId { get; set; }
     public string ClientName { get; set; }
     public string ClientSecret { get; set; }

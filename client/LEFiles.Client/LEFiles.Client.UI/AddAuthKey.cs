@@ -39,5 +39,10 @@ namespace LEFiles.Client.UI
       //apply gradient         
       graphics.FillRectangle(b, gradient_rectangle);
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+
+    }
   }
 }

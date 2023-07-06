@@ -1,14 +1,21 @@
-﻿using LEFiles.Core.Helpers;
+﻿using LEFiles.Core.Entities.Abstract;
+using LEFiles.Core.Helpers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LEFiles.Models.Entities
 {
-  public class User
+  public class User:IEntity
   {
+    #pragma warning disable
+    public User()
+    {
+
+    }
     public User(string firstname, string lastname, string username, string password)
     {
       byte[] passwordSalt;
@@ -22,6 +29,7 @@ namespace LEFiles.Models.Entities
       PasswordSalt = passwordSalt;
       RegistrationDate = DateTime.UtcNow;
     }
+    [Key]
 
     public string UserId { get; set; }
     public string Firstname { get; set; }
