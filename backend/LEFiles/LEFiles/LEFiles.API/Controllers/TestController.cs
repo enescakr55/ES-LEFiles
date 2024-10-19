@@ -11,7 +11,7 @@ namespace LEFiles.API.Controllers
   public class TestController : ControllerBase
   {
 
-    [HttpGet("RSAInfo")]
+    [Microsoft.AspNetCore.Mvc.HttpGet("RSAInfo")]
     public IActionResult GetRSA()
     {
       var str = Encoding.UTF8.GetBytes("merhaba");

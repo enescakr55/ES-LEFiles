@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Models", "LEFiles.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Business", "LEFiles.Business\LEFiles.Business.csproj", "{6F69CDEE-E5D7-4906-BB43-DA416B5BC7FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.DataAccess", "LEFiles.DataAccess\LEFiles.DataAccess.csproj", "{1CF7F690-8D21-4905-A457-A32F67CF6CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.DataAccess", "LEFiles.DataAccess\LEFiles.DataAccess.csproj", "{1CF7F690-8D21-4905-A457-A32F67CF6CA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Services", "LEFiles.Services\LEFiles.Services.csproj", "{DB2C1163-C7D3-4A43-ADFA-010A15FFA14A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Data.Migrations.Postgres", "LEFiles.Data.Migrations.Postgres\LEFiles.Data.Migrations.Postgres.csproj", "{90BE291A-03CF-4126-9DD2-5A8E56CBDA0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEFiles.Data.Migrations.Mysql", "LEFiles.Data.Migrations.Mysql\LEFiles.Data.Migrations.Mysql.csproj", "{43809B7A-80AB-4DA4-8F93-F2B4FA26563E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF7F690-8D21-4905-A457-A32F67CF6CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2C1163-C7D3-4A43-ADFA-010A15FFA14A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2C1163-C7D3-4A43-ADFA-010A15FFA14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2C1163-C7D3-4A43-ADFA-010A15FFA14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2C1163-C7D3-4A43-ADFA-010A15FFA14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90BE291A-03CF-4126-9DD2-5A8E56CBDA0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90BE291A-03CF-4126-9DD2-5A8E56CBDA0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90BE291A-03CF-4126-9DD2-5A8E56CBDA0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90BE291A-03CF-4126-9DD2-5A8E56CBDA0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43809B7A-80AB-4DA4-8F93-F2B4FA26563E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43809B7A-80AB-4DA4-8F93-F2B4FA26563E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43809B7A-80AB-4DA4-8F93-F2B4FA26563E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43809B7A-80AB-4DA4-8F93-F2B4FA26563E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
