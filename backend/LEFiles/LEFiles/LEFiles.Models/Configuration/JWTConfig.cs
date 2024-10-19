@@ -8,10 +8,9 @@ namespace LEFiles.Models.Configuration
 {
   public class JWTConfig
   {
-    public string Issuer { get; set; }
-    public string ClientRSAPublicKey { get; set; }
-    public string ClientRSAPrivateKey { get; set; }
-    public string UserRSAPublicKey { get; set; }
-    public string UserRSAPrivateKey { get; set; }
+    public string Issuer { get; set; } = string.Empty;
+    public string TokenName { get; set; } = string.Empty;
+    public string PublicKey { get; set; } = string.Empty;
+    public string PrivateKey { get; set; } = string.Empty;
   }
 }

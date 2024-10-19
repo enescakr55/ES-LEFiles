@@ -14,4 +14,9 @@
     <ProjectReference Include="..\LEFiles.Core\LEFiles.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
+
 </Project>

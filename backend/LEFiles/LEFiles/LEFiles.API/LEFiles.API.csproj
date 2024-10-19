@@ -13,12 +13,14 @@
     <PackageReference Include="FastEndpoints.Attributes" Version="5.30.0" />
     <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.35" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LEFiles.Core\LEFiles.Core.csproj" />
+    <ProjectReference Include="..\LEFiles.Models\LEFiles.Models.csproj" />
     <ProjectReference Include="..\LEFiles.Services\LEFiles.Services.csproj" />
   </ItemGroup>
 

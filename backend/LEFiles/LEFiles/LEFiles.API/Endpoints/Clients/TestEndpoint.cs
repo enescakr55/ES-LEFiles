@@ -14,7 +14,7 @@ namespace LEFiles.API.Endpoints.Clients
     public override void Configure()
     {
       Get(ApiUrl + "test");
-      AllowAnonymous();
+      AuthSchemes("UserBearer");
     }
     public override async Task HandleAsync(CancellationToken ct)
     {
