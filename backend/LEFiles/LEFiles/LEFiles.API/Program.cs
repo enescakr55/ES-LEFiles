@@ -60,7 +60,7 @@ for(var i=0;i<jwts.Count;i++){
   addAuth.AddJwtBearer(tokenInfo.TokenName, (bearer) => {
     bearer.RequireHttpsMetadata = false;
     bearer.SaveToken = true;
-    bearer.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    bearer.TokenValidationParameters = new TokenValidationParameters
     {
       ValidateIssuer = true,
       ValidateAudience = false,

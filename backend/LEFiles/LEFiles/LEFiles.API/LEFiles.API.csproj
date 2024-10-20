@@ -25,7 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\UserUi\" />
+    <Folder Include="Endpoints\UserInterface\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

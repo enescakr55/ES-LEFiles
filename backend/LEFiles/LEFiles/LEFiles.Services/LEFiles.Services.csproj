@@ -8,14 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="FastEndpoints" Version="5.30.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.35.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LEFiles.Core\LEFiles.Core.csproj" />
+    <ProjectReference Include="..\LEFiles.Models\LEFiles.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
+    <Folder Include="ServiceModels\Authentication\" />
     <Folder Include="Service\" />
   </ItemGroup>
 

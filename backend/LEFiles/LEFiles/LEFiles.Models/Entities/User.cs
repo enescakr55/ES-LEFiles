@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace LEFiles.Models.Entities
 {
-  public class User:IEntity
+  public class User : IEntity
   {
-    #pragma warning disable
+#pragma warning disable
     public User()
     {
 
     }
-    public User(string firstname, string lastname, string username, string password)
+    public User(string firstname, string lastname, string username, string email, string password)
     {
       byte[] passwordSalt;
       byte[] passwordHash;
@@ -27,16 +27,18 @@ namespace LEFiles.Models.Entities
       Username = username;
       PasswordHash = passwordHash;
       PasswordSalt = passwordSalt;
+      Email = email;
       RegistrationDate = DateTime.UtcNow;
     }
-    [Key]
 
     public string UserId { get; set; }
+    public string Email { get; set; }
     public string Firstname { get; set; }
     public string Lastname { get; set; }
     public string Username { get; set; }
     public byte[] PasswordHash { get; set; }
     public byte[] PasswordSalt { get; set; }
     public DateTime RegistrationDate { get; set; }
+    public virtual IList<Client> Clients { get; set; } = new List<Client>();
   }
 }

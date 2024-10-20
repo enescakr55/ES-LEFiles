@@ -34,7 +34,6 @@ namespace LEFiles.Models.Entities
       IsActive = isActive;
       EndDate = endDate;
     }
-    [Key]
     public string ClientId { get; set; }
     public string ClientName { get; set; }
     public string ClientSecret { get; set; }
@@ -42,5 +41,6 @@ namespace LEFiles.Models.Entities
     public string HarddiskSerialNumber { get; set; }
     public bool IsActive { get; set; }
     public DateTime? EndDate { get; set; }
+    public virtual User User { get; set; }
   }
 }
