@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace LEFiles.DataAccess
 {
-  public class AppDbContext : DbContext
+  public partial class AppDbContext : DbContext
   {
     DatabaseConnectModel ConnectModel { get; }
     public AppDbContext()
@@ -36,8 +36,14 @@ namespace LEFiles.DataAccess
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       base.OnModelCreating(modelBuilder);
+      this.BuildModels(modelBuilder);
     }
     public DbSet<User> Users { get; set; }
     public DbSet<Client> Clients { get; set; }
+    public DbSet<ClientRegistrationToken> ClientRegistrationTokens { get; set; }
+    public DbSet<ClientSession> ClientSessions { get; set; }
+    public DbSet<FileItem> FileItems { get; set; }
+    public DbSet<FolderItem> FolderItems { get; set; }
+    public DbSet<WaitableRequest> WaitableRequests { get; set; }
   }
 }

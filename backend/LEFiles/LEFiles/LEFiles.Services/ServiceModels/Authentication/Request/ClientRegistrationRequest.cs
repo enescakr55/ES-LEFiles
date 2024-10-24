@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace LEFiles.Services.ServiceModels.Authentication.Request
 {
-  public class UserLoginRequest
+  public class ClientRegistrationRequest
   {
-    public string Username { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
   }
 }
