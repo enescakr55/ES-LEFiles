@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9ypFzD8rY6CnsQ17lRch8XX26t5drUE6L9JOD48d9Qr6fOCeLBXhqdqPO4sZvnl1CQlP5WJsqZghhSxydujsPg==",
+  "dgSpecHash": "RnF3ehHjY7qJPH+e9QSrmAi3WsMhp/mBpXatlsL9Qo3AH2JbqJHCva7m0SLYiLqrVuhiHZEil4PxEVLdwzJuIQ==",
   "success": true,
-  "projectFilePath": "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
+  "projectFilePath": "C:\\Users\\enesc\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\enesc\\.nuget\\packages\\flurl\\3.0.7\\flurl.3.0.7.nupkg.sha512",
     "C:\\Users\\enesc\\.nuget\\packages\\flurl.http\\3.2.4\\flurl.http.3.2.4.nupkg.sha512",

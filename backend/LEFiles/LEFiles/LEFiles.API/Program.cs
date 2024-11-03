@@ -1,5 +1,8 @@
 global using FastEndpoints;
+using LEFiles.DataAccess;
 using LEFiles.Models.Configuration;
+using LEFiles.Services.Contracts.Authentication;
+using LEFiles.Services.Service.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -49,10 +52,24 @@ builder.Services.AddSwaggerGen(option =>
 });
 builder.Services.AddSignalR();
 var addAuth =builder.Services.AddAuthentication();
-
+builder.Services.AddTransient<AppDbContext>();
+builder.Services.AddTransient<IAuthenticationService, BasicAuthenticationService>();
 List<JWTConfig> jwts = new List<JWTConfig>();
 Configuration.GetSection("JwtConfiguration").Bind(jwts);
-for(var i=0;i<jwts.Count;i++){
+builder.Services.AddSingleton<List<JWTConfig>>(jwts);
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy(name: "AllowedCorsOrigins",
+      builder =>
+      {
+        builder
+                      .SetIsOriginAllowed(origin => true)
+                      .AllowAnyHeader()
+                      .AllowAnyMethod()
+                      .AllowCredentials();
+      });
+});
+for (var i=0;i<jwts.Count;i++){
   var tokenInfo = jwts[i];
   RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
   rsa.ImportSubjectPublicKeyInfo(Convert.FromBase64String(tokenInfo.PublicKey), out _);
@@ -94,6 +111,7 @@ if (app.Environment.IsDevelopment())
   app.UseSwagger();
   app.UseSwaggerUI();
 }
+app.UseCors("AllowedCorsOrigins");
 app.UseFastEndpoints();
 app.UseHttpsRedirection();
 app.UseAuthentication();

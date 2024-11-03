@@ -9,6 +9,7 @@ namespace LEFiles.Client.Core.Models.Enums
   public enum EntryTypes
   {
     File = 0,
-    Folder = 1
+    Folder = 1,
+    Drive = 2
   }
 }

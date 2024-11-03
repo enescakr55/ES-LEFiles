@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj": {}
+    "C:\\Users\\enesc\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj": {}
   },
   "projects": {
-    "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj": {
+    "C:\\Users\\enesc\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
+        "projectUniqueName": "C:\\Users\\enesc\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
         "projectName": "LEFiles.Client.Core",
-        "projectPath": "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
+        "projectPath": "C:\\Users\\enesc\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\LEFiles.Client.Core.csproj",
         "packagesPath": "C:\\Users\\enesc\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\obj\\",
+        "outputPath": "C:\\Users\\enesc\\ES-LEFiles\\LEFiles\\client\\LEFiles.Client\\LEFiles.Client.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\enesc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -68,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

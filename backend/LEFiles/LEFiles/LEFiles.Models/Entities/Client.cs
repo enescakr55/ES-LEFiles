@@ -46,5 +46,6 @@ namespace LEFiles.Models.Entities
     public string UserId { get; set; }
     public virtual User User { get; set; }
     public virtual List<ClientSession>? ClientSessions { get; set; }
+    public string ClientSettings { get; set; } = string.Empty;
   }
 }

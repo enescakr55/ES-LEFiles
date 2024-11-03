@@ -1,0 +1,29 @@
+<div class="container mx-auto text-center main-container">
+    <div class="login-form flex items-center bg-white justify-center flex-col">
+        <div class="login-area">
+            <div class="login-area-header">
+                <div class="cloud-logo">
+                <i class="bi bi-cloud-fill cloud-icon"></i><font class="site-name"> ESAY Cloud</font>
+            </div>
+            </div>
+
+            <form class="login-area-form" [formGroup]="registerForm">
+                <div class="form-floating mb-3">
+                    <input formControlName="username" type="text" autocomplete="username" class="form-control" id="username" placeholder="Kullanıcı Adı">
+                    <label for="username">Kullanıcı Adı</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" formControlName="password" class="form-control" autocomplete="off" id="password" placeholder="Şifre">
+                    <label for="password">Şifre</label>
+                  </div>
+                  <div class="login-actions" style="margin-top: 13px;">
+                    <label for="rememberMe"><input type="checkbox" [class]="'form-check-input'" id="rememberMe"><font> Beni Hatırla</font></label>
+                    <button class="button login-button" (click)="login()">Giriş Yap</button>
+                </div>
+            </form>
+            <div class="login-area-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

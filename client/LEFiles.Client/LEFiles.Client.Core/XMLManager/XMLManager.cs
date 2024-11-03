@@ -9,23 +9,16 @@ namespace LEFiles.Client.Core.XMLManager
 {
   public partial class XMLManager
   {
-    XmlWriterSettings writerSettings;
-    XmlWriter writer;
+    private readonly string Test = "";
     public XMLManager()
     {
-      writerSettings = new XmlWriterSettings();
-      writerSettings.Indent = true;
-      writer = XmlWriter.Create("UserSettings.xml", writerSettings);
-      writer.WriteStartDocument();
-      writer.WriteStartElement("Key");
-      writer.WriteValue(Guid.NewGuid().ToString("N"));
-      writer.WriteEndElement();
-      writer.WriteEndDocument();
-      writer.Close();
-      writer.Flush();
-
-      Console.WriteLine("XML document created");
+      IDictionary<string, object> dictionary = new Dictionary<string, object>();
+      dictionary.Add("allowFileUpload", true);
+      dictionary.Add("allowSystemFiles", false);
+      dictionary.Add("allowHiddenFiles", false);
+      this.CreateXMLFile("lefiles.settings.xml","UserSettings", dictionary);
+      ReadXMLFile("lefiles.settings.xml", "UserSettings");
     }
-     
+
   }
 }

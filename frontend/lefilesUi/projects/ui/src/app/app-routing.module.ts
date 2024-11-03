@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from 'projects/corelib/src/lib/components/login-page/login-page.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  {path:"",component:LoginPageComponent,pathMatch:"full"},
+  {path:"login",component:LoginPageComponent,pathMatch:"full"},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

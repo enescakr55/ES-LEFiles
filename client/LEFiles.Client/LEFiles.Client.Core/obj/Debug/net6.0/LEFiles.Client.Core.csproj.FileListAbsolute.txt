@@ -10,3 +10,15 @@ D:\Development\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\
 D:\Development\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\refint\LEFiles.Client.Core.dll
 D:\Development\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.pdb
 D:\Development\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\ref\LEFiles.Client.Core.dll
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\bin\Debug\net6.0\LEFiles.Client.Core.deps.json
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\bin\Debug\net6.0\LEFiles.Client.Core.dll
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\bin\Debug\net6.0\LEFiles.Client.Core.pdb
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.csproj.AssemblyReference.cache
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.AssemblyInfoInputs.cache
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.AssemblyInfo.cs
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.csproj.CoreCompileInputs.cache
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.dll
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\refint\LEFiles.Client.Core.dll
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\LEFiles.Client.Core.pdb
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.Core\obj\Debug\net6.0\ref\LEFiles.Client.Core.dll

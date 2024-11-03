@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LEFiles.Client.Core.XMLManager.Writer
+namespace LEFiles.Client.Core.ServiceResults.Abstract
 {
-  public partial class XMLManager
+  public interface IDataResult<T> : IResult
   {
+    T Data { get; }
   }
 }

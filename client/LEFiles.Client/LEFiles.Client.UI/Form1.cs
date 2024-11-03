@@ -1,4 +1,8 @@
+
+using LEFiles.Client.UI.Services.FileManagement.Concrete;
 using System.Drawing.Drawing2D;
+using System.Text.Json;
+
 namespace LEFiles.Client.UI
 {
   public partial class UserInterface : Form
@@ -36,7 +40,7 @@ namespace LEFiles.Client.UI
 
     private void NotifyIcon1_BalloonTipShown(object? sender, EventArgs e)
     {
-      
+
     }
 
     private void UserInterface_MouseDown(object sender, MouseEventArgs e)
@@ -70,7 +74,7 @@ namespace LEFiles.Client.UI
       Rectangle gradient_rectangle = new Rectangle(0, 0, Width, Height);
 
       //define gradient's properties
-      Brush b = new LinearGradientBrush(gradient_rectangle, Color.FromArgb(0, 0, 0), Color.FromArgb(57, 128, 227), 65f);
+      Brush b = new LinearGradientBrush(gradient_rectangle, Color.FromArgb(255, 255, 255), Color.FromArgb(213, 229, 246), 65f);
 
       //apply gradient         
       graphics.FillRectangle(b, gradient_rectangle);
@@ -78,10 +82,10 @@ namespace LEFiles.Client.UI
 
     private void button1_Click(object sender, EventArgs e)
     {
-      DriveInfo[] driveInfo = DriveInfo.GetDrives();
-      foreach(var drive in driveInfo)
+      /*DriveInfo[] driveInfo = DriveInfo.GetDrives();
+      foreach (var drive in driveInfo)
       {
-        textBox1.Text += drive.RootDirectory.FullName + " " + drive.VolumeLabel+Environment.NewLine;
+        textBox1.Text += drive.RootDirectory.FullName + " " + drive.VolumeLabel + Environment.NewLine;
         IEnumerable<string> entries = Directory.EnumerateFileSystemEntries(drive.RootDirectory.FullName);
         IEnumerable<string> hiddenFilesQuery = from file in entries
                                                let info = new FileInfo(file)
@@ -91,16 +95,21 @@ namespace LEFiles.Client.UI
         {
           textBox1.Text += entry + Environment.NewLine;
         }
-        /*foreach (string folder in folders)
+        foreach (string folder in folders)
         {
           textBox1.Text += folder + Environment.NewLine;
         }
         foreach (string file in files)
         {
           textBox1.Text += file+Environment.NewLine;
-        } */
-      }
-
+        } 
+      }*/
+      var fileManagementService = new WindowsFileManagementService();
+      var entries = fileManagementService.GetFileSystemEntries("D:\\");
+      entries.ForEach(entry =>
+      {
+        textBox1.Text += JsonSerializer.Serialize(entry) + Environment.NewLine;
+      });
     }
 
     private void UserInterface_Paint(object sender, PaintEventArgs e)
@@ -146,17 +155,17 @@ namespace LEFiles.Client.UI
       _contextMenuStrip.Items.AddRange(toolStripItems);
       _notifyIcon.ContextMenuStrip = _contextMenuStrip;
     }
-    private void Open(object sender,EventArgs e)
+    private void Open(object sender, EventArgs e)
     {
       this.WindowState = FormWindowState.Normal;
     }
-    private void Exit(object sender,EventArgs e)
+    private void Exit(object sender, EventArgs e)
     {
       Application.Exit();
       Environment.Exit(0);
 
     }
-    private void Settings(object sender,EventArgs e)
+    private void Settings(object sender, EventArgs e)
     {
 
     }
@@ -168,7 +177,9 @@ namespace LEFiles.Client.UI
 
     private void label2_Click(object sender, EventArgs e)
     {
+      this.ShowInTaskbar = true;
       this.WindowState = FormWindowState.Minimized;
+
     }
 
     private void label2_MouseHover(object sender, EventArgs e)

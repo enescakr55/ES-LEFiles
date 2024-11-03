@@ -36,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\UserInterface\" />
+    <Folder Include="Endpoints\AdminUi\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
