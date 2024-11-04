@@ -19,6 +19,7 @@ export class AuthService implements AuthBaseService {
     return this.httpClient.post<DataResponseModel<LoginResponse>>(requestUrl,req);
   }
   register(req: RegisterRequest): Observable<ResponseModel> {
-    throw new Error('Method not implemented.');
+    var requestUrl = `${environment.apiUrl}auth/register`;
+    return this.httpClient.post<ResponseModel>(requestUrl,req);
   }
 }

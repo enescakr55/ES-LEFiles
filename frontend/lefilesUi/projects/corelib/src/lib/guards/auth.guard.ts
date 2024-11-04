@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       var token = this.storageService.get("token");
       var expiration = this.storageService.get("expiration");
-      if(token != null){
+      if(token != null && expiration != null && new Date(expiration).getTime() > new Date().getTime()){
         return true;
       }
       return false;

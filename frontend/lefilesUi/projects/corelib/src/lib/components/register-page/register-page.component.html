@@ -1,1 +1,41 @@
-<p>register-page works!</p>
+<div class="container mx-auto text-center main-container">
+    <div class="login-form flex items-center bg-white justify-center flex-col">
+        <div class="login-area">
+            <div class="login-area-header">
+                <div class="cloud-logo">
+                <i class="bi bi-cloud-fill cloud-icon"></i><font class="site-name"> ESAY Cloud</font>
+            </div>
+            </div>
+
+            <form class="login-area-form" [formGroup]="registerForm">
+                <div class="form-floating mb-3">
+                    <input formControlName="username" type="text" autocomplete="username" class="form-control" id="username" [placeholder]="'user.username' | translate">
+                    <label for="username">{{'user.username' | translate}}</label>
+                  </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="firstname" type="text" autocomplete="firstname" class="form-control" id="firstname" [placeholder]="'user.firstname' | translate">
+                    <label for="firstname">{{'user.firstname' | translate}}</label>
+                  </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="lastname" type="text" autocomplete="lastname" class="form-control" id="lastname" [placeholder]="'user.lastname' | translate">
+                    <label for="lastname">{{'user.lastname' | translate}}</label>
+                  </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="email" type="text" autocomplete="email" class="form-control" id="email" [placeholder]="'user.email' | translate">
+                    <label for="email">{{'user.email' | translate}}</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input type="password" formControlName="password" class="form-control" autocomplete="off" id="password" [placeholder]="'user.password' | translate">
+                    <label for="password">{{'user.password' | translate}}</label>
+                  </div>
+                  <div class="login-actions" style="margin-top: 13px;">
+                    <button class="button login-button" (click)="register()">{{'authentication.register' | translate}}</button>
+                </div>
+            </form>
+            <div class="login-area-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from 'projects/corelib/src/lib/interceptors/token.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
@@ -33,7 +33,7 @@ export function HttpLoaderFactory(http:HttpClient){
       maxOpened:3,
       
     }), // ToastrModule added
-    TranslateModule.forRoot({
+    /*TranslateModule.forRoot({
       defaultLanguage:"tr-TR",
       loader:{
         
@@ -41,14 +41,16 @@ export function HttpLoaderFactory(http:HttpClient){
         useFactory:HttpLoaderFactory,
         deps:[HttpClient]
       }
-    })
+    })*/
   ],
   exports:[
-    TranslateModule
+
   ],
   providers: [
     {provide:AuthBaseService,useClass:AuthService},
-    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true},
+    TranslateModule,
+    TranslateStore
   ],
   bootstrap: [AppComponent]
 })

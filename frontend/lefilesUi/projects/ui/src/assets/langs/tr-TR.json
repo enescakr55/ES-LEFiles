@@ -1,0 +1,10 @@
+{
+    "authentication.login":"Giriş Yap",
+    "authentication.register":"Kayıt Ol",
+    "authentication.rememberMe":"Beni Hatırla",
+    "user.password":"Şifre",
+    "user.email":"E-Posta",
+    "user.lastname":"Soyad",
+    "user.firstname":"Ad",
+    "user.username":"Kullanıcı Adı"
+}

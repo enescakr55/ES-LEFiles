@@ -12,18 +12,18 @@ import { StorageService } from '../../services/storage/storage.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  registerForm:FormGroup
+  loginForm:FormGroup
   constructor(private authBaseService:AuthBaseService,private storageService:StorageService,private formBuilder:FormBuilder,private toastService:ToastService) { }
 
   ngOnInit(): void {
-   this.registerForm = this.formBuilder.group({
+   this.loginForm = this.formBuilder.group({
       username:["",Validators.required],
       password:["",Validators.required]
     })
   }
   login(){
-    if(this.registerForm.valid){
-      var request = Object.assign({},this.registerForm.value);
+    if(this.loginForm.valid){
+      var request = Object.assign({},this.loginForm.value);
       this.authBaseService.login(request).subscribe({
         next:(response)=>{
           this.storageService.set("token",response.data.token);

@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CorelibComponent } from './corelib.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
-
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http,"/assets/langs/",".json")
+}
 @NgModule({
   declarations: [
     CorelibComponent,
@@ -18,12 +22,22 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      defaultLanguage:"tr-TR",
+      loader:{
+        provide:TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps:[HttpClient]
+      }
+    })
+    
   ],
   exports: [
     CorelibComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    TranslateModule
   ]
 })
 export class CorelibModule { }

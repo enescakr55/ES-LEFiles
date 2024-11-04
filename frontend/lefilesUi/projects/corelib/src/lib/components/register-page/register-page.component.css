@@ -1,0 +1,72 @@
+.main-container {
+    /* max-width: 600px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-form {
+    max-width:400px;
+    width:100%;
+    border-radius:20px;
+    padding:20px;
+}
+.login-area-header {
+    text-align: center;
+}
+.form-floating > label::after {
+    background-color: transparent !important;
+}
+.cloud-logo {
+    text-align:left;
+    margin-bottom:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+
+    margin: auto;
+    margin-bottom: 12px;
+}
+.site-name {
+    font-size:15px;
+    position: relative;
+    bottom: 13px;
+    font-weight:bold;
+}
+.cloud-icon {
+    font-size:45px;
+    vertical-align:middle;
+}
+.login-actions {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    
+}
+.login-button {
+
+    margin-right: 1%;
+    background-color: #001ec7;
+    border: none;
+    outline: none;
+
+}
+.login-button:hover {
+    background-color: #00179b;
+}
+.button {
+    border-radius: 4px;
+    width: 25%;
+    min-width: 120px;
+    padding: 4px;
+    font-weight: 600;
+    color: #fff;
+
+}
