@@ -7,6 +7,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CommonModule } from '@angular/common';
 
 
 export function HttpLoaderFactory(http:HttpClient){
@@ -23,6 +24,7 @@ export function HttpLoaderFactory(http:HttpClient){
   imports: [
     HttpClientModule,
     ReactiveFormsModule,
+    CommonModule,
     TranslateModule.forRoot({
       defaultLanguage:"tr-TR",
       loader:{

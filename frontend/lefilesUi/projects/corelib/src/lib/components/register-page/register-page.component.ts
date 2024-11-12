@@ -30,7 +30,7 @@ export class RegisterPageComponent implements OnInit {
       var registerObj:RegisterRequest = Object.assign({},this.registerForm.value);
       this.authBaseService.register(registerObj).subscribe({
         next:(response)=>{
-
+          this.toastService.success(this.translateService.instant("authentication.successfullyRegistered"));
         },error:(err)=>{
           console.log(err);
           ErrorHandlerService.HandleError(err);

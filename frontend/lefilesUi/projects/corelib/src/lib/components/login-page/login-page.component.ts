@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { AuthBaseService } from '../../services/auth/auth-base.service';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ToastService } from '../../services/toasts/toast-service.service';
 import { StorageService } from '../../services/storage/storage.service';
+import { ErrorHandlerService } from '../../services/handler/error-handler.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-login-page',
@@ -12,8 +14,9 @@ import { StorageService } from '../../services/storage/storage.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  loginForm:FormGroup
-  constructor(private authBaseService:AuthBaseService,private storageService:StorageService,private formBuilder:FormBuilder,private toastService:ToastService) { }
+  loginForm:FormGroup;
+  loading:boolean = false;
+  constructor(private authBaseService:AuthBaseService,private router:Router,private storageService:StorageService,private formBuilder:FormBuilder,private toastService:ToastService) { }
 
   ngOnInit(): void {
    this.loginForm = this.formBuilder.group({
@@ -22,7 +25,9 @@ export class LoginPageComponent implements OnInit {
     })
   }
   login(){
+    var rememberMe = (document.getElementById("rememberMe") as HTMLInputElement).checked
     if(this.loginForm.valid){
+      this.loading = true;
       var request = Object.assign({},this.loginForm.value);
       this.authBaseService.login(request).subscribe({
         next:(response)=>{
@@ -30,9 +35,16 @@ export class LoginPageComponent implements OnInit {
           this.storageService.set("expiration",response.data.expiration);
           var date = new Date(response.data.expiration)
           console.log(date.getTime() - new Date().getTime());
-          this.toastService.success("Ok");
+          this.toastService.success("authentication.loggedSuccessfully");
+          this.storageService.set("username",request.username);
+          if(rememberMe){
+            this.storageService.set("savedUsername",request.username);
+          }
+          this.loading = false;
+          this.router.navigate(["/main"]);
         },error:(err)=>{
-          this.toastService.error("Hata");
+          this.loading = false;
+          ErrorHandlerService.HandleError(err);
         }
       })
     }

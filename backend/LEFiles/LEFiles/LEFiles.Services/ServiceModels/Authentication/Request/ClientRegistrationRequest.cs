@@ -9,6 +9,6 @@ namespace LEFiles.Services.ServiceModels.Authentication.Request
   public class ClientRegistrationRequest
   {
     public string ClientName { get; set; } = string.Empty;
-    public int ValidityPeriod { get; set; }
+    //public int ValidityPeriod { get; set; }
   }
 }

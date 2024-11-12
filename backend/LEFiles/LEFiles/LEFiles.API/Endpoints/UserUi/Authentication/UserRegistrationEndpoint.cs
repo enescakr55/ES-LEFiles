@@ -2,7 +2,6 @@
 using LEFiles.Core.Models.Results.Abstract;
 using LEFiles.Services.Contracts.Authentication;
 using LEFiles.Services.ServiceModels.Authentication.Request;
-using IResult = LEFiles.Core.Models.Results.Abstract.IResult;
 
 namespace LEFiles.API.Endpoints.UserInterface.Authentication
 {

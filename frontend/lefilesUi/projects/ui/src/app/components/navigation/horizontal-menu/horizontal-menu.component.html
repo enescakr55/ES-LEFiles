@@ -1,0 +1,26 @@
+<div class="horizontal-menu-container">
+    <div class="menu-left">
+        <div class="cloud-logo-icon">
+            <i class="bi bi-cloud-fill"></i>
+        </div>
+        <div class="menu-item" *ngFor="let item of menuItems">
+            <i [class]="'menu-item-icon '+item.icon"></i>
+            <font class="menu-item-text">{{item.labelKey| translate}}</font>
+        </div>
+    </div>
+    <div class="menu-right">
+        
+    <div class="btn-group">
+        <button class="btn btn-secondary btn-sm" style="border-radius: 15px 0px 0px 15px;" [title]="'profile.viewProfile' | translate" type="button">
+            <i class="bi bi-person-circle"></i>
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" style="border-radius: 0px 15px 15px 0px;" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item">{{'common.devices' | translate}}</a></li>
+            <li><a class="dropdown-item" (click)="logout()">{{'authentication.signOut' | translate}}</a></li>
+        </ul>
+      </div>
+    </div>
+</div>

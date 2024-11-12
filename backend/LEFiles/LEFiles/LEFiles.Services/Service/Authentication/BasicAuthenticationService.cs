@@ -52,7 +52,7 @@ namespace LEFiles.Services.Service.Authentication
         throw new HttpRequestException("User Jwt Configuration not found", null, HttpStatusCode.NotFound);
       }
       var expiration = DateTime.UtcNow.AddMinutes(20);
-      var jwtCreator = new JWTCreator(userConfig, userItem.UserId, new string[0],expiration , new Dictionary<string, string>());
+      var jwtCreator = new JWTCreator(userConfig, userItem.UserId, new string[1] {"User"},expiration , new Dictionary<string, string>{ { "iss","LEFiles"} });
       var token = jwtCreator.GenerateToken();
       var response = new UserLoginResponse
       {

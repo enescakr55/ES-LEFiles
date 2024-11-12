@@ -17,9 +17,11 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("lefiles")
                 .HasAnnotation("ProductVersion", "6.0.19")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "uuid-ossp");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("LEFiles.Models.Entities.Client", b =>
@@ -37,6 +39,10 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
+
+                    b.Property<string>("ClientSettings")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
@@ -70,7 +76,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Clients", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.ClientRegistrationToken", b =>
@@ -109,7 +115,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ClientRegistrationTokens");
+                    b.ToTable("ClientRegistrationTokens", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.ClientSession", b =>
@@ -144,7 +150,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
                     b.HasIndex("ClientSessionId")
                         .IsUnique();
 
-                    b.ToTable("ClientSessions");
+                    b.ToTable("ClientSessions", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.FileItem", b =>
@@ -203,7 +209,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FileItems");
+                    b.ToTable("FileItems", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.FolderItem", b =>
@@ -241,7 +247,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FolderItems");
+                    b.ToTable("FolderItems", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.User", b =>
@@ -292,7 +298,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
                     b.HasIndex("Username")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.WaitableRequest", b =>
@@ -338,7 +344,7 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("WaitableRequests");
+                    b.ToTable("WaitableRequests", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.Client", b =>

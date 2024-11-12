@@ -1,0 +1,60 @@
+.horizontal-menu-container {
+    background-color: white;
+    padding: 5px 12px;
+    margin: auto;
+    border-radius: 30px;
+    margin: 0px 15px;
+    margin-bottom: 16px;
+    display: flex;
+}
+.cloud-logo-icon {
+    font-size: 30px;
+    color: rgb(60, 162, 226);
+}
+
+.menu-left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+
+}
+
+.menu-right {
+    display: inline-block;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    flex-wrap: nowrap;
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    cursor: pointer;
+    
+}
+
+.menu-item-text {
+    font-weight: 500;
+    padding-right: 5px;
+}
+.menu-item-text.active {
+    font-weight: bold;
+}
+.menu-item-text:hover {
+    font-weight: bold;
+    padding-right: 0px;
+}
+.menu-item-icon {
+    margin-right: 2px;
+}
+.dropdown-item {
+    cursor: pointer;
+}

@@ -6,9 +6,10 @@ using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
 using LEFiles.Models.Entities;
 using LEFiles.Services.ServiceModels.Authentication.Request;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Security.Cryptography;
-using IResult = LEFiles.Core.Models.Results.Abstract.IResult;
 
 namespace LEFiles.API.Endpoints.UserUi.Clients
 {
@@ -23,7 +24,7 @@ namespace LEFiles.API.Endpoints.UserUi.Clients
     public override void Configure()
     {
       Post(ApiUrl + "clients/client-registration/new");
-      AuthSchemes("UserBearer");
+      AuthSchemes("UserBearer", "ClientBearer");
       Roles("User");
     }
     public override async Task HandleAsync(ClientRegistrationRequest req, CancellationToken ct)
@@ -34,6 +35,7 @@ namespace LEFiles.API.Endpoints.UserUi.Clients
         await SendErrorResult(400);
         return;
       }
+      var roles = User.Claims.SingleOrDefault(x => x.Type == ClaimTypes.Role);
       var secret = RandomStringGenerator.Create(15);
       var token = RandomStringGenerator.Create(50);
       var clientRegistrationToken = new ClientRegistrationToken

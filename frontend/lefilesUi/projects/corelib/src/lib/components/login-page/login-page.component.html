@@ -18,7 +18,7 @@
                   </div>
                   <div class="login-actions" style="margin-top: 13px;">
                     <label for="rememberMe"><input type="checkbox" [class]="'form-check-input'" id="rememberMe"><font> {{'authentication.rememberMe' | translate}}</font></label>
-                    <button class="button login-button" (click)="login()">{{'authentication.login' | translate}}</button>
+                    <button class="button login-button" (click)="login()">{{'authentication.login' | translate}}   <span class="spinner-border spinner-border-sm" *ngIf="loading" aria-hidden="true"></span></button>
                 </div>
             </form>
             <div class="login-area-footer">

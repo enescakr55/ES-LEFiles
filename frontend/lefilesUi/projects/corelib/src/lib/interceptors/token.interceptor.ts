@@ -16,9 +16,11 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     var token = this.storageService.get("token");
     var expiration = this.storageService.get("expiration");
+
     if(token != null){
-      request.headers.append("Authorization","Bearer "+token);
-      return next.handle(request);
+      request = request.clone({
+        setHeaders:{Authorization:"Bearer "+token}
+      })
     }
     return next.handle(request);
   }

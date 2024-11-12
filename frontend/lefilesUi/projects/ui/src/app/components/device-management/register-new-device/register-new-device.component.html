@@ -1,0 +1,10 @@
+
+<div>
+    <h4>{{'devices.registerRequestTitle' | translate}}</h4>
+    <form class="mb-3" [formGroup]="registerDeviceForm">
+        <label for="clientName" class="form-label">{{'devices.deviceName' | translate}}</label>
+        <input type="text" class="form-control" id="clientName"
+            [placeholder]="'devices.pleaseInputDeviceName' | translate" formControlName="clientName">
+    </form>
+    <button type="button" (click)="registerDeviceRequest()" class="btn btn-secondary">{{'devices.createDeviceRegistrationCode' | translate}}</button>
+</div>
