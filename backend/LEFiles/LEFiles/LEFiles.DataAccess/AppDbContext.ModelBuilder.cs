@@ -24,12 +24,13 @@ namespace LEFiles.DataAccess
         x.Property(p => p.UserId).HasMaxLength(50).IsRequired();
         x.HasIndex(p => p.ClientId).IsUnique();
 
-        x.HasOne(x => x.User).WithMany(x=>x.Clients).HasForeignKey(x => x.UserId);
+        x.HasOne(x => x.User).WithMany(x => x.Clients).HasForeignKey(x => x.UserId);
       });
       modelBuilder.Entity<ClientRegistrationToken>(x =>
       {
         x.HasKey(p => p.Id);
         x.HasIndex(p => p.Id).IsUnique();
+        x.Property(x => x.ClientName).HasMaxLength(50).IsRequired();
         x.Property(p => p.Id).UseIdentityAlwaysColumn().IsRequired();
         x.Property(x => x.UserId).HasMaxLength(50).IsRequired();
         x.Property(x => x.Secret).HasMaxLength(100).IsRequired();
@@ -45,7 +46,7 @@ namespace LEFiles.DataAccess
         entity.Property(x => x.ClientId).HasMaxLength(50).IsRequired();
         entity.Property(x => x.ClientSessionId).HasMaxLength(50).IsRequired();
 
-        entity.HasOne(x => x.Client).WithMany(x=>x.ClientSessions).HasForeignKey(x => x.ClientId);
+        entity.HasOne(x => x.Client).WithMany(x => x.ClientSessions).HasForeignKey(x => x.ClientId);
       });
       modelBuilder.Entity<FileItem>(entity =>
       {
@@ -59,8 +60,8 @@ namespace LEFiles.DataAccess
         entity.Property(x => x.FileName).HasMaxLength(100).IsRequired();
         entity.Property(x => x.FilePath).HasMaxLength(100).IsRequired();
 
-        entity.HasOne(x=>x.User).WithMany().HasForeignKey(x => x.UserId);
-        entity.HasOne(x => x.ParentFolder).WithMany(x=>x.Files).HasForeignKey(x => x.ParentFolderId);
+        entity.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId);
+        entity.HasOne(x => x.ParentFolder).WithMany(x => x.Files).HasForeignKey(x => x.ParentFolderId);
 
 
       });

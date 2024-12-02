@@ -35,6 +35,10 @@
       label1 = new Label();
       button3 = new Button();
       label2 = new Label();
+      button4 = new Button();
+      button5 = new Button();
+      pictureBox1 = new PictureBox();
+      ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
       SuspendLayout();
       // 
       // button1
@@ -61,7 +65,7 @@
       // 
       resources.ApplyResources(label1, "label1");
       label1.BackColor = Color.Transparent;
-      label1.ForeColor = Color.White;
+      label1.ForeColor = Color.DarkSlateBlue;
       label1.Name = "label1";
       label1.Click += label1_Click;
       // 
@@ -76,17 +80,42 @@
       // 
       resources.ApplyResources(label2, "label2");
       label2.BackColor = Color.Transparent;
-      label2.ForeColor = Color.White;
+      label2.ForeColor = Color.DarkCyan;
       label2.Name = "label2";
       label2.Click += label2_Click;
       label2.MouseLeave += label2_MouseLeave;
       label2.MouseHover += label2_MouseHover;
+      // 
+      // button4
+      // 
+      resources.ApplyResources(button4, "button4");
+      button4.Name = "button4";
+      button4.UseVisualStyleBackColor = true;
+      button4.Click += button4_Click;
+      // 
+      // button5
+      // 
+      resources.ApplyResources(button5, "button5");
+      button5.Name = "button5";
+      button5.UseVisualStyleBackColor = true;
+      button5.Click += button5_Click;
+      // 
+      // pictureBox1
+      // 
+      resources.ApplyResources(pictureBox1, "pictureBox1");
+      pictureBox1.BackColor = Color.Transparent;
+      pictureBox1.Image = Properties.Resources.logo;
+      pictureBox1.Name = "pictureBox1";
+      pictureBox1.TabStop = false;
       // 
       // UserInterface
       // 
       resources.ApplyResources(this, "$this");
       AutoScaleMode = AutoScaleMode.Font;
       ControlBox = false;
+      Controls.Add(pictureBox1);
+      Controls.Add(button5);
+      Controls.Add(button4);
       Controls.Add(label2);
       Controls.Add(button3);
       Controls.Add(label1);
@@ -105,6 +134,7 @@
       MouseDown += UserInterface_MouseDown;
       MouseMove += UserInterface_MouseMove;
       MouseUp += UserInterface_MouseUp;
+      ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
       ResumeLayout(false);
       PerformLayout();
     }
@@ -117,5 +147,8 @@
     private Label label1;
     private Button button3;
     private Label label2;
+    private Button button4;
+    private Button button5;
+    private PictureBox pictureBox1;
   }
 }

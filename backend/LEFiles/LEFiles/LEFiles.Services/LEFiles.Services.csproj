@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="ServiceModels\Authentication\Responses\" />
+    <Folder Include="ServiceModels\UserInterface\Clients\Requests\" />
   </ItemGroup>
 
 </Project>

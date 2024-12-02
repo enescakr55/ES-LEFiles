@@ -91,6 +91,7 @@ for (var i=0;i<jwts.Count;i++){
     {
       ValidateIssuer = false,
       ValidateAudience = false,
+      RoleClaimType = "role",
       ValidateLifetime = false,
       ValidateIssuerSigningKey = true,
       ValidIssuer = tokenInfo.Issuer,

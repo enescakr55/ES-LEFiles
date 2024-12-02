@@ -1,7 +1,14 @@
 
+using LEFiles.Client.UI.Helpers.SystemInformation;
 using LEFiles.Client.UI.Services.FileManagement.Concrete;
 using System.Drawing.Drawing2D;
 using System.Text.Json;
+using System.Configuration;
+using LEFiles.Client.UI.Services.Clients;
+using System.Diagnostics;
+using LEFiles.Client.Core.Helpers.Singleton;
+using LEFiles.Client.Core.Helpers;
+using LEFiles.Client.Core.XMLManager;
 
 namespace LEFiles.Client.UI
 {
@@ -36,6 +43,44 @@ namespace LEFiles.Client.UI
     {
       PrepareNotifyIcon();
       this.TopMost = true;
+
+      RegisterClientService _registerClientService = new RegisterClientService();
+      var registered = false;
+      do {
+        Debug.WriteLine("Loop is working");
+        registered = _registerClientService.Registered();
+        if (!registered)
+        {
+          AddAuthKey addAuthKeyPage = new AddAuthKey();
+          var result = addAuthKeyPage.ShowDialog();
+          registered = _registerClientService.Registered();
+        }
+
+        
+      } while (registered == false);
+      XMLManager xmlManager = new XMLManager();
+      var apiurl = ConfigurationManager.AppSettings["apiUrl"];
+      if (apiurl == null)
+      {
+        throw new Exception("Api Url not defined");
+      }
+      var clientConfiguration = xmlManager.ReadXMLFile("client-configuration.xml", "Client");
+     var secretx = clientConfiguration.First(x => x.Key == "secret").Value;
+      object hddSerial;
+      object secret;
+      var hddSerialAvailabe = clientConfiguration.TryGetValue("hddSerial", out hddSerial);
+      var secretAvailabe = clientConfiguration.TryGetValue("secret", out secret);
+      if(hddSerialAvailabe == false || secretAvailabe == false || hddSerial == null || secret == null){
+        throw new Exception("Service is not working correctly");
+      }
+      FlurlCoreClient _flurlClient = new FlurlCoreClient(apiurl,hddSerial?.ToString() ?? "", secret?.ToString() ?? "");
+
+      var singleItemManager = new SingleItemManager();
+      singleItemManager.SetSingleItem<FlurlCoreClient>("flurl", _flurlClient);
+      var clientTokenService = new ClientTokenService();
+      clientTokenService.GenerateToken();
+      Debug.WriteLine(FlurlCoreClient.Token);
+
     }
 
     private void NotifyIcon1_BalloonTipShown(object? sender, EventArgs e)
@@ -190,6 +235,19 @@ namespace LEFiles.Client.UI
     private void label2_MouseLeave(object sender, EventArgs e)
     {
       label2.BackColor = Color.Transparent;
+    }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      WindowsSystemInformationHelper sysInfo = new WindowsSystemInformationHelper();
+      var id = sysInfo.GetCPUId();
+      MessageBox.Show(id);
+    }
+
+    private void button5_Click(object sender, EventArgs e)
+    {
+      var apiUrl = ConfigurationManager.AppSettings["apiUrl"];
+      MessageBox.Show(apiUrl);
     }
   }
 }

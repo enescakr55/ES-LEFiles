@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LEFiles.Client.UI.Services.Clients;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,8 +41,17 @@ namespace LEFiles.Client.UI
       graphics.FillRectangle(b, gradient_rectangle);
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void save_btn_Click(object sender, EventArgs e)
     {
+      var authtoken = token.Text;
+      var authsecret = secret.Text;
+      var registerClientSvc = new RegisterClientService();
+      try {
+        registerClientSvc.Register(authtoken, authsecret);
+        this.Close();
+      }catch{
+        MessageBox.Show("Tekrar deneyin");
+      }
 
     }
   }

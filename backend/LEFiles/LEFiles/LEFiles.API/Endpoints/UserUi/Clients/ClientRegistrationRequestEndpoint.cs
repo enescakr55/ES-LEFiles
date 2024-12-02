@@ -41,10 +41,11 @@ namespace LEFiles.API.Endpoints.UserUi.Clients
       var clientRegistrationToken = new ClientRegistrationToken
       {
         CreatedAt = DateTime.UtcNow,
+        ClientName = req.ClientName,
         ExpirationDate = DateTime.UtcNow.AddMinutes(15),
         Secret = secret,
         Token = token,
-        UserId = userId,
+        UserId = userId
 
       };
       await _context.AddAsync(clientRegistrationToken, ct);

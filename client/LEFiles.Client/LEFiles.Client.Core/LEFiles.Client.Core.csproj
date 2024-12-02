@@ -11,9 +11,4 @@
     <PackageReference Include="Flurl.Http" Version="3.2.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\ServerCommunication\Abstract\" />
-    <Folder Include="Services\ServerCommunication\Concrete\" />
-  </ItemGroup>
-
 </Project>

@@ -10,6 +10,7 @@ namespace LEFiles.Models.Entities
   {
     public int Id { get; set; }
     public string UserId { get; set; } = string.Empty;
+    public string ClientName { get; set; } = string.Empty;
     public string Token { get; set; } = string.Empty;
     public string Secret { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; }

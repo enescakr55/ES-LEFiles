@@ -3,11 +3,11 @@ using LEFiles.Core.Models.Results.Abstract;
 using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
 using LEFiles.Services.Contracts.Clients;
-using LEFiles.Services.ServiceModels.Clients;
+using LEFiles.Services.ServiceModels.Clients.Requests;
 
 namespace LEFiles.API.Endpoints.ClientService.Registration
 {
-  public class RegisterClientEndpoint : BaseEndpoint<RegisterClientRequest, IResult>
+    public class RegisterClientEndpoint : BaseEndpoint<RegisterClientRequest, IResult>
   {
     private readonly AppDbContext _context;
     private readonly IClientService _clientService;
@@ -24,7 +24,8 @@ namespace LEFiles.API.Endpoints.ClientService.Registration
     }
     public override async Task HandleAsync(RegisterClientRequest req, CancellationToken ct)
     {
-      var result = _clientService.RegisterClient(req);
+      
+      bool result = _clientService.RegisterClient(req);
       await SendAsync(new Result(result));
     }
   }

@@ -7,6 +7,8 @@ using LEFiles.Models.Entities;
 using LEFiles.Services.Contracts.Authentication;
 using LEFiles.Services.ServiceModels.Authentication.Request;
 using LEFiles.Services.ServiceModels.Authentication.Responses;
+using LEFiles.Services.ServiceModels.Clients.Requests;
+using LEFiles.Services.ServiceModels.Clients.Responses;
 using LEFiles.Services.Tools;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -27,6 +29,30 @@ namespace LEFiles.Services.Service.Authentication
     {
       _context = context;
       _jwtConfig = jwtConfig;
+    }
+
+    public IDataResult<ClientTokenResponse> ClientLogin(GetClientTokenRequest clientTokenRequest)
+    {
+      var client = _context.Clients.SingleOrDefault(x => x.ClientSecret == clientTokenRequest.Secret && x.HarddiskSerialNumber == clientTokenRequest.HarddiskSN.Trim());
+      if (client == null)
+      {
+        throw new HttpRequestException("", null, HttpStatusCode.NotFound);
+      }
+      var clientId = client.ClientId;
+      var clientName = client.ClientName;
+      var clientConfig = _jwtConfig.SingleOrDefault(x => x.TokenName == "ClientBearer");
+      if (clientConfig == null) {
+        throw new HttpRequestException("Client Jwt Configuration not found", null, HttpStatusCode.NotFound);
+      }
+      var expiration = DateTime.UtcNow.AddHours(8);
+      var jwtCreator = new JWTCreator(clientConfig, client.ClientId, new string[1] { "Client" }, expiration, new Dictionary<string, string> { { "iss", "LEFiles" } });
+      var token = jwtCreator.GenerateToken();
+      var response = new ClientTokenResponse
+      {
+        Expiration = expiration,
+        Token = token
+      };
+      return new SuccessDataResult<ClientTokenResponse>(response);
     }
 
     public IDataResult<UserLoginResponse> Login(UserLoginRequest loginRequest)

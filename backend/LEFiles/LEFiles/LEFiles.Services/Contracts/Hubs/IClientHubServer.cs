@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LEFiles.Services.Contracts.Hubs
 {
-  public interface IWindowsHubServer
+  public interface IClientHubServer
   {
     Task FileSystemViewRequest();
     Task SendAction();

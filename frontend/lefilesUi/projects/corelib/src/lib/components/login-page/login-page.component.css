@@ -38,7 +38,9 @@
     font-weight:bold;
 }
 .cloud-icon {
-    font-size:45px;
+    width: 65px;
+    height: 60px;
+    margin-bottom: 12px;
     vertical-align:middle;
 }
 .login-actions {

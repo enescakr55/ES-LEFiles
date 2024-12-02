@@ -28,7 +28,8 @@ namespace LEFiles.Models.Entities
     {
       ClientId = Guid.NewGuid().ToString("N");
       ClientName = clientName;
-      ClientSecret = Guid.NewGuid().ToString("N") + Guid.NewGuid().ToString("N");
+     // ClientSecret = Guid.NewGuid().ToString("N") + Guid.NewGuid().ToString("N");
+      ClientSecret = clientSecret;
       OperatingSystem = operatingSystem;
       HarddiskSerialNumber = harddiskSerialNumber;
       IsActive = isActive;

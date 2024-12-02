@@ -28,46 +28,79 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.textBox1 = new System.Windows.Forms.TextBox();
-      this.button1 = new System.Windows.Forms.Button();
-      this.SuspendLayout();
+      token = new TextBox();
+      save_btn = new Button();
+      label1 = new Label();
+      label2 = new Label();
+      secret = new TextBox();
+      SuspendLayout();
       // 
-      // textBox1
+      // token
       // 
-      this.textBox1.Location = new System.Drawing.Point(12, 18);
-      this.textBox1.Multiline = true;
-      this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(501, 157);
-      this.textBox1.TabIndex = 0;
+      token.Location = new Point(12, 36);
+      token.Multiline = true;
+      token.Name = "token";
+      token.Size = new Size(501, 40);
+      token.TabIndex = 0;
       // 
-      // button1
+      // save_btn
       // 
-      this.button1.Location = new System.Drawing.Point(12, 181);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(104, 45);
-      this.button1.TabIndex = 1;
-      this.button1.Text = "Kaydet";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      save_btn.Location = new Point(12, 181);
+      save_btn.Name = "save_btn";
+      save_btn.Size = new Size(104, 45);
+      save_btn.TabIndex = 1;
+      save_btn.Text = "Kaydet";
+      save_btn.UseVisualStyleBackColor = true;
+      save_btn.Click += save_btn_Click;
+      // 
+      // label1
+      // 
+      label1.AutoSize = true;
+      label1.Location = new Point(11, 13);
+      label1.Name = "label1";
+      label1.Size = new Size(48, 20);
+      label1.TabIndex = 2;
+      label1.Text = "Token";
+      // 
+      // label2
+      // 
+      label2.AutoSize = true;
+      label2.Location = new Point(12, 93);
+      label2.Name = "label2";
+      label2.Size = new Size(50, 20);
+      label2.TabIndex = 3;
+      label2.Text = "Secret";
+      // 
+      // secret
+      // 
+      secret.Location = new Point(12, 120);
+      secret.Name = "secret";
+      secret.Size = new Size(500, 27);
+      secret.TabIndex = 4;
       // 
       // AddAuthKey
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(525, 238);
-      this.Controls.Add(this.button1);
-      this.Controls.Add(this.textBox1);
-      this.Name = "AddAuthKey";
-      this.Text = "Doğrulama Kodu Ekle Veya Güncelle";
-      this.Load += new System.EventHandler(this.AddAuthKey_Load);
-      this.ResumeLayout(false);
-      this.PerformLayout();
-
+      AutoScaleDimensions = new SizeF(8F, 20F);
+      AutoScaleMode = AutoScaleMode.Font;
+      ClientSize = new Size(525, 238);
+      Controls.Add(secret);
+      Controls.Add(label2);
+      Controls.Add(label1);
+      Controls.Add(save_btn);
+      Controls.Add(token);
+      Name = "AddAuthKey";
+      Text = "Doğrulama Kodu Ekle Veya Güncelle";
+      Load += AddAuthKey_Load;
+      ResumeLayout(false);
+      PerformLayout();
     }
 
     #endregion
 
-    private TextBox textBox1;
-    private Button button1;
+    private TextBox token;
+    private Button save_btn;
+    private Label label1;
+    private Label label2;
+    private TextBox secret;
   }
 }

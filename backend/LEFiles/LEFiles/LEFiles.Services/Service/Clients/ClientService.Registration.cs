@@ -1,5 +1,5 @@
 ﻿using LEFiles.Models.Entities;
-using LEFiles.Services.ServiceModels.Clients;
+using LEFiles.Services.ServiceModels.Clients.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LEFiles.Services.Service.Clients
 {
-  public partial class ClientService
+    public partial class ClientService
   {
     public bool RegisterClient(RegisterClientRequest registerClientRequest)
     {
@@ -18,8 +18,7 @@ namespace LEFiles.Services.Service.Clients
       {
         throw new HttpRequestException("", null, HttpStatusCode.NotFound);
       }
-      //Clientname bilgisinin nereden alınacağı kararlaştırılacak
-      var client = new Client(Guid.NewGuid().ToString(), registrationToken.UserId, registrationToken.Secret, registerClientRequest.OperatingSystem, registerClientRequest.HarddiskSN, true, DateTime.UtcNow);
+      var client = new Client(registrationToken.ClientName, registrationToken.UserId, registrationToken.Secret, registerClientRequest.OperatingSystem, registerClientRequest.HarddiskSN, true, DateTime.UtcNow);
       _context.Add(client);
       _context.SaveChanges();
       return true;

@@ -12,10 +12,14 @@ namespace LEFiles.Client.Core.ServiceResults.Concrete
   {
     public bool Success { get; }
 
-    public string Message { get; }
-    public Result(bool success)
+    public string Message { get; } = string.Empty;
+    public Result(bool success) : base()
     {
       this.Success = success;
+    }
+    public Result()
+    {
+
     }
     public Result(bool success, string message) : this(success)
     {

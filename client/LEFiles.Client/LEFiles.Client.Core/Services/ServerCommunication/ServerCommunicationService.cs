@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LEFiles.Client.Core.Services.ServerCommunication.Abstract
+namespace LEFiles.Client.Core.Services.ServerCommunication
 {
-  public interface IServerCommunicationService
-  { 
-
+  public class ServerCommunicationService
+  {
+  
   }
 }

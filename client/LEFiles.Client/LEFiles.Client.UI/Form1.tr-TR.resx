@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 65</value>
+    <value>12, 194</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>249, 42</value>
@@ -128,17 +128,17 @@
     <value>Klasörleri Listele</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 113</value>
+    <value>12, 242</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 341</value>
+    <value>249, 167</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 460</value>
+    <value>75, 447</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>249, 58</value>
@@ -152,14 +152,17 @@
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Showcard Gothic, 18.15126pt</value>
   </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 128</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 37</value>
+    <value>194, 37</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>LE-Files Client</value>
+    <value>ESAY Cloud</value>
   </data>
   <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>267, 63</value>
+    <value>267, 192</value>
   </data>
   <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 44</value>
@@ -174,7 +177,7 @@
     <value>Calibri, 18.15126pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 11</value>
+    <value>327, 12</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 37</value>
@@ -182,14 +185,41 @@
   <data name="label2.Text" xml:space="preserve">
     <value>-</value>
   </data>
+  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 241</value>
+  </data>
+  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="button4.Text" xml:space="preserve">
+    <value>button4</value>
+  </data>
+  <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 276</value>
+  </data>
+  <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="button5.Text" xml:space="preserve">
+    <value>button5</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 12</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 102</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>376, 586</value>
+    <value>365, 586</value>
   </data>
 </root>
