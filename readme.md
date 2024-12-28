@@ -3,7 +3,7 @@
 ### Proje Tanımı
 Proje bir web arayüzü üzerinden Windows & Linux işletim sistemli cihazların dosyalarının yönetilmesini ve bir bulut dosya sistemi oluşturmayı amaçlamaktadır.
 
-Web arayüzü Angular Arka uç servisi ve client (Windows & Linux) uygulamaları ise .Net ile geliştirilmektedir.
+Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamaları ise .Net ile geliştirilmektedir.
 
 ##### Projenin geliştirilme süreci devam etmektedir.
 
