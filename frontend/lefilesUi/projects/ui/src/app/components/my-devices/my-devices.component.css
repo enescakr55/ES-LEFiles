@@ -1,8 +1,0 @@
-.main-page-container {
-    min-height: 85vh;
-    margin:auto;
-    width: calc(100% - 30px);
-    background: white;
-    border-radius: 30px;
-    padding: 8px;
-}

@@ -5,13 +5,16 @@ import { RegisterPageComponent } from 'projects/corelib/src/lib/components/regis
 import { AuthGuard } from 'projects/corelib/src/lib/guards/auth.guard';
 import { NotAuthGuard } from 'projects/corelib/src/lib/guards/not-auth.guard';
 import { MainComponent } from './components/main/main.component';
-import { MyDevicesComponent } from './components/my-devices/my-devices.component';
+import { DeviceManagementService } from './services/device-management/device-management.service';
+import { ManageDevicesComponent } from './components/device-management/manage-devices/manage-devices.component';
+import { CloudManagementComponent } from './components/cloud-management/cloud-management.component';
 
 
 const routes: Routes = [
   {path:"",component:MainComponent,canActivate:[AuthGuard]},
-  {path:"main",component:MainComponent,canActivate:[AuthGuard]},
-  {path:"devices",component:MyDevicesComponent,pathMatch:"full",canActivate:[AuthGuard]},
+  {path:"main",component:CloudManagementComponent,canActivate:[AuthGuard]},
+  {path:"files",component:CloudManagementComponent,canActivate:[AuthGuard]},
+  {path:"devices",component:ManageDevicesComponent,pathMatch:"full",canActivate:[AuthGuard]},
   {path:"login",component:LoginPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
   {path:"register",component:RegisterPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
 

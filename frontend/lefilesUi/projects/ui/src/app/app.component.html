@@ -1,7 +1,12 @@
 <div class="main-bg main-container">
   <app-horizontal-menu *ngIf="menuVisibility"></app-horizontal-menu>
   <router-outlet></router-outlet>
+  <div class="progress_popup_item" *ngIf="menuVisibility" [class.displayNone]="!showProgressViewer">
+    <h4 class="progress_activity_title">{{'cloudManagemenet.progressActivity' | translate}}</h4>
+    <app-process-watcher></app-process-watcher>
+  </div>
 
+  <div class="popup_progress" *ngIf="menuVisibility" (click)="showProgressViewer = !showProgressViewer"><i class="bi bi-activity progress_item"></i></div>
 </div>
 
 

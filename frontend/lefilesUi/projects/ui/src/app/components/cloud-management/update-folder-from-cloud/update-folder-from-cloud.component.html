@@ -1,0 +1,16 @@
+<div  class="form-view">
+    <form *ngIf="updateContents" [formGroup]="updateFolderForm">
+    <input type="hidden" formControlName="folderId" class="form-control" id="folderId">
+    <div class="mb-3">
+        <label for="folderName"  class="form-label">{{'folders.folderName' | translate}}</label>
+        <input type="text" formControlName="folderName" class="form-control" id="folderName">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" formControlName="shared" type="checkbox" id="shared">
+        <label class="form-check-label"  for="shared">
+          {{'folders.shared' | translate}}
+        </label>
+      </div>
+    </form>
+      <button class="btn btn-warning btn-sm" (click)="updateFolder()">{{'buttons.update' | translate}}</button>
+</div>

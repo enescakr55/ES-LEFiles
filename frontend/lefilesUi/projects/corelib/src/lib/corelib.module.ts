@@ -5,9 +5,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslatePipe, TranslateService, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommonModule } from '@angular/common';
+import { ComponentModalComponent } from './components/component-modal/component-modal.component';
 
 
 export function HttpLoaderFactory(http:HttpClient){
@@ -18,6 +19,7 @@ export function HttpLoaderFactory(http:HttpClient){
     CorelibComponent,
     LoginPageComponent,
     RegisterPageComponent,
+    ComponentModalComponent
 
 
   ],
@@ -39,7 +41,8 @@ export function HttpLoaderFactory(http:HttpClient){
     CorelibComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    TranslateModule
+    TranslateModule,
+    TranslatePipe
   ]
 })
 export class CorelibModule { }

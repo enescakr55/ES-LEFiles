@@ -1,0 +1,13 @@
+<div class="main-page-container">
+    <div class="my-devices">
+        <h4>{{'devices.manageDevices' | translate}}</h4>
+    </div>
+    <div class="item-row">
+        <app-my-devices></app-my-devices>
+    </div>
+    <div class="item-row">
+        <app-register-new-device (refresh)="tokens.refresh()"></app-register-new-device>
+        <br/>
+        <app-client-registration-tokens #tokens></app-client-registration-tokens>
+    </div>
+</div>

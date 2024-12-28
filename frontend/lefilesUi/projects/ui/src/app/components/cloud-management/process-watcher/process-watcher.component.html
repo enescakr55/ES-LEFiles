@@ -1,0 +1,20 @@
+<div *ngIf="fileProgress" class="progress-main">
+<div class="progress-item" *ngFor="let item of fileProgress">
+  <div class="progress-top-bar">
+    <div class="progress-top-left">
+      <b class="progress-filename">{{item.fileName}}</b>
+      <font class="progress-type" *ngIf="item.type=='downloading' && item.progress >= 100"> {{'fileProgress.downloaded' | translate}}</font>
+      <font class="progress-type" *ngIf="item.type=='downloading' && item.progress < 100"> {{'fileProgress.downloading' | translate}}</font>
+      <font class="progress-type" *ngIf="item.type=='uploading' && item.progress < 100"> {{'fileProgress.uploading' | translate}}</font>
+      <font class="progress-type" *ngIf="item.type=='uploading' && item.progress >= 100"> {{'fileProgress.uploaded' | translate}}</font>
+    </div>
+    <div class="progress-top-right">
+      <i *ngIf="item.type == 'downloading'" class="bi bi-cloud-arrow-down progress-type-icon"></i>
+      <i *ngIf="item.type == 'uploading'" class="bi bi-cloud-arrow-up progress-type-icon"></i>
+    </div>
+  </div>
+  <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 8px">  
+    <div class="progress-bar progress-bar-striped" [class.progress-bar-animated]="item.progress < 100" [style]="'width:'+item.progress+'%'"></div>
+  </div>
+</div>
+</div>

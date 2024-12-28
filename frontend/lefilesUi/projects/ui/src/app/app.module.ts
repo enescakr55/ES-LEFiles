@@ -13,13 +13,23 @@ import { TokenInterceptor } from 'projects/corelib/src/lib/interceptors/token.in
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { MainComponent } from './components/main/main.component';
-import { MyDevicesComponent } from './components/my-devices/my-devices.component';
 import { FileEntryItemComponent } from './components/file-management/file-entry-item/file-entry-item.component';
 import { FileSystemComponent } from './components/file-management/file-system/file-system.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { RegisterNewDeviceComponent } from './components/device-management/register-new-device/register-new-device.component';
 import { VerticalMenuComponent } from './components/navigation/vertical-menu/vertical-menu.component';
 import { HorizontalMenuComponent } from './components/navigation/horizontal-menu/horizontal-menu.component';
+import { ClientRegistrationTokensComponent } from './components/device-management/client-registration-tokens/client-registration-tokens.component';
+import { MyDevicesComponent } from './components/device-management/my-devices/my-devices.component';
+import { ManageDevicesComponent } from './components/device-management/manage-devices/manage-devices.component';
+import { CloudManagementComponent } from './components/cloud-management/cloud-management.component';
+import { CreateFolderToCloudComponent } from './components/cloud-management/create-folder-to-cloud/create-folder-to-cloud.component';
+import { UpdateFolderFromCloudComponent } from './components/cloud-management/update-folder-from-cloud/update-folder-from-cloud.component';
+import { DeleteFolderFromCloudComponent } from './components/cloud-management/delete-folder-from-cloud/delete-folder-from-cloud.component';
+import { ViewComponentModalService } from 'projects/corelib/src/lib/services/componentModal/view-component-modal.service';
+import { CloudFileUploadComponent } from './components/cloud-management/cloud-file-upload/cloud-file-upload.component';
+import { DeleteFileFromCloudComponent } from './components/cloud-management/delete-file-from-cloud/delete-file-from-cloud.component';
+import { ProcessWatcherComponent } from './components/cloud-management/process-watcher/process-watcher.component';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
@@ -27,13 +37,22 @@ export function HttpLoaderFactory(http:HttpClient){
   declarations: [
     AppComponent,
     MainComponent,
-    MyDevicesComponent,
     FileEntryItemComponent,
     FileSystemComponent,
     MyProfileComponent,
     RegisterNewDeviceComponent,
     VerticalMenuComponent,
-    HorizontalMenuComponent
+    HorizontalMenuComponent,
+    ClientRegistrationTokensComponent,
+    MyDevicesComponent,
+    ManageDevicesComponent,
+    CloudManagementComponent,
+    CreateFolderToCloudComponent,
+    UpdateFolderFromCloudComponent,
+    DeleteFolderFromCloudComponent,
+    CloudFileUploadComponent,
+    DeleteFileFromCloudComponent,
+    ProcessWatcherComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +85,8 @@ export function HttpLoaderFactory(http:HttpClient){
     {provide:AuthBaseService,useClass:AuthService},
     {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true},
     TranslateModule,
-    TranslateStore
+    TranslateStore,
+    ViewComponentModalService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, Component, OnInit, ViewContainerRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { ViewComponentModalService } from 'projects/corelib/src/lib/services/componentModal/view-component-modal.service';
 import { ErrorHandlerService } from 'projects/corelib/src/lib/services/handler/error-handler.service';
 
 @Component({
@@ -11,10 +12,14 @@ import { ErrorHandlerService } from 'projects/corelib/src/lib/services/handler/e
 })
 export class AppComponent implements OnInit {
   title = 'ui';
-  constructor(private translateService:TranslateService,private toastrService:ToastrService,private router:Router){}
+  constructor(private translateService:TranslateService,private applicationRef: ApplicationRef,private componentModal:ViewComponentModalService, private containerRef: ViewContainerRef,private toastrService:ToastrService,private router:Router){}
+  
   hideMenuUrls:string[] = ["/login"];
   menuVisibility:boolean = true;
+  showProgressViewer:boolean = false;
   ngOnInit(): void {
+    this.componentModal.setApplicationRef(this.applicationRef);
+    
     this.translateService.addLangs(["tr-TR"]);
     this.translateService.use("tr-TR");
     ErrorHandlerService.toastrService = this.toastrService;

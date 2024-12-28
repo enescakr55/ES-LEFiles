@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -6,13 +7,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ToastService {
 
-  constructor(private toastService:ToastrService) { }
+  constructor(private toastService:ToastrService,private translateService:TranslateService) { }
 
-  success(message:string,title:string|undefined=undefined){
-    this.toastService.success(message,title);
+  success(messagekey:string,titlekey:string|undefined=undefined){
+    this.toastService.success(this.translateService.instant(messagekey),titlekey == null ? undefined : this.translateService.instant(titlekey));
   }
-  error(message:string,title:string|undefined=undefined){
-    this.toastService.error(message,title);
+  error(messagekey:string,titlekey:string|undefined=undefined){
+    this.toastService.error(this.translateService.instant(messagekey),titlekey == null ? undefined :this.translateService.instant(titlekey));
   }
   clear(){
     this.toastService.clear();

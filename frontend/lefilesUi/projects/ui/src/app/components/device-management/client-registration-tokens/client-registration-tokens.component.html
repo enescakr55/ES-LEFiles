@@ -1,0 +1,22 @@
+<h5>{{'clients.clientRegistrationTokens' | translate}}</h5>
+<table class="table table-striped" *ngIf="registrationTokenItems">
+    <thead>
+        <tr>
+          <th scope="col">{{'clients.clientName' | translate}}</th>
+          <th scope="col">{{'clients.token' | translate}}</th>
+          <th scope="col">{{'clients.secret' | translate}}</th>
+          <th scope="col">{{'clients.expiry' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let token of registrationTokenItems">
+          <th>{{token.deviceName}}</th>
+          <td>{{token.token}}</td>
+          <td>{{token.secret}}</td>
+          <td>{{token.expiration | date:'dd.MM.yyyy HH:mm'}}</td>
+        </tr>
+      </tbody>
+</table>
+<div *ngIf="registrationTokenItems &&registrationTokenItems.length == 0" style="width: 100%;" class="alert alert-secondary" role="alert">
+  <i class="bi bi-info-circle-fill"></i> <b> {{'clients.registrationTokens.notFound' | translate}}</b>
+</div>

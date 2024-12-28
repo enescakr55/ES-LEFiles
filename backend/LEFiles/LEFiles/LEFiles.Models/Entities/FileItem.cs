@@ -10,6 +10,7 @@ namespace LEFiles.Models.Entities
   public class FileItem
   {
     public string FileId { get; set; } = string.Empty;
+    public string? FileUploadId { get; set; }
     public string FileName { get; set; } = string.Empty;
     public string UserId { get; set; } = string.Empty;
     public string Extension { get; set; } = string.Empty;
@@ -21,6 +22,7 @@ namespace LEFiles.Models.Entities
     public string? ParentFolderId { get; set; }
     public DateTime CreatedAt { get; set; }
     public virtual User? User { get; set; }
+    public virtual FileUploadItem? FileUploadItem { get; set; }
     public virtual FolderItem? ParentFolder { get; set; }
   }
 }

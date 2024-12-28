@@ -1,0 +1,54 @@
+.delete-button {
+    background-color: #e74c3c;
+    font-size: 14px;
+    color: white;
+}
+.delete-button:hover {
+    opacity: 0.9;
+}
+.delete-button:disabled {
+    background-color: rgb(255, 162, 162);
+    font-size: 14px;
+    color: white;
+    cursor: not-allowed;
+}
+
+.cancel-button {
+    color: rgb(55, 55, 55);
+    background-color: rgb(202, 202, 202);
+    font-size: 14px;
+}
+.cancel-button:hover {
+    opacity: 0.9;
+}
+.actionButton {
+    margin: 4px;
+    outline: none;
+    padding: 8px 15px;
+    min-width: 60px;
+    border: none;
+    border-radius: 0.3rem;
+
+}
+.delete-container {
+    text-align: center;
+}
+.delete-icon {
+    font-size: 50px;
+}
+.delete-confirm-message {
+    font-size: 14px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.buttons {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto;
+}
+.confirm-check {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}

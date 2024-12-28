@@ -1,0 +1,83 @@
+<div class="cloud-management-container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="view-filter-container">
+        <div class="view-filter-view">
+          <div class="view-types">
+            <div class="hierarchical-view view-type-item" (click)="showHierarchicalView()"
+              [class.active]="hierarchicalView"><i class="bi bi-diagram-2-fill"></i>
+              <font> Hierarchical</font>
+            </div>
+            <div class="file-view view-type-item" (click)="showFileView()" [class.active]="fileView"><i
+                class="bi bi-grid-fill"></i>
+              <font> File View</font>
+            </div>
+          </div>
+          <div class="file-types">
+            <div class="filter-options-title"><i class="bi bi-filter"></i> {{'files.filters.filterOptions' | translate}}</div>
+            <div class="filter-entries">
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('images') !== -1" (click)="changeTypeFilter('images')"><i class="bi bi-images"></i> {{'files.filters.images' | translate}}</div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('videos') !== -1" (click)="changeTypeFilter('videos')"><i class="bi bi-camera-reels-fill"></i> {{'files.filters.videos' | translate}}</div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('audios') !== -1" (click)="changeTypeFilter('audios')"><i class="bi bi-file-earmark-music-fill"></i> {{'files.filters.audios' | translate}}</div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('documents') !== -1" (click)="changeTypeFilter('documents')"><i class="bi bi-file-earmark-text-fill"></i> {{'files.filters.documents' | translate}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="file-system-container">
+        <div class="toolbar">
+          <!--<div class="toolbar-item" (click)="homeFolder()"><i class="bi bi-house-door-fill toolbar-icon"></i> Home</div>-->
+          <div class="toolbar-item" (click)="createFolder()"><i class="bi bi-folder-plus toolbar-icon"></i> Create
+            Folder</div>
+          <div class="toolbar-item" *ngIf="selectedItem != null && selectedItem.type == 0"
+            (click)="updateFolderModal()"><i class="bi bi-pencil-square toolbar-icon"></i> Update Folder</div>
+          <div class="toolbar-item" *ngIf="selectedItem != null && selectedItem.type == 0"
+            (click)="deleteFolderModal()"><i class="bi bi-trash-fill toolbar-icon"></i> Delete Folder</div>
+          <div class="toolbar-item" *ngIf="selectedItem != null && selectedItem.type == 1" (click)="deleteFileModal()">
+            <i class="bi bi-trash-fill toolbar-icon"></i> Delete File</div>
+          <div class="toolbar-item" *ngIf="selectedItem != null && selectedItem.type == 1" (click)="downloadFile()">
+            <i class="bi bi-cloud-download toolbar-icon"></i> Download File</div>
+          <div class="toolbar-item" *ngIf="selectedItem == null" (click)="uploadFile()"><i
+              class="bi bi-cloud-arrow-up toolbar-icon"></i> Upload File</div>
+          <div class="toolbar-item" *ngIf="selectedItem != null && selectedItem.type == 0"
+            (click)="openFolder(selectedItem.id)"><i class="bi bi-folder-symlink"></i> Open Folder</div>
+        </div>
+        <div *ngIf="fileSystemEntries && fileSystemEntries.entries">
+          <div class="folder-navigation">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb" *ngIf="fileSystemEntries">
+                <li class="breadcrumb-item folder-navigation-item" [class.active]="parentFolder == null"><a
+                    (click)="homeFolder()">Home</a></li>
+                <li class="breadcrumb-item folder-navigation-item" [class.active]="parent.id == parentFolder"
+                  *ngFor="let parent of fileSystemEntries.parents"><a
+                    (click)="openFolder(parent.id)">{{parent.name}}</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="file-entry-list" (click)="deselectAll($event)">
+
+            <div class="entry-item" [class.active]=" selectedItem != null && (selectedItem.id == entry.id)"
+              (click)="selectFolder(entry)" (dblclick)="dblAction(entry)"
+              *ngFor="let entry of fileSystemEntries.entries">
+              <div class="entry-item-icon-container">
+                <i *ngIf="entry.type == 0" class="bi bi-folder-fill entryIcon"></i>
+                <i *ngIf="entry.type == 1" class="bi bi-file-earmark-fill entryIcon"></i>
+                <div class="spinner-border text-primary folder-item-opening" *ngIf="openingFolder == entry.id"
+                  role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+              <b *ngIf="entry.type == 0">{{entry.name}}</b>
+              <font class="fileEntry" *ngIf="entry.type == 1">{{entry.name}}</font>
+              <font class="fileInfoText">{{entry.createdAt | date : 'dd.MM.yyyy'}}</font>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

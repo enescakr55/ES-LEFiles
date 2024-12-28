@@ -13,7 +13,7 @@ namespace LEFiles.Services.Service.Clients
   {
     public bool RegisterClient(RegisterClientRequest registerClientRequest)
     {
-      var registrationToken = _context.ClientRegistrationTokens.SingleOrDefault(x => x.Token == registerClientRequest.Token && x.Secret == x.Secret);
+      var registrationToken = _context.ClientRegistrationTokens.SingleOrDefault(x => x.Token == registerClientRequest.Token && x.Secret == x.Secret && x.ExpirationDate > DateTime.UtcNow);
       if (registrationToken == null)
       {
         throw new HttpRequestException("", null, HttpStatusCode.NotFound);

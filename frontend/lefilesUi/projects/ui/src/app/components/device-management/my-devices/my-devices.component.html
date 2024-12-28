@@ -1,0 +1,19 @@
+<h5>{{'clients.myDevices' | translate}} <i class="bi bi-arrow-clockwise refreshDevices" [title]="'clients.refreshDeviceList' | translate " (click)="refresh()"></i></h5>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">{{'clients.clientName' | translate}}</th>
+          <th scope="col">{{'clients.description' | translate}}</th>
+          <th scope="col">{{'clients.operatingSystem' | translate}}</th>
+          <th scope="col">{{'clients.isActive' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of myDevices">
+          <th>{{client.clientName}}</th>
+          <td>{{client.description}}</td>
+          <td>{{client.operatingSystem}}</td>
+          <td>{{client.isActive}}</td>
+        </tr>
+      </tbody>
+</table>

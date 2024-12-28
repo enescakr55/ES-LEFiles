@@ -1,0 +1,8 @@
+.refreshDevices {
+    position: relative;
+    top: 2px;
+}
+.refreshDevices:hover {
+    cursor: pointer;
+    
+}

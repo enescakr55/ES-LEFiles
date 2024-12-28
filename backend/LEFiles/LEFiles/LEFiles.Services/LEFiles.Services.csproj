@@ -21,6 +21,8 @@
   <ItemGroup>
     <Folder Include="ServiceModels\Authentication\Responses\" />
     <Folder Include="ServiceModels\UserInterface\Clients\Requests\" />
+    <Folder Include="ServiceModels\UserInterface\Files\Responses\" />
+    <Folder Include="ServiceModels\UserInterface\Folders\Responses\" />
   </ItemGroup>
 
 </Project>

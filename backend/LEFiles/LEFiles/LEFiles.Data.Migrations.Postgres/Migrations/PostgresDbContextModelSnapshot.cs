@@ -193,6 +193,10 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("FileUploadId")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
                     b.Property<string>("ParentFolderId")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
@@ -210,11 +214,59 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
                     b.HasIndex("FileId")
                         .IsUnique();
 
+                    b.HasIndex("FileUploadId")
+                        .IsUnique();
+
                     b.HasIndex("ParentFolderId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("FileItems", "lefiles");
+                });
+
+            modelBuilder.Entity("LEFiles.Models.Entities.FileUploadItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Extension")
+                        .HasMaxLength(5)
+                        .HasColumnType("character varying(5)");
+
+                    b.Property<string>("FileName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<string>("FilePath")
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<long?>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Provider")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UploadedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FileUploadItems", "lefiles");
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.FolderItem", b =>
@@ -387,9 +439,14 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
 
             modelBuilder.Entity("LEFiles.Models.Entities.FileItem", b =>
                 {
+                    b.HasOne("LEFiles.Models.Entities.FileUploadItem", "FileUploadItem")
+                        .WithOne()
+                        .HasForeignKey("LEFiles.Models.Entities.FileItem", "FileUploadId");
+
                     b.HasOne("LEFiles.Models.Entities.FolderItem", "ParentFolder")
                         .WithMany("Files")
-                        .HasForeignKey("ParentFolderId");
+                        .HasForeignKey("ParentFolderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("LEFiles.Models.Entities.User", "User")
                         .WithMany()
@@ -397,16 +454,28 @@ namespace LEFiles.Data.Migrations.Postgres.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("FileUploadItem");
+
                     b.Navigation("ParentFolder");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LEFiles.Models.Entities.FileUploadItem", b =>
+                {
+                    b.HasOne("LEFiles.Models.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LEFiles.Models.Entities.FolderItem", b =>
                 {
                     b.HasOne("LEFiles.Models.Entities.FolderItem", "ParentFolder")
                         .WithMany("Childs")
-                        .HasForeignKey("ParentFolderId");
+                        .HasForeignKey("ParentFolderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("LEFiles.Models.Entities.User", "User")
                         .WithMany()

@@ -1,0 +1,207 @@
+.entry-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    width: max-content;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+    user-select: none;
+}
+.cloud-management-container {
+    width: 99%;
+    position: relative;
+}
+.fileEntry {
+    font-weight: 400;
+}
+.entry-item:hover {
+    background-color: rgb(183, 231, 255);
+
+}
+
+.entry-item.active {
+    background-color: rgb(183, 231, 255);
+}
+
+.file-entry-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 75vh;
+    align-content: flex-start;
+}
+
+.file-system-container {
+    background-color: white;
+
+
+    width: calc(100% - 10px);
+    min-height: 80vh;
+    padding: 20px;
+    border-radius: 20px;
+}
+.view-filter-container {
+    background-color: white;
+    min-height: 100%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+.entryIcon {
+
+    font-size: 80px;
+    height: 75px;
+    line-height: 0px;
+    color: rgb(255, 228, 91);
+
+}
+
+.folder-navigation-item {
+    color: rgb(48, 135, 255);
+    cursor: pointer;
+    text-decoration: underline;
+    user-select: none;
+}
+
+.folder-navigation-item.active {
+    color: rgb(114, 114, 114);
+    cursor: auto;
+    text-decoration: none;
+}
+
+.fileInfoText {
+    font-size: 12px;
+    color: gray;
+    font-style: italic;
+}
+
+.toolbar {
+    /*margin-bottom: 10px;
+    padding-bottom:5px;
+    border-bottom: 1px solid black;*/
+
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    background: #f7f7f7;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 8px;
+
+}
+.view-types {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.view-type-item:hover {
+    background-color: rgb(10, 103, 254);
+}
+.view-type-item.active {
+    background-color: rgb(0, 70, 183);
+}
+.filter-entries {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.filter-options-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+.filter-entry {
+    background-color: rgb(228, 228, 228);
+    margin-bottom: 15px;
+    padding: 6px;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border-left: 3px solid rgb(228, 228, 228);
+    border-right: 3px solid rgb(228, 228, 228);
+    transition: 0.5s;
+}
+.filter-entry.active {
+    /*background-color: rgb(239, 239, 239);*/
+    background-color: rgb(193, 223, 255);
+    border-left: 3px solid rgb(0, 0, 0);
+    border-right: 3px solid rgb(0, 0, 0);
+}
+.file-view{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(153, 153, 153);
+    color: white;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 0px 12px 12px 0px;
+    justify-content: center;
+}
+.hierarchical-view {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(153, 153, 153);
+    color: white;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 12px 0px 0px 12px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1530px) {
+    .view-types {
+        flex-direction: column;
+    }
+    .file-view{
+
+        border-radius: 12px;
+    }
+    .hierarchical-view {
+        border-radius: 12px;
+    }
+}
+
+.view-filter-view {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    /*background: #f7f7f7;*/
+    border-radius: 15px;
+    width: 100%;
+}
+.entry-item-icon-container {
+    position: relative;
+}
+.folder-item-opening {
+    position: absolute;
+    left: 30%;
+    top: 35%;
+}
+.toolbar-item {
+    display: inline-block;
+    margin-right: 10px;
+    color: rgb(47, 47, 47);
+    padding: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toolbar-item:hover {
+    transform: translate3d(2px, -2px, 2px);
+    font-weight: bold;
+}
+
+.toolbar-icon {
+    font-size: 15px;
+}

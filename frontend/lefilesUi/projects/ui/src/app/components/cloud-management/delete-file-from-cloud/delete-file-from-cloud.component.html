@@ -1,0 +1,20 @@
+<div class="delete-container">
+    <div class="top-bar">
+        <i class="bi bi-file-earmark-fill delete-icon"></i>
+    </div>
+    <div class="delete-message-container">
+        <div>
+            <font>{{'files.deleteFileMessage' | translate}}</font>
+        </div>
+        <div>
+            <div class="confirm-check">
+        <input type="checkbox" #confirmRef (change)="confirm = confirmRef.checked" [class]="'form-check-input'" id="delete-confirm">
+        <label for="delete-confirm" class="delete-confirm-message"> {{'files.deleteFileConfirmationMessage' | translate}}</label>
+    </div>
+    </div>
+    </div>
+    <div class="buttons">
+        <button type="button" class="cancel-button actionButton" data-bs-dismiss="modal" aria-label="Close"><b>{{'buttons.cancel' |translate}}</b></button>
+        <button type="button" class="delete-button actionButton" [disabled]="confirm == false" (click)="deleteFile()" aria-label="Close"><b>{{'buttons.delete' | translate}}</b></button>
+    </div>
+</div>

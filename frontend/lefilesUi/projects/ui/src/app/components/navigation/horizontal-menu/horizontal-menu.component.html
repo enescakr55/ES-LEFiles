@@ -18,7 +18,7 @@
           <span class="visually-hidden">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item">{{'common.devices' | translate}}</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/devices'">{{'common.devices' | translate}}</a></li>
             <li><a class="dropdown-item" (click)="logout()">{{'authentication.signOut' | translate}}</a></li>
         </ul>
       </div>

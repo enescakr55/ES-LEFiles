@@ -1,0 +1,16 @@
+.main-page-container {
+    background-color: transparent;
+}
+.item-row {
+    margin-top: 30px;
+    border-radius: 25px;
+    margin: 15px;
+    background-color: white;
+    padding: 20px;
+}
+.my-devices {
+    background-color: white;
+    border-radius: 25px;
+    margin: 15px;
+    padding: 20px;
+}

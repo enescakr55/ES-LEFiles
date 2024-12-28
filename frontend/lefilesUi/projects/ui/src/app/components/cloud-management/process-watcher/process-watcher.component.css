@@ -1,0 +1,29 @@
+.progress-main {
+    padding: 8px;
+}
+.progress-top-bar {
+    display: flex;
+}
+.progress-filename {
+    margin-right: 2px;
+}
+.progress-top-left {
+    flex: 1;
+}
+.progress-top-right {
+    width: 30px;
+}
+.progress-type {
+    font-size: 13px;
+    color: rgb(105, 105, 105);
+}
+.progress-type-icon {
+    font-size: 18px;
+}
+.progress-item {
+    border-radius: 8px;
+    margin-bottom: 4px;
+    background-color: white;
+    padding: 6px;
+    padding-bottom: 9px;
+}

@@ -1,0 +1,7 @@
+.displayNone {
+    display: none;
+}
+.modal-body {
+    padding: 0px;
+    border-bottom: none;
+}

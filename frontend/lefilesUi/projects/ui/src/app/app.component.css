@@ -1,12 +1,62 @@
 .main-bg {
-    background: rgb(252,242,255);
-    background: -moz-linear-gradient(120deg, rgba(252,242,255,1) 0%, rgba(248,232,255,1) 31%, rgba(237,204,255,1) 66%, rgba(230,203,255,1) 100%);
+    background: rgb(252, 242, 255);
+    /*background: -moz-linear-gradient(120deg, rgba(252,242,255,1) 0%, rgba(248,232,255,1) 31%, rgba(237,204,255,1) 66%, rgba(230,203,255,1) 100%);
     background: -webkit-linear-gradient(120deg, rgba(252,242,255,1) 0%, rgba(248,232,255,1) 31%, rgba(237,204,255,1) 66%, rgba(230,203,255,1) 100%);
     background: linear-gradient(120deg, rgba(252,242,255,1) 0%, rgba(248,232,255,1) 31%, rgba(237,204,255,1) 66%, rgba(230,203,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fcf2ff",endColorstr="#e6cbff",GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fcf2ff",endColorstr="#e6cbff",GradientType=1);*/
+    background: rgb(252, 242, 255);
+    background: linear-gradient(120deg, rgb(254 251 255) 0%, rgb(219 255 252) 31%, rgb(241 254 255) 66%, rgb(226 253 255) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fcf2ff", endColorstr="#e6cbff", GradientType=1);
 }
+
 .main-container {
-    width:100%;
-    min-height:100vh;
+    width: 100%;
+    min-height: 100vh;
     padding-top: 15px;
+}
+
+.popup_progress {
+    position: absolute;
+    right: 55px;
+    bottom: 15px;
+    background-color: rgb(255, 255, 175);
+    padding: 8px 12px;
+    border: 2px solid rgb(172, 209, 255);
+    border-radius: 60%;
+    cursor: pointer;
+}
+
+.progress_item {
+    font-size: 18px;
+}
+
+.progress_activity_title {
+    padding: 4px;
+    margin-bottom: 0px;
+    margin-left: 12px;
+    font-size: 13px;
+    /* border-bottom: 2px solid black; */
+    display: inline-block;
+    border-bottom: 1px solid gray;
+    padding: 0px;
+}
+
+.progress_popup_item {
+
+        position: absolute;
+        bottom: 70px;
+        right: 55px;
+        width: 300px;
+        min-height: 300px;
+        max-height: 500px;
+        z-index: 2;
+        background-color: rgb(245 245 245);
+        box-shadow: 1px 1px 4px gray;
+        border-radius: 16px;
+        padding: 4px;
+        overflow-y: auto;
+}
+
+.displayNone {
+    display: none;
 }

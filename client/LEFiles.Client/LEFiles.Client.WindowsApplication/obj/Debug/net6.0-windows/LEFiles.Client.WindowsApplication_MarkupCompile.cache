@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Development\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.WindowsApplication\obj\Debug\net6.0-windows\
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.WindowsApplication\obj\Debug\net6.0-windows\
 LEFiles.Client.WindowsApplication
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Development\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.WindowsApplication\App.xaml
+C:\Users\enesc\ES-LEFiles\LEFiles\client\LEFiles.Client\LEFiles.Client.WindowsApplication\App.xaml
 2-846020151
 
 4-1115669683
-1942030480316
+1941675070116
 AuthenticationPage.xaml;MainWindow.xaml;
 
-False
+True
 

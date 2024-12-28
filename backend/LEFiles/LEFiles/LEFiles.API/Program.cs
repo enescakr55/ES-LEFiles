@@ -59,6 +59,7 @@ builder.Services.AddSwaggerGen(option =>
 });
 builder.Services.AddSignalR();
 var addAuth =builder.Services.AddAuthentication();
+builder.Services.AddSingleton<IConfiguration>(Configuration);
 builder.Services.AddTransient<AppDbContext>();
 builder.Services.AddTransient<GlobalExceptionHandlerMiddleware>();
 builder.Services.AddTransient<IAuthenticationService, BasicAuthenticationService>();

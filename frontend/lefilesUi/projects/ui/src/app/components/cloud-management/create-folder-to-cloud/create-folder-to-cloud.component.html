@@ -1,0 +1,12 @@
+<div class="modal-form-container">
+  <form [formGroup]="createFolderForm">
+    <div class="mb-3">
+        <label for="folderName" class="form-label">{{'cloudManagement.folderName' | translate}}</label>
+        <input type="text" class="form-control" id="folderName" placeholder="" formControlName="folderName">
+      </div>
+      <div style="text-align: right;">
+        <button class="btn btn-sm btn-primary" (click)="createFolder()">{{'cloudManagement.create' | translate}}</button>
+      </div>
+    </form>
+</div>
+

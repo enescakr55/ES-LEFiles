@@ -12,6 +12,6 @@ namespace LEFiles.Services.ServiceModels.UserInterface.Clients.Responses
     public string ClientName { get; set; } = string.Empty;
     public string? Description { get; set; }
     public string OperatingSystem { get; set; } = string.Empty;
-    public string IsActive { get; set; } = string.Empty;
+    public bool IsActive { get; set; }
   }
 }
