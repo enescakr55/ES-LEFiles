@@ -42,12 +42,19 @@ export class ComponentModalComponent implements OnInit, AfterViewInit {
       const createdModal = new bootstrap.Modal(modal, { keyboard: false });
       createdModal.show();
       this.openedModal = createdModal;
-      var qsItems = modal.querySelectorAll('button[data-bs-dismiss="modal"]').forEach(a=>{
+      modal.addEventListener("click",(ev)=>{
+        var clickedElem = ev.target as HTMLElement;
+        if(clickedElem.getAttribute("data-bs-dismiss") != null && clickedElem.getAttribute("data-bs-dismiss") == "modal"){
+          this.close();
+          console.log("closed");
+        }
+      })
+      /*var qsItems = modal.querySelectorAll('button[data-bs-dismiss="modal"]').forEach(a=>{
         var btn = a as HTMLButtonElement;
         btn.addEventListener("click",()=>{
           this.close();
         })
-      });
+      });*/
     }, 250)
   }
 

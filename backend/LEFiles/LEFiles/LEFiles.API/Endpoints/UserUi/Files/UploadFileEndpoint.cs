@@ -3,7 +3,9 @@ using LEFiles.Core.Endpoints;
 using LEFiles.Core.Models.Results.Abstract;
 using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
+using LEFiles.Services.FileUploadProcessors.Abstract;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace LEFiles.API.Endpoints.UserUi.Files
 {
@@ -98,12 +100,37 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         }
         fileItem.Extension = fileUploadItem.Extension ?? "";
         fileItem.FileName = fileUploadItem.FileName ?? "undefined";
+        fileItem.FilePath = fileUploadItem.FilePath ?? "";
         if(fileUploadItem.FilePath != null){
           var fileInfo = new FileInfo(fileUploadItem.FilePath);
           fileItem.FileSize = (fileInfo.Length / (1024*1024))+1;
           fileUploadItem.FileSize = fileInfo.Length;
         }
         _context.Update(fileItem);
+        var assembly = Assembly.GetEntryAssembly();
+        if(assembly != null){
+          var assemblies = assembly.GetReferencedAssemblies();
+          foreach (var assemblyName in assemblies)
+          {
+            assembly = Assembly.Load(assemblyName);
+
+            foreach (var ti in assembly.DefinedTypes)
+            {
+              if (ti.IsClass && !ti.IsAbstract && ti.BaseType == typeof(FileUploadProcessorBase))
+              {
+                FileUploadProcessorBase? uploadProcessItem = assembly.CreateInstance(ti.FullName) as FileUploadProcessorBase;
+                if(uploadProcessItem != null){
+                  uploadProcessItem.SetFileItem(fileItem);
+                  uploadProcessItem.Start();
+                }
+
+
+              }
+            }
+          }
+        }
+
+
       }
 
       _context.FileUploadItems.Update(fileUploadItem);

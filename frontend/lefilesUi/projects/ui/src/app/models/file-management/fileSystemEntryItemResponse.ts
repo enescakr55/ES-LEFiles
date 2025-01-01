@@ -13,5 +13,7 @@ export interface FileSystemEntryItemResponse {
     name:string,
     shared:boolean,
     extension?:string,
-    createdAt:Date
+    createdAt:Date,
+    thumbnailExists?:boolean;
+    icon?:string;
 }

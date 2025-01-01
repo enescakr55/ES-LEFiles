@@ -11,6 +11,10 @@
     font-size: 30px;
     color: rgb(60, 162, 226);
 }
+.logo-image {
+    width: 60px;
+    height: 45px;
+}
 
 .menu-left {
     flex: 1;

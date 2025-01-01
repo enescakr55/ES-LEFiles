@@ -1,9 +1,9 @@
 <div class="cloud-upload-container">
     <div class="mb-3">
-        <label for="formFile" class="form-label">Select for upload</label>
+        <label for="formFile" class="form-label">{{'common.selectFileForUpload' | translate}}</label>
         <input class="form-control" type="file" (change)="handleFile($event)" id="formFile">
       </div>
       <div class="mb-3">
-        <button class="btn btn-sm btn-primary" (click)=" beginUpload()">{{'btn.upload' | translate}}</button>
+        <button class="btn btn-sm btn-primary" (click)=" beginUpload()">{{'buttons.upload' | translate}}</button>
       </div>
 </div>

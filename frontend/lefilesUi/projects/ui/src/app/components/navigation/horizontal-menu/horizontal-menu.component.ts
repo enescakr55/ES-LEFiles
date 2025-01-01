@@ -36,7 +36,7 @@ export class HorizontalMenuComponent implements OnInit {
       },
       {
         labelKey:"menuItem.files",
-        path:"/uploads",
+        path:"/files",
         icon:"bi bi-folder-fill"
       }
     ]

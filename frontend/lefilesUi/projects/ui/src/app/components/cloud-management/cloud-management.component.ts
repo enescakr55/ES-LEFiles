@@ -28,6 +28,17 @@ export class CloudManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFiles();
+    this.listenUploadProgress();
+  }
+  listenUploadProgress(){
+    this.watchService.getUploadState().subscribe({
+      next:(changed)=>{
+        if(changed == true){
+          this.getFiles();
+        }
+
+      }
+    })
   }
   changeTypeFilter(filter:string){
     var filterIndex = this.typeFilters.indexOf(filter);
@@ -49,7 +60,7 @@ export class CloudManagementComponent implements OnInit {
           case HttpEventType.DownloadProgress:
             console.log(data.loaded);
             this.watchService.updateFileProgress({
-              fileName:this.selectedItem.name,
+              fileName:this.watchService.getProgress(uuid) == undefined ? this.selectedItem.name : this.watchService.getProgress(uuid).fileName ,
               fileId:this.selectedItem.id,
               progressId:uuid,
               lastUpdate:new Date(),
@@ -62,7 +73,8 @@ export class CloudManagementComponent implements OnInit {
             break;
           case HttpEventType.Response:
             console.log(data.body);
-            this.cloudManagementService.saveFile(data.body,this.selectedItem.name);
+            var progress = this.watchService.getProgress(uuid);
+            this.cloudManagementService.saveFile(data.body,progress.fileName);
             break;
         }
       }

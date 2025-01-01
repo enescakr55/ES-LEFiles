@@ -28,7 +28,8 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
     public override async Task HandleAsync(CancellationToken ct)
     {
       var userId = User.GetUserId();
-      if(userId == null){
+      if (userId == null)
+      {
         await SendErrorResult(401);
         return;
       }
@@ -39,7 +40,8 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
       var viewType = Query<string?>("viewType", false);
       //Do while
       FolderItem? folderItem = _context.FolderItems.SingleOrDefault(x => x.FolderId == folderId);
-      if(folderId != null){
+      if (folderId != null)
+      {
         do
         {
           if (folderItem == null)
@@ -51,15 +53,19 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
             Id = folderItem.FolderId,
             Name = folderItem.FolderName
           });
-          if(folderItem.ParentFolderId != null){
+          if (folderItem.ParentFolderId != null)
+          {
             folderItem = _context.FolderItems.SingleOrDefault(x => x.FolderId == folderItem.ParentFolderId);
-          }else{
+          }
+          else
+          {
             folderItem = null;
           }
 
         } while (folderItem != null);
       }
-      var folders = await _context.FolderItems.Where(x => x.UserId == userId && x.ParentFolderId == folderId).Select(a=>new FileSystemEntryResponse {
+      var folders = await _context.FolderItems.Where(x => x.UserId == userId && x.ParentFolderId == folderId).Select(a => new FileSystemEntryResponse
+      {
         Id = a.FolderId,
         Name = a.FolderName,
         Shared = a.Shared,
@@ -68,23 +74,30 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         Type = 0
       }).ToListAsync();
       var filesQuery = _context.FileItems.Include(a => a.FileUploadItem).Where(x => x.UserId == userId && x.FileUploadItem.Status == Models.Enums.FileUploadStatus.UPLOADED);
-      if(viewType == null || viewType == "h"){
-        filesQuery = filesQuery.Where(x =>x.ParentFolderId == folderId);
+      if (viewType == null || viewType == "h")
+      {
+        filesQuery = filesQuery.Where(x => x.ParentFolderId == folderId);
       }
       List<string> filterList = new();
-      if(filters != null){
+      if (filters != null)
+      {
         var filterItems = filters.Split(",");
-        if(filterItems.Length > 0){
-          if(filterItems.FirstOrDefault(x=>x == "images") != null){
+        if (filterItems.Length > 0)
+        {
+          if (filterItems.FirstOrDefault(x => x == "images") != null)
+          {
             filterList.AddRange(FileExtensionTypes.Images);
-          }          
-          if(filterItems.FirstOrDefault(x=>x == "audios") != null){
+          }
+          if (filterItems.FirstOrDefault(x => x == "audios") != null)
+          {
             filterList.AddRange(FileExtensionTypes.Audios);
           }
-          if(filterItems.FirstOrDefault(x=>x == "videos") != null){
+          if (filterItems.FirstOrDefault(x => x == "videos") != null)
+          {
             filterList.AddRange(FileExtensionTypes.Videos);
-          }          
-          if(filterItems.FirstOrDefault(x=>x == "documents") != null){
+          }
+          if (filterItems.FirstOrDefault(x => x == "documents") != null)
+          {
             filterList.AddRange(FileExtensionTypes.Documents);
           }
         }
@@ -97,7 +110,9 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         Type = 1,
         CreatedAt = a.CreatedAt,
         Extension = a.Extension,
-        Shared = a.Shared
+        Icon = GetIcon(a.Extension),
+        Shared = a.Shared,
+        ThumbnailExists = IsThumbnailExists(a.FileId) //Thumbnaillerin başka yerlerde depolanma olasılığına karşı servis oluşturulacak.
       }).ToListAsync();
 
       List<FileSystemEntryResponse> fileAndFolders = new List<FileSystemEntryResponse>();
@@ -110,9 +125,26 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
       response.Entries = fileAndFolders ?? new();
       parents.Reverse();
       response.Parents = parents;
-      
+
       await SendAsync(new SuccessDataResult<FileAndFoldersResponse>(response));
-     
+
+    }
+    private static string GetIcon(string extension)
+    {
+      var iconModel = FileExtensionIcons.Icons.Where(x => x.Extensions.Contains(extension)).FirstOrDefault();
+      if (iconModel == null)
+      {
+        return "bi bi-file-earmark-fill";
+      }
+      else
+      {
+        return iconModel.Icon;
+      }
+    }
+    private static bool IsThumbnailExists(string fileItemId)
+    {
+      var thumbnailPath = $"/esaycloud/data/thumbnails/{fileItemId}.png";
+      return File.Exists(thumbnailPath);
     }
   }
 }

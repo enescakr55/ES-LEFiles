@@ -100,4 +100,9 @@ export class CloudManagementService {
         console.log("else e girdi2");
     }
 }
+public getThumbnail(fileId:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<Blob>(`${apiUrl}my-cloud/files/${fileId}/thumbnail`,{responseType:'blob' as 'json'});
+}
+
 }

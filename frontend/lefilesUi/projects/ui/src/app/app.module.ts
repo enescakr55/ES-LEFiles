@@ -30,6 +30,7 @@ import { ViewComponentModalService } from 'projects/corelib/src/lib/services/com
 import { CloudFileUploadComponent } from './components/cloud-management/cloud-file-upload/cloud-file-upload.component';
 import { DeleteFileFromCloudComponent } from './components/cloud-management/delete-file-from-cloud/delete-file-from-cloud.component';
 import { ProcessWatcherComponent } from './components/cloud-management/process-watcher/process-watcher.component';
+import { ViewThumbnailComponent } from './components/cloud-management/view-thumbnail/view-thumbnail.component';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
@@ -52,7 +53,8 @@ export function HttpLoaderFactory(http:HttpClient){
     DeleteFolderFromCloudComponent,
     CloudFileUploadComponent,
     DeleteFileFromCloudComponent,
-    ProcessWatcherComponent
+    ProcessWatcherComponent,
+    ViewThumbnailComponent
   ],
   imports: [
     BrowserModule,

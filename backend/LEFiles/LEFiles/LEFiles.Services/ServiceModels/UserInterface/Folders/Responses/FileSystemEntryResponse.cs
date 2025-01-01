@@ -21,6 +21,9 @@ public class FileSystemEntryResponse
         public string Name { get; set; } = string.Empty;
         public bool Shared { get; set; }
         public string? Extension { get; set; }
+        public bool? ThumbnailExists { get; set; }
+        public string? Icon { get;set; }
         public DateTime CreatedAt { get; set; }
+
     }
 }

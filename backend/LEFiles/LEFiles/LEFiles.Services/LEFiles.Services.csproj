@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="FastEndpoints" Version="5.30.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.35.0" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
   </ItemGroup>
 
@@ -16,9 +17,11 @@
     <ProjectReference Include="..\LEFiles.Core\LEFiles.Core.csproj" />
     <ProjectReference Include="..\LEFiles.DataAccess\LEFiles.DataAccess.csproj" />
     <ProjectReference Include="..\LEFiles.Models\LEFiles.Models.csproj" />
+    <ProjectReference Include="D:\Development\ES-LEFiles\LEFiles\common\LEFiles.Common\LEFiles.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="FileUploadProcessors\Concrete\" />
     <Folder Include="ServiceModels\Authentication\Responses\" />
     <Folder Include="ServiceModels\UserInterface\Clients\Requests\" />
     <Folder Include="ServiceModels\UserInterface\Files\Responses\" />

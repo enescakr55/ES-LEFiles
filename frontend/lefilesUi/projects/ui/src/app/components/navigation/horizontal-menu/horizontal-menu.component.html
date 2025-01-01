@@ -1,9 +1,10 @@
 <div class="horizontal-menu-container">
     <div class="menu-left">
         <div class="cloud-logo-icon">
-            <i class="bi bi-cloud-fill"></i>
+            <!--<i class="bi bi-cloud-fill"></i>-->
+            <img class="logo-image" src="/assets/images/logo2.png">
         </div>
-        <div class="menu-item" *ngFor="let item of menuItems">
+        <div class="menu-item"  [routerLink]="item.path" *ngFor="let item of menuItems">
             <i [class]="'menu-item-icon '+item.icon"></i>
             <font class="menu-item-text">{{item.labelKey| translate}}</font>
         </div>

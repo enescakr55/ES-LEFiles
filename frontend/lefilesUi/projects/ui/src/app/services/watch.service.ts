@@ -18,8 +18,8 @@ export class WatchService {
   getDownloadState(){
     return this.download$;
   }
-  uploadStateChanged(){
-    this.uploadState.next(!this.uploadState.getValue());
+  uploadStateChanged(completed:boolean = false){
+    this.uploadState.next(completed);
   }
   getUploadState(){
     return this.upload$;
@@ -32,9 +32,19 @@ export class WatchService {
     var index = progressList.findIndex(x=>x.progressId == fileProgressItem.progressId);
     if(index != -1){
       progressList[index].progress = fileProgressItem.progress;
+      progressList[index].status = fileProgressItem.status;
+      progressList[index].lastUpdate = fileProgressItem.lastUpdate;
+      progressList[index].text = fileProgressItem.text;
     }else{
       progressList.push(fileProgressItem);
     }
     window["file_progress"] = progressList;
+  }
+  getProgress(uuid:string){
+    if(window["file_progress"] == null){
+      window["file_progress"] = [];
+    }
+    var progressList = window["file_progress"] as FileProgressItem[];
+    return progressList.find(x=>x.progressId == uuid);
   }
 }

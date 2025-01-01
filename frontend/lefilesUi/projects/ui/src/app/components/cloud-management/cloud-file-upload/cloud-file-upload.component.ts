@@ -64,7 +64,7 @@ export class CloudFileUploadComponent implements OnInit {
             type:"uploading",
             lastUpdate:new Date()
           })
-          this.watchService.uploadStateChanged();
+          this.watchService.uploadStateChanged(endStatus);
           this.startUpload();
         }else{
           this.toastService.error("cloudManagement.fileUploadFailed");
