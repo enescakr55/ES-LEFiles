@@ -8,11 +8,15 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 ##### Projenin geliştirilme süreci devam etmektedir.
 
 ### Proje Özellikleri (Özellikler eklendikçe güncellenecektir)
-Arayüz üzerinden klasörler, dosyalar eklenebilir, düzenlenebilir ve silinebilir.
-Bulut sistemindeki bir dosya indirilebilir. 
-İndirme süreci ve dosya yükleme süreci bir ilerleme barı üzerinde gösterilir.
-Dosyalar türlerine göre filtrelenebilir.
-Dosyalar hiyeraşik (klasörler ile birlikte) ya da yalnızca dosya görünümleriyle gösterilebilir.
+☁ Arayüz üzerinden klasörler, dosyalar eklenebilir, düzenlenebilir ve silinebilir.
+
+🌐 Bulut sistemindeki bir dosya indirilebilir. 
+
+⚡ İndirme süreci ve dosya yükleme süreci bir ilerleme barı üzerinde gösterilir.
+
+🗃 Dosyalar türlerine göre filtrelenebilir.
+
+📁 Dosyalar hiyeraşik (klasörler ile birlikte) ya da yalnızca dosya görünümleriyle gösterilebilir.
 
 ### Arayüz
 
