@@ -11,13 +11,14 @@ export class ViewComponentModalService {
   public setApplicationRef(applicationRef) {
     this.appRef = applicationRef;
   }
-  showModal(title:string,type:string,content:any,componentObject:any=null){
+  showModal(title:string,type:string,content:any,componentObject:any=null,modalSettings:any = null){
     return new Promise<boolean>((resolve,reject)=>{
       const componentRef = createComponent(ComponentModalComponent,{environmentInjector:this.appRef.injector});
       componentRef.instance.titleTranslationKey = title;
       componentRef.instance.type = type;
       componentRef.instance.content = content;
       componentRef.instance.object = componentObject;
+      componentRef.instance.modalSettings = modalSettings;
       this.appRef.attachView(componentRef.hostView);
       componentRef.location;
       document.body.append((<any>componentRef.hostView).rootNodes[0]);

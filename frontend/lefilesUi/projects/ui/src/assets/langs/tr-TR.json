@@ -60,5 +60,7 @@
     "clients.secret":"Gizli Anahtar",
     "clients.expiry":"Son Geçerlilik",
     "clients.registrationTokens.notFound":"Kayıt tokeni bulunamadı.",
-    "devices.pleaseInputDeviceName":"Cihaz adı girin"
+    "devices.pleaseInputDeviceName":"Cihaz adı girin",
+    "cloudManagement.preview":"Önizleme",
+    "buttons.previewFile":"Görüntüle"
 }

@@ -9,6 +9,7 @@ import { CloudFileUploadComponent } from './cloud-file-upload/cloud-file-upload.
 import { DeleteFileFromCloudComponent } from './delete-file-from-cloud/delete-file-from-cloud.component';
 import { HttpEventType } from '@angular/common/http';
 import { WatchService } from '../../services/watch.service';
+import { PreviewFileComponent } from './preview-file/preview-file.component';
 
 @Component({
   selector: 'app-cloud-management',
@@ -103,6 +104,9 @@ export class CloudManagementComponent implements OnInit {
         this.openingFolder = null;
       }
     })
+  }
+  previewFile(){
+    this.componentModal.showModal("cloudManagement.preview","component",PreviewFileComponent,{fileId:this.selectedItem.id},{width:"medium"});
   }
   homeFolder(){
     this.parentFolder = null;

@@ -8,12 +8,14 @@ import { MainComponent } from './components/main/main.component';
 import { DeviceManagementService } from './services/device-management/device-management.service';
 import { ManageDevicesComponent } from './components/device-management/manage-devices/manage-devices.component';
 import { CloudManagementComponent } from './components/cloud-management/cloud-management.component';
+import { PreviewFileComponent } from './components/cloud-management/preview-file/preview-file.component';
 
 
 const routes: Routes = [
   {path:"",component:MainComponent,canActivate:[AuthGuard]},
   {path:"main",component:CloudManagementComponent,canActivate:[AuthGuard]},
   {path:"files",component:CloudManagementComponent,canActivate:[AuthGuard]},
+  {path:"preview/:id",component:PreviewFileComponent,canActivate:[AuthGuard]},
   {path:"devices",component:ManageDevicesComponent,pathMatch:"full",canActivate:[AuthGuard]},
   {path:"login",component:LoginPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
   {path:"register",component:RegisterPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},

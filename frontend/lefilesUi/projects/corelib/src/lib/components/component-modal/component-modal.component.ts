@@ -20,7 +20,8 @@ export class ComponentModalComponent implements OnInit, AfterViewInit {
   openedModal: any;
   loaded: boolean = false;
   @Input() object:any = null;
-  modalSettings:any; //customWidth:number;
+  @Input() modalSettings:any; //customWidth:number;
+  classes:string = "";
   constructor(private domSanitizer: DomSanitizer, private viewComponentModalService: ViewComponentModalService) {
 
    }
@@ -58,7 +59,25 @@ export class ComponentModalComponent implements OnInit, AfterViewInit {
     }, 250)
   }
 
+  setModalWidth(){
+    if(this.modalSettings != null){
+      if(this.modalSettings["width"] != null){
+        switch(this.modalSettings["width"]){
+          case "large":
+            this.classes += "modal-xl";
+            break;
+          case "medium":
+            this.classes += "modal-lg";
+            break;
+          case "small":
+            this.classes += "modal-sm";
+            break;
+        }
+      }
+    }
+  }
   ngOnInit(): void {
+    this.setModalWidth();
     if (this.type == 'link') {
       this.safeContent = this.domSanitizer.bypassSecurityTrustResourceUrl(this.content);
       console.log(this.safeContent);

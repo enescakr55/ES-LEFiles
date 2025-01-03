@@ -104,5 +104,9 @@ public getThumbnail(fileId:string){
   var apiUrl = environment.apiUrl;
   return this.httpClient.get<Blob>(`${apiUrl}my-cloud/files/${fileId}/thumbnail`,{responseType:'blob' as 'json'});
 }
+public getImagePreview(fileId:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<Blob>(`${apiUrl}my-cloud/files/${fileId}/preview`,{responseType:'blob' as 'json'});
+}
 
 }
