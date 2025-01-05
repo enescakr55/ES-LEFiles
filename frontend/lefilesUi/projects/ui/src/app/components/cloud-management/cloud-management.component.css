@@ -237,8 +237,8 @@
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
-    border-left: 3px solid rgb(228, 228, 228);
-    border-right: 3px solid rgb(228, 228, 228);
+    /*border-left: 3px solid rgb(228, 228, 228);
+    border-right: 3px solid rgb(228, 228, 228);*/
     transition: 0.5s;
 }
 .viewTypeIcon {
@@ -251,12 +251,16 @@
     justify-content: center;
     align-items: center;
 }
+.filter-entry:hover {
+    background-color: rgb(209, 231, 255);
+}
 .filter-entry.active {
     /*background-color: rgb(239, 239, 239);*/
-    background-color: rgb(193, 223, 255);
-    border-left: 3px solid rgb(0, 0, 0);
-    border-right: 3px solid rgb(0, 0, 0);
+    background-color: rgb(198, 225, 253);
+    /*border-left: 3px solid rgb(0, 0, 0);
+    border-right: 3px solid rgb(0, 0, 0);*/
 }
+
 .file-view{
     display: flex;
     flex-wrap: nowrap;

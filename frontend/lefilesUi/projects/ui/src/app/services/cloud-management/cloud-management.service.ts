@@ -7,6 +7,7 @@ import { CreateFolderRequest } from '../../models/cloud-management/createFolderR
 import { UpdateFolderRequest } from '../../models/cloud-management/updateFolderRequest';
 import { UpdateFolderContentsResponse } from '../../models/cloud-management/updateFolderContentsResponse';
 import { FileItemDetailsResponse } from '../../models/file-management/fileItemDetailsResponse';
+import { MoveFilesRequest } from '../../models/cloud-management/moveFilesRequest';
 
 
 @Injectable({
@@ -112,6 +113,10 @@ public getImagePreview(fileId:string){
 getFileDetails(fileId:string){
   var apiUrl = environment.apiUrl;
   return this.httpClient.get<DataResponseModel<FileItemDetailsResponse>>(`${apiUrl}my-cloud/files/${fileId}/details`);
+}
+moveFiles(request:MoveFilesRequest){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/management/move`,request);
 }
 
 }

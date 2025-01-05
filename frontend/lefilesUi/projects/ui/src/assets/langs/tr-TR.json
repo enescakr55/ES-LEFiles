@@ -70,5 +70,11 @@
     "cloudManagement.fileDetails.createdAt":"Oluşturma Tarihi",
     "cloudManagement.fileDetails.sharingStatus":"Paylaşım Durumu",
     "cloudManagement.fileDetails.sharing":"Paylaşım açık",
-    "cloudManagement.fileDetails.notSharing":"Paylaşılmıyor"
+    "cloudManagement.fileDetails.notSharing":"Paylaşılmıyor",
+    "buttons.moveFiles":"Taşı",
+    "coomon.pleaseSelectAtLeastOneFileForMovement":"Taşımak için en az 1 dosya seçin",
+    "buttons.moveHere":"Buraya taşı",
+    "buttons.cancelMovement":"Vazgeç",
+    "cloudManagement.filesMovedSuccessfully":"Dosyalar başarıyla taşındı",
+    "cloudManagement.fileMovingError":"Dosyalar taşınırken bir hata oluştu"
 }
