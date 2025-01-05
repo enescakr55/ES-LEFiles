@@ -11,6 +11,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class PreviewFileComponent implements OnInit {
   @Input() fileId:string;
   imagePreview:SafeResourceUrl;
+  @Input() elStyle:string;
   constructor(private cloudManagementService:CloudManagementService,private activatedRoute:ActivatedRoute,private domSanitizer:DomSanitizer) { }
 
   ngOnInit(): void {

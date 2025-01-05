@@ -6,7 +6,9 @@ using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
 using LEFiles.Models.Entities;
 using LEFiles.Services.ServiceModels.UserInterface.Folders.Responses;
+using LEFiles.Services.Tools;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.FileIO;
 
 namespace LEFiles.API.Endpoints.UserUi.Folders
 {
@@ -109,10 +111,11 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         Name = a.FileName,
         Type = 1,
         CreatedAt = a.CreatedAt,
+        AllowPreview = FileTools.IsAllowPreview(a.Extension),
         Extension = a.Extension,
-        Icon = GetIcon(a.Extension),
+        Icon = FileTools.GetIcon(a.Extension),
         Shared = a.Shared,
-        ThumbnailExists = IsThumbnailExists(a.FileId) //Thumbnaillerin başka yerlerde depolanma olasılığına karşı servis oluşturulacak.
+        ThumbnailExists = FileTools.IsThumbnailExists(a.FileId) //Thumbnaillerin başka yerlerde depolanma olasılığına karşı servis oluşturulacak.
       }).ToListAsync();
 
       List<FileSystemEntryResponse> fileAndFolders = new List<FileSystemEntryResponse>();
@@ -128,23 +131,6 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
 
       await SendAsync(new SuccessDataResult<FileAndFoldersResponse>(response));
 
-    }
-    private static string GetIcon(string extension)
-    {
-      var iconModel = FileExtensionIcons.Icons.Where(x => x.Extensions.Contains(extension)).FirstOrDefault();
-      if (iconModel == null)
-      {
-        return "bi bi-file-earmark-fill";
-      }
-      else
-      {
-        return iconModel.Icon;
-      }
-    }
-    private static bool IsThumbnailExists(string fileItemId)
-    {
-      var thumbnailPath = $"/esaycloud/data/thumbnails/{fileItemId}.png";
-      return File.Exists(thumbnailPath);
     }
   }
 }

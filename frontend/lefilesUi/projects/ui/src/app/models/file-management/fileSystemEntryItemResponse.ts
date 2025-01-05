@@ -15,5 +15,6 @@ export interface FileSystemEntryItemResponse {
     extension?:string,
     createdAt:Date,
     thumbnailExists?:boolean;
+    allowPreview?:boolean;
     icon?:string;
 }

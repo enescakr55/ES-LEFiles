@@ -62,5 +62,13 @@
     "clients.registrationTokens.notFound":"Kayıt tokeni bulunamadı.",
     "devices.pleaseInputDeviceName":"Cihaz adı girin",
     "cloudManagement.preview":"Önizleme",
-    "buttons.previewFile":"Görüntüle"
+    "buttons.previewFile":"Görüntüle",
+    "cloudManagement.fileDetails":"Dosya Ayrıntıları",
+    "cloudManagement.fileDetails.pleaseSelectAFileForViewDetails":"Detayları görüntülemek için bir dosya seçin",
+    "cloudManagement.fileDetailsTitle":"Dosya Detayları",
+    "cloudManagement.fileDetails.fileSize":"Dosya Boyutu",
+    "cloudManagement.fileDetails.createdAt":"Oluşturma Tarihi",
+    "cloudManagement.fileDetails.sharingStatus":"Paylaşım Durumu",
+    "cloudManagement.fileDetails.sharing":"Paylaşım açık",
+    "cloudManagement.fileDetails.notSharing":"Paylaşılmıyor"
 }

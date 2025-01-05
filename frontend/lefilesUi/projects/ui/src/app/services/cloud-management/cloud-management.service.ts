@@ -6,6 +6,7 @@ import { FileAndFoldersResponse, FileSystemEntryItemResponse } from '../../model
 import { CreateFolderRequest } from '../../models/cloud-management/createFolderRequest';
 import { UpdateFolderRequest } from '../../models/cloud-management/updateFolderRequest';
 import { UpdateFolderContentsResponse } from '../../models/cloud-management/updateFolderContentsResponse';
+import { FileItemDetailsResponse } from '../../models/file-management/fileItemDetailsResponse';
 
 
 @Injectable({
@@ -107,6 +108,10 @@ public getThumbnail(fileId:string){
 public getImagePreview(fileId:string){
   var apiUrl = environment.apiUrl;
   return this.httpClient.get<Blob>(`${apiUrl}my-cloud/files/${fileId}/preview`,{responseType:'blob' as 'json'});
+}
+getFileDetails(fileId:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<DataResponseModel<FileItemDetailsResponse>>(`${apiUrl}my-cloud/files/${fileId}/details`);
 }
 
 }

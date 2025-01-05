@@ -10,6 +10,7 @@ import { DeleteFileFromCloudComponent } from './delete-file-from-cloud/delete-fi
 import { HttpEventType } from '@angular/common/http';
 import { WatchService } from '../../services/watch.service';
 import { PreviewFileComponent } from './preview-file/preview-file.component';
+import { FileItemDetailsResponse } from '../../models/file-management/fileItemDetailsResponse';
 
 @Component({
   selector: 'app-cloud-management',
@@ -25,6 +26,9 @@ export class CloudManagementComponent implements OnInit {
   hierarchicalView:boolean = true;
   fileView:boolean = false;
   typeFilters:string[] = [];
+  showDetailsArea:boolean = true;
+  fileDetails:FileItemDetailsResponse;
+  fileDetailsLoading:boolean = false;
   constructor(private cloudManagementService:CloudManagementService,private watchService:WatchService,private componentModal:ViewComponentModalService) { }
 
   ngOnInit(): void {
@@ -149,11 +153,12 @@ export class CloudManagementComponent implements OnInit {
     this.getFiles();
     this.selectedItem = null;
   }
-  selectFolder(item:FileSystemEntryItemResponse){
+  selectEntry(item:FileSystemEntryItemResponse){
     if(this.selectedItem != null && (this.selectedItem.id == item.id)){
       this.selectedItem = null;
     }else{
       this.selectedItem = item;
+      this.getFileDetails(item);
     }
   }
   deselectAll($ev:MouseEvent){
@@ -161,6 +166,24 @@ export class CloudManagementComponent implements OnInit {
       return;
     }
     this.selectedItem = null;
+    this.fileDetails = null;
+  }
+  getFileDetails(entry:FileSystemEntryItemResponse){
+    if(entry.type == 1 && this.showDetailsArea == true){
+      this.fileDetailsLoading = true;
+      this.cloudManagementService.getFileDetails(entry.id).subscribe({
+        next:(response)=>{
+          this.fileDetails = response.data;
+          this.fileDetailsLoading = false;
+        },error:(err)=>{
+          this.fileDetailsLoading = false;
+        }
+      })
+    }else{
+      this.fileDetails = null;
+      this.fileDetailsLoading = false;
+    }
+
   }
 
 }
