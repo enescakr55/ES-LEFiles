@@ -30,6 +30,7 @@ export class CloudManagementComponent implements OnInit {
   showDetailsArea: boolean = true;
   fileDetails: FileItemDetailsResponse;
   fileDetailsLoading: boolean = false;
+  fileDetailsError:boolean = false;
   multipleSelection: boolean = false;
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
 
@@ -184,12 +185,14 @@ export class CloudManagementComponent implements OnInit {
   getFileDetails(entry: FileSystemEntryItemResponse) {
     if (entry.type == 1 && this.showDetailsArea == true) {
       this.fileDetailsLoading = true;
+      this.fileDetailsError = false;
       this.cloudManagementService.getFileDetails(entry.id).subscribe({
         next: (response) => {
           this.fileDetails = response.data;
           this.fileDetailsLoading = false;
         }, error: (err) => {
           this.fileDetailsLoading = false;
+          this.fileDetailsError = true;
         }
       })
     } else {

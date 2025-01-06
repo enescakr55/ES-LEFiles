@@ -108,7 +108,7 @@
           <i class="bi bi-hand-index select-item-icon"></i>
           <font class="select-item-text">{{'cloudManagement.fileDetails.pleaseSelectAFileForViewDetails' |translate}}</font>
         </div>
-        <div class="details-contents" *ngIf="fileDetails != null && fileDetailsLoading == false">
+        <div class="details-contents" *ngIf="fileDetails != null && fileDetailsLoading == false && fileDetailsError == false">
           <app-preview-file [elStyle]="'max-width:150px; height:auto; border-radius:12px; margin-bottom:16px;'" *ngIf="fileDetails.preview == true" [fileId]="selectedItem.id"></app-preview-file>
           <div class="details-icon-container" *ngIf="fileDetails.icon && fileDetails.preview == false">
             <i [class]="fileDetails.icon+' details-icon'"></i>
@@ -130,7 +130,15 @@
               <font class="file-detail-item-value">{{fileDetails.shared ? ('cloudManagement.fileDetails.sharing' | translate) : ('cloudManagement.fileDetails.notSharing' | translate)}}</font>
             </div>
           </div>
-
+        </div>
+        <div class="file-details-container file-details-loading-container" *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == true">
+          <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="file-details-container file-details-error-container" *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == false && fileDetailsError == true">
+          <i class="bi bi-x-octagon-fill file-details-error-icon"></i>
+          <font class="file-details-error-message">{{'cloudManagement.gettingErrorWhileAcquiringFileDetails' | translate}}</font>
         </div>
       </div>
     </div>

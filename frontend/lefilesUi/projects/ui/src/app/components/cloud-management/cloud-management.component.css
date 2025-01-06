@@ -251,6 +251,23 @@
     justify-content: center;
     align-items: center;
 }
+.file-details-error-icon {
+    font-size: 65px;
+    display: block;
+    color: red;
+}
+.file-details-error-message {
+    font-size: 14px;
+    font-weight: 500;
+}
+.file-details-loading-container {
+    text-align: center;
+    padding-top: 45px;
+}
+.file-details-error-container {
+    text-align: center;
+    padding-top: 15px;
+}
 .filter-entry:hover {
     background-color: rgb(209, 231, 255);
 }
