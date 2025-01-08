@@ -78,5 +78,8 @@
     "cloudManagement.filesMovedSuccessfully":"Dosyalar başarıyla taşındı",
     "cloudManagement.fileMovingError":"Dosyalar taşınırken bir hata oluştu",
     "cloudManagement.gettingErrorWhileAcquiringFileDetails":"Dosya detayları alınırken bir hata oluştu",
-    "buttons.multipleSelect":"Çoklu Seçim"
+    "buttons.multipleSelect":"Çoklu Seçim",
+    "cloudManagement.folderSelectedText":"klasör seçildi",
+    "cloudManagement.fileSelectedText":"dosya seçildi",
+    "cloudManagement.detailsSectionTitle":"Ayrıntılar"
 }

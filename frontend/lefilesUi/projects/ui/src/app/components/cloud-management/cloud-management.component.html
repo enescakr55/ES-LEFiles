@@ -14,12 +14,21 @@
             </div>
           </div>
           <div class="file-types">
-            <div class="filter-options-title"><i class="bi bi-filter"></i> {{'files.filters.filterOptions' | translate}}</div>
+            <div class="filter-options-title"><i class="bi bi-filter"></i> {{'files.filters.filterOptions' | translate}}
+            </div>
             <div class="filter-entries">
-              <div class="filter-entry" [class.active]="typeFilters.indexOf('images') !== -1" (click)="changeTypeFilter('images')"><i class="bi bi-images"></i> {{'files.filters.images' | translate}}</div>
-              <div class="filter-entry" [class.active]="typeFilters.indexOf('videos') !== -1" (click)="changeTypeFilter('videos')"><i class="bi bi-camera-reels-fill"></i> {{'files.filters.videos' | translate}}</div>
-              <div class="filter-entry" [class.active]="typeFilters.indexOf('audios') !== -1" (click)="changeTypeFilter('audios')"><i class="bi bi-file-earmark-music-fill"></i> {{'files.filters.audios' | translate}}</div>
-              <div class="filter-entry" [class.active]="typeFilters.indexOf('documents') !== -1" (click)="changeTypeFilter('documents')"><i class="bi bi-file-earmark-text-fill"></i> {{'files.filters.documents' | translate}}</div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('images') !== -1"
+                (click)="changeTypeFilter('images')"><i class="bi bi-images"></i> {{'files.filters.images' | translate}}
+              </div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('videos') !== -1"
+                (click)="changeTypeFilter('videos')"><i class="bi bi-camera-reels-fill"></i> {{'files.filters.videos' |
+                translate}}</div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('audios') !== -1"
+                (click)="changeTypeFilter('audios')"><i class="bi bi-file-earmark-music-fill"></i>
+                {{'files.filters.audios' | translate}}</div>
+              <div class="filter-entry" [class.active]="typeFilters.indexOf('documents') !== -1"
+                (click)="changeTypeFilter('documents')"><i class="bi bi-file-earmark-text-fill"></i>
+                {{'files.filters.documents' | translate}}</div>
             </div>
           </div>
         </div>
@@ -29,74 +38,98 @@
       <div class="file-system-container">
         <div class="toolbar">
           <div class="toolbar-left">
-          <!--<div class="toolbar-item" (click)="homeFolder()"><i class="bi bi-house-door-fill toolbar-icon"></i> Home</div>-->
-          <div class="toolbar-item" *ngIf="movement == false" (click)="createFolder()"><i class="bi bi-folder-plus toolbar-icon"></i> {{'buttons.createFolder' | translate}}</div>
-          <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
-            (click)="updateFolderModal()"><i class="bi bi-pencil-square toolbar-icon"></i> {{'buttons.updateFolder' | translate}}</div>
-          <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
-            (click)="deleteFolderModal()"><i class="bi bi-trash-fill toolbar-icon"></i> {{'buttons.deleteFolder' | translate}}</div>
-          <div class="toolbar-item" *ngIf=" movement == false &&selectedItem != null && selectedItem.type == 1 && multipleSelection == false && selectedItems.length == 0" (click)="deleteFileModal()">
-            <i class="bi bi-trash-fill toolbar-icon"></i> {{'buttons.deleteFile' | translate}}</div>
-          <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 1 && multipleSelection == false && selectedItems.length == 0" (click)="downloadFile()">
-            <i class="bi bi-cloud-download toolbar-icon"></i> {{'buttons.downloadFile' | translate}}</div>
-
-          <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 1 && selectedItem.allowPreview && multipleSelection == false && selectedItems.length == 0" (click)="previewFile()">
-            <i class="bi bi-eye-fill toolbar-icon"></i> {{'buttons.previewFile' | translate}}</div>
-          <div class="toolbar-item" *ngIf="movement == false && selectedItem == null" (click)="uploadFile()"><i
-              class="bi bi-cloud-arrow-up toolbar-icon"></i> {{'buttons.uploadFile' | translate}}</div>
-          <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
-            (click)="openFolder(selectedItem.id)"><i class="bi bi-folder-symlink"></i> {{'buttons.openFolder' | translate}}</div>
-          <!--File Movement-->
-            <div class="toolbar-item" *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedItems[0].type == 1))" (click)="acceptFilesForMovement()">
-              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveFiles' | translate}}</div>
-            <div class="toolbar-item" *ngIf="movement == true" (click)="moveFiles()">
-              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveHere' | translate}}</div>
-            <div class="toolbar-item" *ngIf="movement == true" (click)="cancelMovement()">
-              <i class="bi bi-x-lg toolbar-icon"></i> {{'buttons.cancelMovement' | translate}}</div>
-            
-          <!--End | File Movement-->
+            <!--<div class="toolbar-item" (click)="homeFolder()"><i class="bi bi-house-door-fill toolbar-icon"></i> Home</div>-->
+            <div class="toolbar-item" *ngIf="movement == false" (click)="createFolder()"><i
+                class="bi bi-folder-plus toolbar-icon"></i> {{'buttons.createFolder' | translate}}</div>
+            <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
+              (click)="updateFolderModal()"><i class="bi bi-pencil-square toolbar-icon"></i> {{'buttons.updateFolder' |
+              translate}}</div>
+            <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
+              (click)="deleteFolderModal()"><i class="bi bi-trash-fill toolbar-icon"></i> {{'buttons.deleteFolder' |
+              translate}}</div>
+            <div class="toolbar-item"
+              *ngIf=" movement == false &&selectedItem != null && selectedItem.type == 1 && multipleSelection == false && selectedItems.length == 0"
+              (click)="deleteFileModal()">
+              <i class="bi bi-trash-fill toolbar-icon"></i> {{'buttons.deleteFile' | translate}}
             </div>
+            <div class="toolbar-item"
+              *ngIf="movement == false && selectedItem != null && selectedItem.type == 1 && multipleSelection == false && selectedItems.length == 0"
+              (click)="downloadFile()">
+              <i class="bi bi-cloud-download toolbar-icon"></i> {{'buttons.downloadFile' | translate}}
+            </div>
+
+            <div class="toolbar-item"
+              *ngIf="movement == false && selectedItem != null && selectedItem.type == 1 && selectedItem.allowPreview && multipleSelection == false && selectedItems.length == 0"
+              (click)="previewFile()">
+              <i class="bi bi-eye-fill toolbar-icon"></i> {{'buttons.previewFile' | translate}}
+            </div>
+            <div class="toolbar-item" *ngIf="movement == false && selectedItem == null" (click)="uploadFile()"><i
+                class="bi bi-cloud-arrow-up toolbar-icon"></i> {{'buttons.uploadFile' | translate}}</div>
+            <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
+              (click)="openFolder(selectedItem.id)"><i class="bi bi-folder-symlink"></i> {{'buttons.openFolder' |
+              translate}}</div>
+            <!--File Movement-->
+            <div class="toolbar-item"
+              *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedFileCount() > 0 && selectedFolderCount() == 0))"
+              (click)="acceptFilesForMovement()">
+              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveFiles' | translate}}
+            </div>
+            <div class="toolbar-item" *ngIf="movement == true" (click)="moveFiles()">
+              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveHere' | translate}}
+            </div>
+            <div class="toolbar-item" *ngIf="movement == true" (click)="cancelMovement()">
+              <i class="bi bi-x-lg toolbar-icon"></i> {{'buttons.cancelMovement' | translate}}
+            </div>
+
+            <!--End | File Movement-->
+          </div>
           <div class="toolbar-right">
-            <div [class.active]="showDetailsArea" (click)="showDetailsArea = !showDetailsArea" class="toolbar-switch-btn"><i class="bi bi-layout-sidebar-inset-reverse"></i></div>
+            <div [class.active]="showDetailsArea" (click)="showDetailsArea = !showDetailsArea"
+              class="toolbar-switch-btn"><i class="bi bi-layout-sidebar-inset-reverse"></i></div>
           </div>
 
         </div>
         <div *ngIf="fileSystemEntries && fileSystemEntries.entries">
           <div class="folder-navigation-top-items">
-          <div class="folder-navigation">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb" *ngIf="fileSystemEntries">
-                <li class="breadcrumb-item folder-navigation-item" [class.active]="parentFolder == null"><a
-                    (click)="homeFolder()">{{'common.homeDir' | translate}}</a></li>
-                <li class="breadcrumb-item folder-navigation-item" [class.active]="parent.id == parentFolder"
-                  *ngFor="let parent of fileSystemEntries.parents"><a
-                    (click)="openFolder(parent.id)">{{parent.name}}</a></li>
-              </ol>
-            </nav>
-          </div>
-          <div class="multiple-select-container" [class.active]="multipleSelection" (click)="multipleSelection = !multipleSelection" [title]="'buttons.multipleSelect' | translate">
-            <div class="multiple-select-item" >
-              <!--<input class="form-check-input" #ref (change)="multipleSelection = ref.checked" type="checkbox" value="" id="flexCheckDefault">
+            <div class="folder-navigation">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" *ngIf="fileSystemEntries">
+                  <li class="breadcrumb-item folder-navigation-item" [class.active]="parentFolder == null"><a
+                      (click)="homeFolder()">{{'common.homeDir' | translate}}</a></li>
+                  <li class="breadcrumb-item folder-navigation-item" [class.active]="parent.id == parentFolder"
+                    *ngFor="let parent of fileSystemEntries.parents"><a
+                      (click)="openFolder(parent.id)">{{parent.name}}</a></li>
+                </ol>
+              </nav>
+            </div>
+            <div class="multiple-select-container" [class.active]="multipleSelection"
+              (click)="changeMultipleSelection()" [title]="'buttons.multipleSelect' | translate">
+              <div class="multiple-select-item">
+                <!--<input class="form-check-input" #ref (change)="multipleSelection = ref.checked" type="checkbox" value="" id="flexCheckDefault">
               <label class="form-check-label" for="flexCheckDefault">
                 {{}}
               </label>-->
-              <i class="bi bi-ui-checks-grid"></i>
+                <i class="bi bi-ui-checks-grid"></i>
+              </div>
             </div>
           </div>
-        </div>
           <div class="file-entry-list" (click)="deselectAll($event)">
 
-            <div class="entry-item" [class.active]="(multipleSelection == false && selectedItem != null && (selectedItem.id == entry.id)) || (multipleSelection == true && selectedItemsFindIndex(entry.id) != -1)"
+            <div class="entry-item"
+              [class.active]="(multipleSelection == false && selectedItem != null && (selectedItem.id == entry.id)) || (multipleSelection == true && selectedItemsFindIndex(entry.id) != -1)"
               (click)="selectEntry(entry)" (dblclick)="dblAction(entry)"
               *ngFor="let entry of fileSystemEntries.entries">
               <div class="entry-item-icon-container">
                 <i *ngIf="entry.type == 0" class="bi bi-folder-fill entryIcon yellowIcon"></i>
-                <i *ngIf="entry.type == 1 && entry.thumbnailExists != true && (entry.icon == null || entry.icon == '')" class="bi bi-file-earmark-fill entryIcon yellowIcon"></i>
-                <i *ngIf="entry.type == 1 && entry.thumbnailExists != true && (entry.icon != null && entry.icon != '')" [class]="entry.icon+' entryIcon'"></i>
+                <i *ngIf="entry.type == 1 && entry.thumbnailExists != true && (entry.icon == null || entry.icon == '')"
+                  class="bi bi-file-earmark-fill entryIcon yellowIcon"></i>
+                <i *ngIf="entry.type == 1 && entry.thumbnailExists != true && (entry.icon != null && entry.icon != '')"
+                  [class]="entry.icon+' entryIcon'"></i>
                 <div class="thumbnail-container" *ngIf="entry.type == 1 && entry.thumbnailExists == true">
-                  <app-view-thumbnail *ngIf="entry.type == 1 && entry.thumbnailExists == true" [fileItemId]="entry.id" [imgStyle]="'max-width:90px; width:auto; height:auto; max-height:75px; border-radius:4px; box-shadow:1px 1px 3px gray;'"></app-view-thumbnail>
+                  <app-view-thumbnail *ngIf="entry.type == 1 && entry.thumbnailExists == true" [fileItemId]="entry.id"
+                    [imgStyle]="'max-width:90px; width:auto; height:auto; max-height:75px; border-radius:4px; box-shadow:1px 1px 3px gray;'"></app-view-thumbnail>
                 </div>
-                
+
                 <div class="spinner-border text-primary folder-item-opening" *ngIf="openingFolder == entry.id"
                   role="status">
                   <span class="visually-hidden">Loading...</span>
@@ -113,14 +146,18 @@
     <div class="details-area" *ngIf="showDetailsArea" [class]="'col-md-4 col-lg-3'">
       <div class="details-container">
         <div class="details-title">
-          <font>{{'cloudManagement.fileDetails' | translate}}</font>
+          <font>{{'cloudManagement.detailsSectionTitle' | translate}}</font>
         </div>
-        <div class="details-select-item-message" *ngIf="fileDetails == null && fileDetailsLoading == false && fileDetailsError == false">
+        <div class="details-select-item-message"
+          *ngIf="fileDetails == null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
           <i class="bi bi-hand-index select-item-icon"></i>
-          <font class="select-item-text">{{'cloudManagement.fileDetails.pleaseSelectAFileForViewDetails' |translate}}</font>
+          <font class="select-item-text">{{'cloudManagement.fileDetails.pleaseSelectAFileForViewDetails' |translate}}
+          </font>
         </div>
-        <div class="details-contents" *ngIf="fileDetails != null && fileDetailsLoading == false && fileDetailsError == false">
-          <app-preview-file [elStyle]="'max-width:150px; height:auto; border-radius:12px; margin-bottom:16px;'" *ngIf="fileDetails.preview == true" [fileId]="selectedItem.id"></app-preview-file>
+        <div class="details-contents"
+          *ngIf="fileDetails != null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
+          <app-preview-file [elStyle]="'max-width:150px; height:auto; border-radius:12px; margin-bottom:16px;'"
+            *ngIf="fileDetails.preview == true" [fileId]="selectedItem.id"></app-preview-file>
           <div class="details-icon-container" *ngIf="fileDetails.icon && fileDetails.preview == false">
             <i [class]="fileDetails.icon+' details-icon'"></i>
           </div>
@@ -129,27 +166,45 @@
           <div class="file-details-container">
             <font class="details-contents-file-details-title">{{'cloudManagement.fileDetailsTitle' | translate}}</font>
             <div class="file-detail-item">
-              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.fileSize' | translate}}</b><br/>
+              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.fileSize' | translate}}</b><br />
               <font class="file-detail-item-value">~{{fileDetails.fileSize}} MB</font>
             </div>
             <div class="file-detail-item">
-              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.createdAt' | translate}}</b><br/>
+              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.createdAt' | translate}}</b><br />
               <font class="file-detail-item-value">{{fileDetails.createdAt | date}}</font>
             </div>
             <div class="file-detail-item">
-              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.sharingStatus' | translate}}</b><br/>
-              <font class="file-detail-item-value">{{fileDetails.shared ? ('cloudManagement.fileDetails.sharing' | translate) : ('cloudManagement.fileDetails.notSharing' | translate)}}</font>
+              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.sharingStatus' | translate}}</b><br />
+              <font class="file-detail-item-value">{{fileDetails.shared ? ('cloudManagement.fileDetails.sharing' |
+                translate) : ('cloudManagement.fileDetails.notSharing' | translate)}}</font>
             </div>
           </div>
         </div>
-        <div class="file-details-container file-details-loading-container" *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == true">
+        <div class="file-details-container file-details-loading-container"
+          *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == true">
           <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-        <div class="file-details-container file-details-error-container" *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == false && fileDetailsError == true">
+        <div class="file-details-container file-details-error-container"
+          *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == false && fileDetailsError == true">
           <i class="bi bi-x-octagon-fill file-details-error-icon"></i>
-          <font class="file-details-error-message">{{'cloudManagement.gettingErrorWhileAcquiringFileDetails' | translate}}</font>
+          <font class="file-details-error-message">{{'cloudManagement.gettingErrorWhileAcquiringFileDetails' |
+            translate}}</font>
+        </div>
+        <div class="multiple-file-details" *ngIf="multipleSelection == true">
+          <div class="multiple-file-details-icon">
+            <i class="bi bi-ui-checks-grid"></i>
+          </div>
+          <div class="multiple-file-details-text">
+            <font class="multiple-file-details-selected-folder-text">
+              <i class="bi bi-folder-fill" style="color:rgb(221, 221, 0)"></i> {{selectedFolderCount()}} {{'cloudManagement.folderSelectedText' | translate}}
+            </font>
+           <!-- <font class="multiple-file-details-divider"> | </font> -->
+            <font class="multiple-file-details-selected-file-text">
+              <i class="bi bi-file-earmark-fill" style="color: rgb(113, 184, 255);"></i> {{selectedFileCount()}} {{'cloudManagement.fileSelectedText' | translate}}
+            </font>
+          </div>
         </div>
       </div>
     </div>

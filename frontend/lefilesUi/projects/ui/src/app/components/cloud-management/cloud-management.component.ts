@@ -109,8 +109,19 @@ export class CloudManagementComponent implements OnInit {
     this.hierarchicalView = false;
     this.getFiles();
   }
+  changeMultipleSelection(){
+    this.multipleSelection = !this.multipleSelection;
+    this.selectedItem = null;
+    this.selectedItems = [];
+  }
   selectedItemsFindIndex(itemid: string) {
     return this.selectedItems.findIndex(x => x.id == itemid);
+  }
+  selectedFolderCount(){
+    return this.selectedItems.filter(x=>x.type == 0).length;
+  }
+  selectedFileCount(){
+    return this.selectedItems.filter(x=>x.type == 1).length;
   }
   getFiles() {
     var viewtype = this.fileView == true ? 'f' : 'h';
@@ -186,6 +197,7 @@ export class CloudManagementComponent implements OnInit {
       }
     }
   }
+
   deselectAll($ev: MouseEvent) {
     if ($ev.target !== $ev.currentTarget) {
       return;
