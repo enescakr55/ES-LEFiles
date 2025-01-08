@@ -47,7 +47,7 @@
           <div class="toolbar-item" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
             (click)="openFolder(selectedItem.id)"><i class="bi bi-folder-symlink"></i> {{'buttons.openFolder' | translate}}</div>
           <!--File Movement-->
-            <div class="toolbar-item" *ngIf="movement == false && (selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedItems[0].type == 1)" (click)="acceptFilesForMovement()">
+            <div class="toolbar-item" *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedItems[0].type == 1))" (click)="acceptFilesForMovement()">
               <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveFiles' | translate}}</div>
             <div class="toolbar-item" *ngIf="movement == true" (click)="moveFiles()">
               <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveHere' | translate}}</div>
@@ -62,6 +62,7 @@
 
         </div>
         <div *ngIf="fileSystemEntries && fileSystemEntries.entries">
+          <div class="folder-navigation-top-items">
           <div class="folder-navigation">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb" *ngIf="fileSystemEntries">
@@ -73,9 +74,18 @@
               </ol>
             </nav>
           </div>
+          <div class="multiple-select-container">
+            <div class="form-check multiple-select-item">
+              <input class="form-check-input" #ref (change)="multipleSelection = ref.checked" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                {{'buttons.multipleSelect' | translate}}
+              </label>
+            </div>
+          </div>
+        </div>
           <div class="file-entry-list" (click)="deselectAll($event)">
 
-            <div class="entry-item" [class.active]=" selectedItem != null && (selectedItem.id == entry.id)"
+            <div class="entry-item" [class.active]="(multipleSelection == false && selectedItem != null && (selectedItem.id == entry.id)) || (multipleSelection == true && selectedItemsFindIndex(entry.id) != -1)"
               (click)="selectEntry(entry)" (dblclick)="dblAction(entry)"
               *ngFor="let entry of fileSystemEntries.entries">
               <div class="entry-item-icon-container">
@@ -104,7 +114,7 @@
         <div class="details-title">
           <font>{{'cloudManagement.fileDetails' | translate}}</font>
         </div>
-        <div class="details-select-item-message" *ngIf="fileDetails == null && fileDetailsLoading == false">
+        <div class="details-select-item-message" *ngIf="fileDetails == null && fileDetailsLoading == false && fileDetailsError == false">
           <i class="bi bi-hand-index select-item-icon"></i>
           <font class="select-item-text">{{'cloudManagement.fileDetails.pleaseSelectAFileForViewDetails' |translate}}</font>
         </div>

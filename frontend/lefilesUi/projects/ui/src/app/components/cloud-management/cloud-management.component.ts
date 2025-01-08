@@ -30,7 +30,7 @@ export class CloudManagementComponent implements OnInit {
   showDetailsArea: boolean = true;
   fileDetails: FileItemDetailsResponse;
   fileDetailsLoading: boolean = false;
-  fileDetailsError:boolean = false;
+  fileDetailsError: boolean = false;
   multipleSelection: boolean = false;
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
 
@@ -109,6 +109,9 @@ export class CloudManagementComponent implements OnInit {
     this.hierarchicalView = false;
     this.getFiles();
   }
+  selectedItemsFindIndex(itemid: string) {
+    return this.selectedItems.findIndex(x => x.id == itemid);
+  }
   getFiles() {
     var viewtype = this.fileView == true ? 'f' : 'h';
     var filters = this.typeFilters.length != 0 ? this.typeFilters.join(',') : null;
@@ -165,11 +168,21 @@ export class CloudManagementComponent implements OnInit {
   }
   selectEntry(item: FileSystemEntryItemResponse) {
     if (!this.movement) {
-      if (this.selectedItem != null && (this.selectedItem.id == item.id)) {
+      if (this.multipleSelection == false) {
+        if (this.selectedItem != null && (this.selectedItem.id == item.id)) {
+          this.selectedItem = null;
+        } else {
+          this.selectedItem = item;
+          this.getFileDetails(item);
+        }
+      }else if(this.multipleSelection == true){
         this.selectedItem = null;
-      } else {
-        this.selectedItem = item;
-        this.getFileDetails(item);
+        var selectedIndex = this.selectedItemsFindIndex(item.id)
+        if(selectedIndex == -1){
+          this.selectedItems.push(item);
+        }else{
+          this.selectedItems.splice(selectedIndex,1);
+        }
       }
     }
   }
@@ -178,7 +191,6 @@ export class CloudManagementComponent implements OnInit {
       return;
     }
     this.selectedItem = null;
-    this.multipleSelection = false;
     this.selectedItems = [];
     this.fileDetails = null;
   }
@@ -221,21 +233,21 @@ export class CloudManagementComponent implements OnInit {
   moveFiles() {
     var destinationFolder = this.parentFolder;
     this.cloudManagementService.moveFiles({
-      destination:destinationFolder,
-      sourceFiles:this.movingItems
+      destination: destinationFolder,
+      sourceFiles: this.movingItems
     }).subscribe({
-      next:(response)=>{
+      next: (response) => {
         this.movement = false;
         this.selectedItem = null;
         this.selectedItems = [];
         this.toastService.success("cloudManagement.filesMovedSuccessfully");
         this.getFiles();
-      },error:(err)=>{
+      }, error: (err) => {
         this.toastService.error("cloudManagement.fileMovingError");
       }
     })
   }
-  cancelMovement(){
+  cancelMovement() {
     this.movement = false;
     this.selectedItem = null;
     this.selectedItems = [];
