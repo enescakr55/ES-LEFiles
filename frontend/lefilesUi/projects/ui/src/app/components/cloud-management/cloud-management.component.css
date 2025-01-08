@@ -186,15 +186,21 @@
 .folder-navigation {
     flex: 1;
 }
+
+
 .multiple-select-container {
-    font-size: 13px;
+    font-size: 15px;
+    padding: 5px 8px;
     background-color: rgb(240, 240, 240);
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: -3px;
     border-radius: 0.3rem;
+    cursor: pointer;
     height: min-content;
+}
+.multiple-select-container:hover {
+    background-color: rgb(220, 237, 255);
+}
+.multiple-select-container.active {
+    background-color: rgb(215, 234, 255);
 }
 .folder-navigation-top-items {
     display: flex;

@@ -74,12 +74,13 @@
               </ol>
             </nav>
           </div>
-          <div class="multiple-select-container">
-            <div class="form-check multiple-select-item">
-              <input class="form-check-input" #ref (change)="multipleSelection = ref.checked" type="checkbox" value="" id="flexCheckDefault">
+          <div class="multiple-select-container" [class.active]="multipleSelection" (click)="multipleSelection = !multipleSelection" [title]="'buttons.multipleSelect' | translate">
+            <div class="multiple-select-item" >
+              <!--<input class="form-check-input" #ref (change)="multipleSelection = ref.checked" type="checkbox" value="" id="flexCheckDefault">
               <label class="form-check-label" for="flexCheckDefault">
-                {{'buttons.multipleSelect' | translate}}
-              </label>
+                {{}}
+              </label>-->
+              <i class="bi bi-ui-checks-grid"></i>
             </div>
           </div>
         </div>
