@@ -8,6 +8,7 @@ import { UpdateFolderRequest } from '../../models/cloud-management/updateFolderR
 import { UpdateFolderContentsResponse } from '../../models/cloud-management/updateFolderContentsResponse';
 import { FileItemDetailsResponse } from '../../models/file-management/fileItemDetailsResponse';
 import { MoveFilesRequest } from '../../models/cloud-management/moveFilesRequest';
+import { CopyFilesRequest } from '../../models/cloud-management/copyFilesRequest';
 
 
 @Injectable({
@@ -117,6 +118,10 @@ getFileDetails(fileId:string){
 moveFiles(request:MoveFilesRequest){
   var apiUrl = environment.apiUrl;
   return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/management/move`,request);
+}
+copyFiles(request:CopyFilesRequest){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/management/copy`,request);
 }
 
 }

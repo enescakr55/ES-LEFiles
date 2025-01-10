@@ -116,7 +116,7 @@ namespace LEFiles.API.Endpoints.UserUi.Files
 
             foreach (var ti in assembly.DefinedTypes)
             {
-              if (ti.IsClass && !ti.IsAbstract && ti.BaseType == typeof(FileUploadProcessorBase))
+              if (ti.IsClass && ti.FullName != null && !ti.IsAbstract && ti.BaseType == typeof(FileUploadProcessorBase))
               {
                 FileUploadProcessorBase? uploadProcessItem = assembly.CreateInstance(ti.FullName) as FileUploadProcessorBase;
                 if(uploadProcessItem != null){

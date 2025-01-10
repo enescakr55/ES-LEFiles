@@ -74,8 +74,16 @@
               (click)="acceptFilesForMovement()">
               <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveFiles' | translate}}
             </div>
-            <div class="toolbar-item" *ngIf="movement == true" (click)="moveFiles()">
+            <div class="toolbar-item"
+              *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedFileCount() > 0 && selectedFolderCount() == 0))"
+              (click)="acceptFilesForCopying()">
+              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.copyFiles' | translate}}
+            </div>
+            <div class="toolbar-item" *ngIf="movement == true && moveProcess == true" (click)="moveFiles()">
               <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveHere' | translate}}
+            </div>
+            <div class="toolbar-item" *ngIf="movement == true && copyProcess == true" (click)="copyFiles()">
+              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.copyHere' | translate}}
             </div>
             <div class="toolbar-item" *ngIf="movement == true" (click)="cancelMovement()">
               <i class="bi bi-x-lg toolbar-icon"></i> {{'buttons.cancelMovement' | translate}}
@@ -155,7 +163,7 @@
           </font>
         </div>
         <div class="details-contents"
-          *ngIf="fileDetails != null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
+          *ngIf="fileDetails != null && selectedItem != null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
           <app-preview-file [elStyle]="'max-width:150px; height:auto; border-radius:12px; margin-bottom:16px;'"
             *ngIf="fileDetails.preview == true" [fileId]="selectedItem.id"></app-preview-file>
           <div class="details-icon-container" *ngIf="fileDetails.icon && fileDetails.preview == false">

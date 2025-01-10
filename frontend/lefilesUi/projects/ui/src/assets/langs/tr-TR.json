@@ -81,5 +81,9 @@
     "buttons.multipleSelect":"Çoklu Seçim",
     "cloudManagement.folderSelectedText":"klasör seçildi",
     "cloudManagement.fileSelectedText":"dosya seçildi",
-    "cloudManagement.detailsSectionTitle":"Ayrıntılar"
+    "cloudManagement.detailsSectionTitle":"Ayrıntılar",
+    "buttons.copyHere":"Buraya kopyala",
+    "buttons.copyFiles":"Kopyala",
+    "cloudManagement.fileCopyingError":"Dosya kopyalama sürecinde bir hata oluştu",
+    "cloudManagement.filesCopiedSuccessfully":"Dosyalar başarıyla kopyalandı"
 }

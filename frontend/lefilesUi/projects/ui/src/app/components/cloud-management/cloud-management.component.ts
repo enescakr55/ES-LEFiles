@@ -34,11 +34,17 @@ export class CloudManagementComponent implements OnInit {
   multipleSelection: boolean = false;
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
 
+
+  movement: boolean = false; //Çoklu seçim
   //File Movement
-  movement: boolean = false;
+
+  moveProcess:boolean = false;
   movingItems: string[] = [];
 
   //
+
+  //File Copy
+  copyProcess:boolean = false;
   constructor(private cloudManagementService: CloudManagementService, private toastService: ToastService, private watchService: WatchService, private componentModal: ViewComponentModalService) { }
 
   ngOnInit(): void {
@@ -225,7 +231,18 @@ export class CloudManagementComponent implements OnInit {
     }
 
   }
-  acceptFilesForMovement() {
+  acceptFilesForMovement(){
+    this.copyProcess = false;
+    this.moveProcess = true;
+    this.selectFilesForMovement();
+  }
+  acceptFilesForCopying(){
+    this.moveProcess = false;
+    this.copyProcess = true;
+    this.selectFilesForMovement();
+  }
+  selectFilesForMovement() {
+
     var itemIds: string[] = [];
     if (!this.multipleSelection) {
       itemIds.push(this.selectedItem.id);
@@ -242,14 +259,16 @@ export class CloudManagementComponent implements OnInit {
       this.toastService.error("coomon.pleaseSelectAtLeastOneFileForMovement");
     }
   }
-  moveFiles() {
+
+  copyFiles(){
     var destinationFolder = this.parentFolder;
-    this.cloudManagementService.moveFiles({
+    this.cloudManagementService.copyFiles({
       destination: destinationFolder,
       sourceFiles: this.movingItems
     }).subscribe({
       next: (response) => {
         this.movement = false;
+        this.moveProcess = false;
         this.selectedItem = null;
         this.selectedItems = [];
         this.toastService.success("cloudManagement.filesMovedSuccessfully");
@@ -259,8 +278,30 @@ export class CloudManagementComponent implements OnInit {
       }
     })
   }
+
+  moveFiles() {
+    var destinationFolder = this.parentFolder;
+    this.cloudManagementService.moveFiles({
+      destination: destinationFolder,
+      sourceFiles: this.movingItems
+    }).subscribe({
+      next: (response) => {
+        
+        this.movement = false;
+        this.moveProcess = false;
+        this.selectedItem = null;
+        this.selectedItems = [];
+        this.toastService.success("cloudManagement.filesCopiedSuccessfully");
+        this.getFiles();
+      }, error: (err) => {
+        this.toastService.error("cloudManagement.fileCopyingError");
+      }
+    })
+  }
   cancelMovement() {
     this.movement = false;
+    this.copyProcess = false;
+    this.moveProcess = false;
     this.selectedItem = null;
     this.selectedItems = [];
   }
