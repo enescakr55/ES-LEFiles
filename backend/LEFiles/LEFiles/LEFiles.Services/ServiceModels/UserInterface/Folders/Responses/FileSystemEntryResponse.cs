@@ -27,6 +27,7 @@ namespace LEFiles.Services.ServiceModels.UserInterface.Folders.Responses
     public bool? AllowPreview { get; set; } = false;
     public string? Icon { get; set; }
     public DateTime CreatedAt { get; set; }
+    public DateTime? LastUpdatedAt { get; set; }
 
   }
 }

@@ -157,13 +157,13 @@
           <font>{{'cloudManagement.detailsSectionTitle' | translate}}</font>
         </div>
         <div class="details-select-item-message"
-          *ngIf="fileDetails == null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
+          *ngIf="selectedItem == null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
           <i class="bi bi-hand-index select-item-icon"></i>
           <font class="select-item-text">{{'cloudManagement.fileDetails.pleaseSelectAFileForViewDetails' |translate}}
           </font>
         </div>
         <div class="details-contents"
-          *ngIf="fileDetails != null && selectedItem != null && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
+          *ngIf="fileDetails != null && selectedItem != null && selectedItem.type == 1 && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
           <app-preview-file [elStyle]="'max-width:150px; height:auto; border-radius:12px; margin-bottom:16px;'"
             *ngIf="fileDetails.preview == true" [fileId]="selectedItem.id"></app-preview-file>
           <div class="details-icon-container" *ngIf="fileDetails.icon && fileDetails.preview == false">
@@ -188,6 +188,36 @@
             </div>
           </div>
         </div>
+
+        <div class="details-contents folder-details"
+          *ngIf="folderDetails != null && selectedItem != null && selectedItem.type == 0 && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
+          <div class="details-icon-container">
+            <i [class]="'bi bi-folder-fill details-icon yellowIcon'"></i>
+          </div>
+          <div class="details-filename" *ngIf="folderDetails.name">{{folderDetails.name}}</div>
+          <div class="cloudManagement-seperator"></div>
+          <div class="file-details-container">
+            <font class="details-contents-file-details-title">{{'cloudManagement.folderDetailsTitle' | translate}}</font>
+            <!--<div class="file-detail-item">
+              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.fileSize' | translate}}</b><br />
+              <font class="file-detail-item-value">~{{fileDetails.fileSize}} MB</font>
+            </div>-->
+            <div class="file-detail-item">
+              <b class="file-detail-item-label">{{'cloudManagement.folderDetails.createdAt' | translate}}</b><br />
+              <font class="file-detail-item-value">{{folderDetails.createdAt | date}}</font>
+            </div>
+            <div class="file-detail-item" *ngIf="folderDetails.lastUpdatedAt">
+              <b class="file-detail-item-label">{{'cloudManagement.folderDetails.lastUpdatedAt' | translate}}</b><br />
+              <font class="file-detail-item-value">{{folderDetails.lastUpdatedAt | date}}</font>
+            </div>
+            <div class="file-detail-item">
+              <b class="file-detail-item-label">{{'cloudManagement.fileDetails.sharingStatus' | translate}}</b><br />
+              <font class="file-detail-item-value">{{folderDetails.shared ? ('cloudManagement.fileDetails.sharing' |
+                translate) : ('cloudManagement.fileDetails.notSharing' | translate)}}</font>
+            </div>
+          </div>
+        </div>
+
         <div class="file-details-container file-details-loading-container"
           *ngIf="selectedItem != null &&selectedItem.type == 1 &&fileDetailsLoading == true">
           <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">

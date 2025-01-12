@@ -32,14 +32,17 @@
     margin-bottom: 12px;
 }
 .site-name {
-    font-size:15px;
+    font-size: 17px;
     position: relative;
     bottom: 13px;
-    font-weight:bold;
+    letter-spacing: 5px;
+    font-weight: bold;
+    text-shadow: 5px 3px 2px #d5d5d5;
 }
 .cloud-icon {
-    width: 65px;
-    height: 60px;
+    width: 90px;
+    height: 75px;
+    object-fit: contain;
     margin-bottom: 12px;
     vertical-align:middle;
 }

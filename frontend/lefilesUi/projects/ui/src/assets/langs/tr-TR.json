@@ -85,5 +85,12 @@
     "buttons.copyHere":"Buraya kopyala",
     "buttons.copyFiles":"Kopyala",
     "cloudManagement.fileCopyingError":"Dosya kopyalama sürecinde bir hata oluştu",
-    "cloudManagement.filesCopiedSuccessfully":"Dosyalar başarıyla kopyalandı"
+    "cloudManagement.filesCopiedSuccessfully":"Dosyalar başarıyla kopyalandı",
+    "cloudManagement.folderDetailsTitle":"Klasör Detayları",
+    "cloudManagement.folderDetails.createdAt":"Oluşturma Tarihi",
+    "cloudManagement.folderDetails.lastUpdatedAt":"Son Güncelleme",
+    "cloudManagement.createFolder":"Yeni Klasör Oluştur",
+    "cloudManagement.folderName":"Klasör Adı",
+    "cloudManagement.create":"Oluştur",
+    "common.errorOccurred":"İşleminizi tamamlayamadık, işlem gerçekleştirilirken bir hata ile karşılaştık."
 }

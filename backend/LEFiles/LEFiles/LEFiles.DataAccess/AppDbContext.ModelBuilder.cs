@@ -72,9 +72,11 @@ namespace LEFiles.DataAccess
         entity.Property(x => x.FileName).HasMaxLength(100).IsRequired();
         entity.Property(x => x.FilePath).HasMaxLength(100).IsRequired();
         entity.Property(x => x.FileUploadId).HasMaxLength(50);
+
         entity.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId);
         entity.HasOne(x => x.ParentFolder).WithMany(x => x.Files).HasForeignKey(x => x.ParentFolderId).OnDelete(DeleteBehavior.Cascade);
         entity.HasOne(x => x.FileUploadItem).WithOne().HasForeignKey<FileItem>(x => x.FileUploadId);
+        
 
       });
       modelBuilder.Entity<FolderItem>(entity =>
@@ -85,7 +87,7 @@ namespace LEFiles.DataAccess
         entity.Property(x => x.ParentFolderId).HasMaxLength(50);
         entity.Property(x => x.FolderId).HasMaxLength(50).IsRequired();
         entity.Property(x => x.FolderName).HasMaxLength(50).IsRequired();
-
+        entity.Property(x => x.LastUpdatedAt).IsRequired(false);
         entity.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId);
         entity.HasOne(x => x.ParentFolder).WithMany(x => x.Childs).HasForeignKey(a => a.ParentFolderId).OnDelete(DeleteBehavior.Cascade);
       });

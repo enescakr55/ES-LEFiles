@@ -72,6 +72,7 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         Name = a.FolderName,
         Shared = a.Shared,
         CreatedAt = a.CreatedAt,
+        LastUpdatedAt = a.LastUpdatedAt,
         Extension = null,
         Type = 0
       }).ToListAsync();

@@ -12,6 +12,7 @@ import { WatchService } from '../../services/watch.service';
 import { PreviewFileComponent } from './preview-file/preview-file.component';
 import { FileItemDetailsResponse } from '../../models/file-management/fileItemDetailsResponse';
 import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-service.service';
+import { FolderItemDetailsResponse } from '../../models/file-management/folderItemDetailsResponse';
 
 @Component({
   selector: 'app-cloud-management',
@@ -29,19 +30,17 @@ export class CloudManagementComponent implements OnInit {
   typeFilters: string[] = [];
   showDetailsArea: boolean = true;
   fileDetails: FileItemDetailsResponse;
+  folderDetails:FolderItemDetailsResponse;
   fileDetailsLoading: boolean = false;
   fileDetailsError: boolean = false;
   multipleSelection: boolean = false;
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
-
 
   movement: boolean = false; //Çoklu seçim
   //File Movement
 
   moveProcess:boolean = false;
   movingItems: string[] = [];
-
-  //
 
   //File Copy
   copyProcess:boolean = false;
@@ -139,8 +138,8 @@ export class CloudManagementComponent implements OnInit {
       }
     })
   }
-  previewFile() {
-    this.componentModal.showModal("cloudManagement.preview", "component", PreviewFileComponent, { fileId: this.selectedItem.id }, { width: "medium" });
+  previewFile(file:FileSystemEntryItemResponse = undefined) {
+    this.componentModal.showModal("cloudManagement.preview", "component", PreviewFileComponent, { fileId: file == undefined ? this.selectedItem.id : file.id }, { width: "medium" });
   }
   homeFolder() {
     this.parentFolder = null;
@@ -174,14 +173,22 @@ export class CloudManagementComponent implements OnInit {
   dblAction(entry: FileSystemEntryItemResponse) {
     if (entry.type == 0) {
       this.openFolder(entry.id);
+    }else if(entry.type == 1){
+      if(entry.allowPreview == true) {
+        this.selectedItem = entry;
+        this.previewFile(entry);
+      }
     }
   }
   openFolder(id: string) {
 
+    this.fileDetails = null;
+    this.folderDetails = null;
     this.parentFolder = id;
     this.openingFolder = id;
     this.getFiles();
     this.selectedItem = null;
+
   }
   selectEntry(item: FileSystemEntryItemResponse) {
     if (!this.movement) {
@@ -219,6 +226,18 @@ export class CloudManagementComponent implements OnInit {
       this.cloudManagementService.getFileDetails(entry.id).subscribe({
         next: (response) => {
           this.fileDetails = response.data;
+          this.fileDetailsLoading = false;
+        }, error: (err) => {
+          this.fileDetailsLoading = false;
+          this.fileDetailsError = true;
+        }
+      })
+    }else if(entry.type == 0 && this.showDetailsArea) {
+      this.fileDetailsLoading = true;
+      this.fileDetailsError = false;
+      this.cloudManagementService.getFolderDetails(entry.id).subscribe({
+        next: (response) => {
+          this.folderDetails = response.data;
           this.fileDetailsLoading = false;
         }, error: (err) => {
           this.fileDetailsLoading = false;
