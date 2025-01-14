@@ -20,13 +20,16 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 
 ### Arayüz
 
-![login](https://github.com/user-attachments/assets/b0fded07-598e-4b8d-849b-4d4e292f9b43)
+![login](https://github.com/user-attachments/assets/b40fac13-157d-46ff-8b19-5aca80bb8f47)
 
-![detailsSection](https://github.com/user-attachments/assets/ffa01842-1ea1-4ef7-995f-769691f9ed42)
+![grid-sections](https://github.com/user-attachments/assets/534b7bdf-3709-4d8e-a42c-36c10688ee07)
 
-![detailsSectionClosed](https://github.com/user-attachments/assets/35591b88-88ef-48c8-9a1b-75590b0e9624)
+![grid-notsect](https://github.com/user-attachments/assets/ce6322b8-4a29-4537-8251-15cec4f6d08d)
 
-![deviceMgmt](https://github.com/user-attachments/assets/5472c7b3-d17c-44f7-8f7d-efde8a82c283)
+![list](https://github.com/user-attachments/assets/649a1845-957d-4751-bbae-3791d9ea0f34)
+
+![devices](https://github.com/user-attachments/assets/0904da0a-1f52-4ccc-a686-0c4f9e679035)
+
 
 
 ##### ES-LEFiles adı altında, geliştirlen projenin kısıtlı bir sürümü açık kaynaklı olarak yayınlanacaktır.
