@@ -11,6 +11,23 @@
     margin-right: 5px;
     user-select: none;
 }
+.listView .entry-item {
+    display: flex;
+    flex-direction: row;
+    max-width: none;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 6px;
+    
+}
+.listView .entry-item-icon-container {
+    height: 30px;
+    margin-right: 6px;
+}
+.listView .fileInfoText {
+    margin-left: 4px;
+}
 .cloud-management-container {
     width: 99%;
     position: relative;
@@ -39,6 +56,11 @@
     align-content: flex-start;
 }
 
+.file-entry-list.listView {
+    display: flex;
+    flex-direction: column;
+}
+
 .fileEntry {
     max-width: 120px;
     text-overflow: ellipsis;
@@ -46,6 +68,15 @@
     white-space: nowrap;
     font-size: 13px;
     font-weight: bold;
+}
+.listView .fileEntry {
+    max-width: 100%;
+    flex: 1;
+}
+.listView .folderEntry {
+    max-width: 100%;
+    flex: 1;
+
 }
 
 .file-system-container {
@@ -167,6 +198,9 @@
 
 
 }
+.listView .entryIcon {
+    font-size: 30px;
+}
 .yellowIcon {
     color: rgb(255, 228, 91);
 }
@@ -271,6 +305,9 @@
     justify-content: center;
     align-items: center;
 }
+.listView .thumbnail-container {
+    height: 30px;
+}
 .file-details-error-icon {
     font-size: 65px;
     display: block;
@@ -347,6 +384,10 @@
     left: 30%;
     top: 35%;
 }
+.listView .folder-item-opening {
+    left: 25%;
+    top: 30%;
+}
 .toolbar-item {
     display: inline-block;
     margin-right: 10px;
@@ -381,4 +422,18 @@
 }
 .multiple-file-details-selected-folder-text {
     margin-right: 5px;
+}
+.toolbar-switch-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 12px;
+}
+.toolbar-switch-buttons .toolbar-switch-btn {
+    border-radius: 0px;
+}
+.toolbar-switch-buttons .toolbar-switch-btn:nth-child(1) {
+    border-radius: 12px 0px 0px 12px;
+}
+.toolbar-switch-buttons .toolbar-switch-btn:nth-last-child(1) {
+    border-radius: 0px 12px 12px 0px;
 }

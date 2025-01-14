@@ -94,6 +94,15 @@
           <div class="toolbar-right">
             <div [class.active]="showDetailsArea" (click)="showDetailsArea = !showDetailsArea"
               class="toolbar-switch-btn"><i class="bi bi-layout-sidebar-inset-reverse"></i></div>
+            <div class="toolbar-switch-buttons">
+              <div class="toolbar-switch-btn" (click)="listView = true" [class.active]="listView">
+                <i class="bi bi-list"></i>
+              </div>
+              <div class="toolbar-switch-btn" (click)="listView = false" [class.active]="!listView">
+                <i class="bi bi-grid"></i>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -121,7 +130,7 @@
               </div>
             </div>
           </div>
-          <div class="file-entry-list" (click)="deselectAll($event)">
+          <div class="file-entry-list" [class.listView]="listView" (click)="deselectAll($event)">
 
             <div class="entry-item"
               [class.active]="(multipleSelection == false && selectedItem != null && (selectedItem.id == entry.id)) || (multipleSelection == true && selectedItemsFindIndex(entry.id) != -1)"
@@ -134,11 +143,13 @@
                 <i *ngIf="entry.type == 1 && entry.thumbnailExists != true && (entry.icon != null && entry.icon != '')"
                   [class]="entry.icon+' entryIcon'"></i>
                 <div class="thumbnail-container" *ngIf="entry.type == 1 && entry.thumbnailExists == true">
-                  <app-view-thumbnail *ngIf="entry.type == 1 && entry.thumbnailExists == true" [fileItemId]="entry.id"
+                  <app-view-thumbnail *ngIf="entry.type == 1 && listView == false && entry.thumbnailExists == true" [fileItemId]="entry.id"
                     [imgStyle]="'max-width:90px; width:auto; height:auto; max-height:75px; border-radius:4px; box-shadow:1px 1px 3px gray;'"></app-view-thumbnail>
+                  <app-view-thumbnail *ngIf="entry.type == 1 && listView == true && entry.thumbnailExists == true" [fileItemId]="entry.id"
+                    [imgStyle]="'max-width:90px; width:auto; height:38px; max-height:75px; border-radius:4px; box-shadow:1px 1px 3px gray;'"></app-view-thumbnail>
                 </div>
 
-                <div class="spinner-border text-primary folder-item-opening" *ngIf="openingFolder == entry.id"
+                <div class="spinner-border text-primary folder-item-opening" [class.spinner-border-sm]="listView" *ngIf="openingFolder == entry.id"
                   role="status">
                   <span class="visually-hidden">Loading...</span>
                 </div>

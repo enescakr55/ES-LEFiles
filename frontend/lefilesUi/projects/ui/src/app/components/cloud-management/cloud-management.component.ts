@@ -35,7 +35,7 @@ export class CloudManagementComponent implements OnInit {
   fileDetailsError: boolean = false;
   multipleSelection: boolean = false;
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
-
+  listView:boolean = false;
   movement: boolean = false; //Çoklu seçim
   //File Movement
 
