@@ -1,16 +1,23 @@
-<div class="horizontal-menu-container">
+<div class="horizontal-menu-container ui-panel">
     <div class="menu-left">
         <div class="cloud-logo-icon">
             <!--<i class="bi bi-cloud-fill"></i>-->
             <img class="logo-image" src="/assets/images/logo2.png">
         </div>
-        <div class="menu-item"  [routerLink]="item.path" *ngFor="let item of menuItems">
+        <div class="menu-item ui-text-secondary"  [routerLink]="item.path" *ngFor="let item of menuItems">
             <i [class]="'menu-item-icon '+item.icon"></i>
             <font class="menu-item-text">{{item.labelKey| translate}}</font>
         </div>
     </div>
     <div class="menu-right">
-        
+    <div class="theme-switcher">
+        <div class="switch-dark theme-switch-button" (click)="switchTheme('dark')">
+            <i class="bi bi-moon-stars-fill" style="color: rgb(255, 255, 255);"></i>
+        </div>
+        <div class="switch-light theme-switch-button" (click)="switchTheme('light')">
+            <i class="bi bi-brightness-high-fill" style="color:rgb(255, 141, 48);"></i>
+        </div>
+    </div>
     <div class="btn-group">
         <button class="btn btn-secondary btn-sm" style="border-radius: 15px 0px 0px 15px;" [title]="'profile.viewProfile' | translate" type="button">
             <i class="bi bi-person-circle"></i>

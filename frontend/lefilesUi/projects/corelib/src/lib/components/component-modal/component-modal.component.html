@@ -1,17 +1,17 @@
 <div class="modal fade" id="componentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="componentModalLabel" aria-hidden="true">
     <div [class]="'modal-dialog modal-dialog-centered '+ classes ">
-      <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-content ui-alt-panel ui-text-primary">
+        <div class="modal-header ui-alt-panel ui-text-primary">
           <h1 class="modal-title fs-5" id="componentModalLabel">{{titleTranslationKey | translate}}</h1>
-          <button type="button" (click)="close()" class="btn-close" id="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" (click)="close()" class="btn-close ui-text-primary" id="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body modal-body-html" *ngIf="type == 'html'" [innerHTML]="safeHml">
+        <div class="modal-body ui-alt-panel ui-text-primary modal-body-html" *ngIf="type == 'html'" [innerHTML]="safeHml">
           
         </div>
-        <div class="modal-body modal-body-component" *ngIf="type == 'component'" >
+        <div class="modal-body ui-alt-panel ui-text-primary modal-body-component" *ngIf="type == 'component'" >
           
         </div>
-        <div class="modal-body modal-body-link" *ngIf="type == 'link'">
+        <div class="modal-body ui-alt-panel modal-body-link" *ngIf="type == 'link'">
           <iframe *ngIf="safeContent" [src]="safeContent" (load)="onLoadFrame($event)" id="modalFrame" style="height:0px;width:100%;border:none;overflow:hidden;"></iframe>
           <div *ngIf="loaded == false" class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
@@ -19,7 +19,7 @@
             </div>
           </div>
         </div>
-        <!--<div class="modal-footer">
+        <!--<div class="modal-footer ui-alt-panel">
 
         </div>-->
       </div>

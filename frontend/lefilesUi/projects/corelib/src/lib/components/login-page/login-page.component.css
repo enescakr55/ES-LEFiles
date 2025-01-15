@@ -25,7 +25,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
     width: fit-content;
 
     margin: auto;
@@ -37,7 +36,7 @@
     bottom: 13px;
     letter-spacing: 5px;
     font-weight: bold;
-    text-shadow: 5px 3px 2px #d5d5d5;
+    text-shadow: 3px 3px 2px rgb(175 175 175);
 }
 .cloud-icon {
     width: 90px;

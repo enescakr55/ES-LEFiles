@@ -1,5 +1,4 @@
 .horizontal-menu-container {
-    background-color: white;
     padding: 5px 12px;
     margin: auto;
     border-radius: 30px;
@@ -41,8 +40,21 @@
     display: flex;
     align-items: center;
     margin-left: 2rem;
+    cursor: pointer; 
+}
+.theme-switcher {
+    display: flex;
+    flex-direction: row;
+    margin-right: 12px;
+    border: 1px solid rgb(65, 154, 255);
+    background: linear-gradient(119deg, black 50%, #f9f9f9 50%);
+    padding: 4px;
+    border-radius: 18px;
+}
+.theme-switch-button {
+    margin-left: 4px;
+    margin-right: 4px;
     cursor: pointer;
-    
 }
 
 .menu-item-text {

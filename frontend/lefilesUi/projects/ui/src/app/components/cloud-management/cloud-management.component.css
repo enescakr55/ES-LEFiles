@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 200px;
-    width: max-content;
+    /*max-width: 200px;*/
+    /*width: max-content;*/
+    width: 125px;
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
@@ -34,14 +35,6 @@
 }
 .fileEntry {
     font-weight: 400;
-}
-.entry-item:hover {
-    background-color: rgb(183, 231, 255);
-
-}
-
-.entry-item.active {
-    background-color: rgb(183, 231, 255);
 }
 .folderEntry {
     font-size: 12px;
@@ -80,7 +73,6 @@
 }
 
 .file-system-container {
-    background-color: white;
 
 
     width: calc(100% - 10px);
@@ -117,7 +109,6 @@
     align-items: center;
 }
 .details-container {
-    background-color: white;
     height: 100%;
 
     width: calc(100% - 10px);
@@ -126,7 +117,6 @@
     border-radius: 20px;
 }
 .details-title {
-   background-color: #f7f7f7;
    width: 100%;
    height: 40px;
    border-radius: 12px;
@@ -182,7 +172,6 @@
     font-size: 80px;
 }
 .view-filter-container {
-    background-color: white;
     min-height: 100%;
     padding: 20px;
     margin: auto;
@@ -230,17 +219,16 @@
     height: min-content;
 }
 .multiple-select-container:hover {
-    background-color: rgb(220, 237, 255);
+    background-color: var(--entry-item-active-color);
 }
 .multiple-select-container.active {
-    background-color: rgb(215, 234, 255);
+    background-color: var(--entry-item-active-color);
 }
 .folder-navigation-top-items {
     display: flex;
 }
 .fileInfoText {
     font-size: 12px;
-    color: gray;
     font-style: italic;
 }
 
@@ -251,7 +239,6 @@
 
     margin-bottom: 10px;
     padding-bottom: 5px;
-    background: #f7f7f7;
     border-radius: 15px;
     padding: 5px;
     padding-left: 8px;
@@ -284,7 +271,6 @@
     margin-bottom: 4px;
 }
 .filter-entry {
-    background-color: rgb(228, 228, 228);
     margin-bottom: 15px;
     padding: 6px;
     border-radius: 0.3rem;
@@ -324,15 +310,6 @@
 .file-details-error-container {
     text-align: center;
     padding-top: 15px;
-}
-.filter-entry:hover {
-    background-color: rgb(209, 231, 255);
-}
-.filter-entry.active {
-    /*background-color: rgb(239, 239, 239);*/
-    background-color: rgb(198, 225, 253);
-    /*border-left: 3px solid rgb(0, 0, 0);
-    border-right: 3px solid rgb(0, 0, 0);*/
 }
 
 .file-view{
@@ -391,15 +368,14 @@
 .toolbar-item {
     display: inline-block;
     margin-right: 10px;
-    color: rgb(47, 47, 47);
     padding: 3px;
     font-size: 14px;
     cursor: pointer;
 }
 
 .toolbar-item:hover {
-    transform: translate3d(2px, -2px, 2px);
-    font-weight: bold;
+    transform: translate3d(1px, -1px, 1px);
+    font-weight: 600;
 }
 
 .toolbar-icon {
