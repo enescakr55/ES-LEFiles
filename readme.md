@@ -10,6 +10,8 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 ### Proje Özellikleri (Özellikler eklendikçe güncellenecektir)
 ☁ Arayüz üzerinden klasörler, dosyalar eklenebilir, düzenlenebilir ve silinebilir.
 
+📷 Yüklenen görüntü dosyaları (jpg,png,webp gibi) için otomatik thumbnail oluşturulur ve resim dosyaları önizlenebilir.
+
 🌐 Bulut sistemindeki bir dosya indirilebilir. 
 
 ⚡ İndirme süreci ve dosya yükleme süreci bir ilerleme barı üzerinde gösterilir.
@@ -17,6 +19,11 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 🗃 Dosyalar türlerine göre filtrelenebilir.
 
 📁 Dosyalar hiyeraşik (klasörler ile birlikte) ya da yalnızca dosya görünümleriyle gösterilebilir.
+
+📄 Dosya ve klasörler liste ya da grid yapısında gösterilebilir.
+
+🌞Karanlık / Aydınlık tema seçenekleri arasında geçiş yapılabilir.
+
 
 ### Arayüz
 
