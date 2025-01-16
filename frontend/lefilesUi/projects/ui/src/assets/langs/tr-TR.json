@@ -92,5 +92,7 @@
     "cloudManagement.createFolder":"Yeni Klasör Oluştur",
     "cloudManagement.folderName":"Klasör Adı",
     "cloudManagement.create":"Oluştur",
-    "common.errorOccurred":"İşleminizi tamamlayamadık, işlem gerçekleştirilirken bir hata ile karşılaştık."
+    "common.errorOccurred":"İşleminizi tamamlayamadık, işlem gerçekleştirilirken bir hata ile karşılaştık.",
+    "buttons.moveFolder":"Taşı",
+    "cloudManagement.folderMovedSuccessfully":"Dosya başarıyla taşındı"
 }

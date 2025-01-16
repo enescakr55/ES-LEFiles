@@ -37,6 +37,12 @@ export class CloudManagementComponent implements OnInit {
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
   listView:boolean = false;
   movement: boolean = false; //Çoklu seçim
+
+  //Folder Movement
+  moveFolder:boolean = false;
+  movingSourceFolder:string;
+
+
   //File Movement
 
   moveProcess:boolean = false;
@@ -71,6 +77,7 @@ export class CloudManagementComponent implements OnInit {
     this.getFiles();
 
   }
+
   downloadFile() {
     var uuid = (Math.random() + 1).toString(36).substring(7);
     var currentItem = Object.assign({}, this.selectedItem);
@@ -317,10 +324,38 @@ export class CloudManagementComponent implements OnInit {
       }
     })
   }
+  beginMoveFolder(){
+    this.moveFolder = true;
+    this.movingSourceFolder = this.selectedItem.id;
+    this.movement = true;
+  }
+  acceptMoveFolder(){
+    this.cloudManagementService.moveFolder({
+      sourceFolderId:this.movingSourceFolder,
+      targetFolderId:this.parentFolder
+    }).subscribe({
+      next:(response)=>{
+        this.toastService.success("cloudManagement.folderMovedSuccessfully");
+        this.getFiles();
+        this.selectedItem = null;
+        this.moveFolder = false;
+        this.movement = false;
+        this.movingSourceFolder = null;
+      },error:(err)=>{
+        this.toastService.error("common.errorOccurred");
+        this.selectedItem = null;
+        this.movement = false;
+        this.moveFolder = false;
+        this.movingSourceFolder = null;
+      }
+    })
+  }
   cancelMovement() {
     this.movement = false;
     this.copyProcess = false;
     this.moveProcess = false;
+    this.moveFolder = false;
+    this.movingSourceFolder = null;
     this.selectedItem = null;
     this.selectedItems = [];
   }

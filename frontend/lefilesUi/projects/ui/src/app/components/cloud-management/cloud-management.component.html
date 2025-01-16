@@ -68,6 +68,17 @@
             <div class="toolbar-item ui-text-primary" *ngIf="movement == false && selectedItem != null && selectedItem.type == 0"
               (click)="openFolder(selectedItem.id)"><i class="bi bi-folder-symlink"></i> {{'buttons.openFolder' |
               translate}}</div>
+            <!--Folder Movement-->
+            <div class="toolbar-item ui-text-primary"
+            *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 0 && multipleSelection == false))"
+            (click)="beginMoveFolder()">
+            <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveFolder' | translate}}
+            </div>
+            <div class="toolbar-item ui-text-primary"
+            *ngIf="movement == true && moveFolder == true"
+            (click)="acceptMoveFolder()">
+            <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveHere' | translate}}
+            </div>
             <!--File Movement-->
             <div class="toolbar-item ui-text-primary"
               *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedFileCount() > 0 && selectedFolderCount() == 0))"
