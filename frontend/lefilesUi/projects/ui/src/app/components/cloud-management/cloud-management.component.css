@@ -413,3 +413,50 @@
 .toolbar-switch-buttons .toolbar-switch-btn:nth-last-child(1) {
     border-radius: 0px 12px 12px 0px;
 }
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+.search-input {
+    border-radius: 10px 0px 0px 10px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    padding-left: 10px;
+    width: 80px;
+    transition: 1s;
+}
+.search-input:focus {
+    width: 150px;
+    transition: 1s;
+}
+.search-result-empty-icon {
+    font-size: 35px;
+}
+.search-result-empty-message {
+    font-size: 20px;
+    font-weight: 600;
+}
+.search-result-empty-container {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.search-btn-container {
+    background-color: rgb(155, 155, 155);
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+    padding: 0px 6px;
+    text-align: center;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-btn-container:hover {
+    background-color: rgb(10, 103, 254);
+    cursor: pointer;
+}

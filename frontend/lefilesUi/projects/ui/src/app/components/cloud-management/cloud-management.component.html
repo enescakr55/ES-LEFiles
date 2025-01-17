@@ -88,13 +88,13 @@
             <div class="toolbar-item ui-text-primary"
               *ngIf="movement == false && ((selectedItem != null && selectedItem.type == 1 && multipleSelection == false) || (multipleSelection == true && selectedItems.length > 0 && selectedFileCount() > 0 && selectedFolderCount() == 0))"
               (click)="acceptFilesForCopying()">
-              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.copyFiles' | translate}}
+              <i class="bi bi-copy toolbar-icon"></i> {{'buttons.copyFiles' | translate}}
             </div>
             <div class="toolbar-item ui-text-primary" *ngIf="movement == true && moveProcess == true" (click)="moveFiles()">
               <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.moveHere' | translate}}
             </div>
             <div class="toolbar-item ui-text-primary" *ngIf="movement == true && copyProcess == true" (click)="copyFiles()">
-              <i class="bi bi-folder-symlink toolbar-icon"></i> {{'buttons.copyHere' | translate}}
+              <i class="bi bi-copy toolbar-icon"></i> {{'buttons.copyHere' | translate}}
             </div>
             <div class="toolbar-item ui-text-primary" *ngIf="movement == true" (click)="cancelMovement()">
               <i class="bi bi-x-lg toolbar-icon"></i> {{'buttons.cancelMovement' | translate}}
@@ -113,6 +113,14 @@
                 <i class="bi bi-grid"></i>
               </div>
             </div>
+            <div class="search-bar">
+              <div class="search-input-container">
+                <input type="text" id="searh-input" class="search-input" #searchInput (keydown)="searchInputKeydown(searchInput,$event)" placeholder="{{'cloudManagement.search' | translate}}">
+              </div>
+              <div class="search-btn-container" (click)="searchBySearchParam(searchInput.value)">
+                <i class="bi bi-search"></i>
+              </div>
+            </div>
 
           </div>
 
@@ -120,7 +128,7 @@
         <div *ngIf="fileSystemEntries && fileSystemEntries.entries">
           <div class="folder-navigation-top-items">
             <div class="folder-navigation">
-              <nav aria-label="breadcrumb">
+              <nav aria-label="breadcrumb" *ngIf="searchText == null || searchText == ''">
                 <ol class="breadcrumb" *ngIf="fileSystemEntries">
                   <li class="breadcrumb-item folder-navigation-item ui-text-primary" [class.active]="parentFolder == null"><a
                       (click)="homeFolder()">{{'common.homeDir' | translate}}</a></li>
@@ -129,6 +137,7 @@
                       (click)="openFolder(parent.id)">{{parent.name}}</a></li>
                 </ol>
               </nav>
+              <h5 class="ui-text-secondary" *ngIf="searchText != null && searchText.length > 0">{{'cloudManagement.searchResults' | translate}}</h5>
             </div>
             <div class="multiple-select-container" [class.active]="multipleSelection"
               (click)="changeMultipleSelection()" [title]="'buttons.multipleSelect' | translate">
@@ -142,7 +151,10 @@
             </div>
           </div>
           <div class="file-entry-list" [class.listView]="listView" (click)="deselectAll($event)">
-
+            <div class="search-result-empty-container" *ngIf="searchText != null && searchText.length > 0 && fileSystemEntries.entries &&fileSystemEntries.entries.length == 0">
+              <div class="search-result-empty-icon"><i class="bi bi-search"></i></div>
+              <div class="search-result-empty-message">{{'cloudManagement.searchResultIsEmpty' | translate}}</div>
+            </div>
             <div class="entry-item"
               [class.active]="(multipleSelection == false && selectedItem != null && (selectedItem.id == entry.id)) || (multipleSelection == true && selectedItemsFindIndex(entry.id) != -1)"
               (click)="selectEntry(entry)" (dblclick)="dblAction(entry)"

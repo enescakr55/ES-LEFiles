@@ -94,5 +94,9 @@
     "cloudManagement.create":"Oluştur",
     "common.errorOccurred":"İşleminizi tamamlayamadık, işlem gerçekleştirilirken bir hata ile karşılaştık.",
     "buttons.moveFolder":"Taşı",
-    "cloudManagement.folderMovedSuccessfully":"Klasör başarıyla taşındı"
+    "cloudManagement.folderMovedSuccessfully":"Klasör başarıyla taşındı",
+    "cloudManagement.search":"Ara",
+    "common.unknownError":"Bilinmeyen bir hata oluştu",
+    "cloudManagement.searchResults":"Arama Sonuçları",
+    "cloudManagement.searchResultIsEmpty":"Sonuç bulunamadı"
 }

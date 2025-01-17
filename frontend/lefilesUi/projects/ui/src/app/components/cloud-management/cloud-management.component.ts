@@ -39,6 +39,9 @@ export class CloudManagementComponent implements OnInit {
   listView:boolean = false;
   movement: boolean = false; //Çoklu seçim
 
+
+  //File Search
+  searchText:string|null = null;
   //Folder Movement
   moveFolder:boolean = false;
   movingSourceFolder:string;
@@ -359,6 +362,27 @@ export class CloudManagementComponent implements OnInit {
     this.movingSourceFolder = null;
     this.selectedItem = null;
     this.selectedItems = [];
+  }
+  searchInputKeydown(ref:HTMLInputElement, keyEvent:any){
+    if(keyEvent.code == "Enter"){
+      this.searchBySearchParam(ref.value);
+    }
+  }
+  searchBySearchParam(param:string){
+    if(param == null || param == ""){
+      this.searchText = null;
+      this.getFiles();
+    }else{
+      this.cloudManagementService.searchFilesystem(param).subscribe({
+        next:(response)=>{
+          this.searchText = response.data.searchText;
+          this.fileSystemEntries = {parents:[],entries:response.data.result}
+        },error:(err)=>{
+          this.toastService.error("common.errorOccurred");
+        }
+      })
+    }
+
   }
 
 }

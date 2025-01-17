@@ -11,6 +11,7 @@ import { MoveFilesRequest } from '../../models/cloud-management/moveFilesRequest
 import { CopyFilesRequest } from '../../models/cloud-management/copyFilesRequest';
 import { FolderItemDetailsResponse } from '../../models/file-management/folderItemDetailsResponse';
 import { MoveFolderRequest } from '../../models/cloud-management/moveFolderRequest';
+import { FilesystemSearchResult } from '../../models/cloud-management/filesystemSearchResult';
 
 
 @Injectable({
@@ -132,6 +133,10 @@ copyFiles(request:CopyFilesRequest){
 moveFolder(request:MoveFolderRequest){
   var apiUrl = environment.apiUrl;
   return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/folders/${request.sourceFolderId}/move`,request);
+}
+searchFilesystem(q:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<DataResponseModel<FilesystemSearchResult>>(`${apiUrl}my-cloud/filesystem/search?q=${q}`);
 }
 
 }
