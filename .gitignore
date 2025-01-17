@@ -340,3 +340,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /client/LEFiles.Client/.vs/LEFiles.Client/v17/.suo
+frontend.zip
