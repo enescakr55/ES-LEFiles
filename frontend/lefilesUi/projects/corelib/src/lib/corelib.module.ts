@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CorelibComponent } from './corelib.component';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,35 +14,26 @@ import { ComponentModalComponent } from './components/component-modal/component-
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
-@NgModule({
-  declarations: [
-    CorelibComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
-    ComponentModalComponent
-
-
-  ],
-  imports: [
-    HttpClientModule,
-    ReactiveFormsModule,
-    CommonModule,
-    TranslateModule.forRoot({
-      defaultLanguage:"tr-TR",
-      loader:{
-        provide:TranslateLoader,
-        useFactory:HttpLoaderFactory,
-        deps:[HttpClient]
-      }
-    })
-    
-  ],
-  exports: [
-    CorelibComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
-    TranslateModule,
-    TranslatePipe
-  ]
-})
+@NgModule({ declarations: [
+        CorelibComponent,
+        LoginPageComponent,
+        RegisterPageComponent,
+        ComponentModalComponent
+    ],
+    exports: [
+        CorelibComponent,
+        LoginPageComponent,
+        RegisterPageComponent,
+        TranslateModule,
+        TranslatePipe
+    ], imports: [ReactiveFormsModule,
+        CommonModule,
+        TranslateModule.forRoot({
+            defaultLanguage: "tr-TR",
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class CorelibModule { }

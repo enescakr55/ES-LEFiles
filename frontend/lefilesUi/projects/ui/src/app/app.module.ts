@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CorelibModule } from 'projects/corelib/src/public-api';
@@ -35,63 +35,45 @@ import { PreviewFileComponent } from './components/cloud-management/preview-file
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
-@NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    FileEntryItemComponent,
-    FileSystemComponent,
-    MyProfileComponent,
-    RegisterNewDeviceComponent,
-    VerticalMenuComponent,
-    HorizontalMenuComponent,
-    ClientRegistrationTokensComponent,
-    MyDevicesComponent,
-    ManageDevicesComponent,
-    CloudManagementComponent,
-    CreateFolderToCloudComponent,
-    UpdateFolderFromCloudComponent,
-    DeleteFolderFromCloudComponent,
-    CloudFileUploadComponent,
-    DeleteFileFromCloudComponent,
-    ProcessWatcherComponent,
-    ViewThumbnailComponent,
-    PreviewFileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CorelibModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({
-      positionClass:"toast-bottom-right",
-      progressBar:true,
-      progressAnimation:'decreasing',
-      maxOpened:3,
-      
-    }), // ToastrModule added
-    /*TranslateModule.forRoot({
-      defaultLanguage:"tr-TR",
-      loader:{
-        
-        provide:TranslateLoader,
-        useFactory:HttpLoaderFactory,
-        deps:[HttpClient]
-      }
-    })*/
-  ],
-  exports:[
-
-  ],
-  providers: [
-    {provide:AuthBaseService,useClass:AuthService},
-    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true},
-    TranslateModule,
-    TranslateStore,
-    ViewComponentModalService
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        MainComponent,
+        FileEntryItemComponent,
+        FileSystemComponent,
+        MyProfileComponent,
+        RegisterNewDeviceComponent,
+        VerticalMenuComponent,
+        HorizontalMenuComponent,
+        ClientRegistrationTokensComponent,
+        MyDevicesComponent,
+        ManageDevicesComponent,
+        CloudManagementComponent,
+        CreateFolderToCloudComponent,
+        UpdateFolderFromCloudComponent,
+        DeleteFolderFromCloudComponent,
+        CloudFileUploadComponent,
+        DeleteFileFromCloudComponent,
+        ProcessWatcherComponent,
+        ViewThumbnailComponent,
+        PreviewFileComponent
+    ],
+    exports: [],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        CorelibModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule, // required animations module
+        ToastrModule.forRoot({
+            positionClass: "toast-bottom-right",
+            progressBar: true,
+            progressAnimation: 'decreasing',
+            maxOpened: 3,
+        })], providers: [
+        { provide: AuthBaseService, useClass: AuthService },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        TranslateModule,
+        TranslateStore,
+        ViewComponentModalService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
