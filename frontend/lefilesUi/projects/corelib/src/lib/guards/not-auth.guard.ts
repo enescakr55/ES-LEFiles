@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StorageService } from '../services/storage/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NotAuthGuard implements CanActivate {
+export class NotAuthGuard  {
   constructor(private storageService:StorageService){}
   canActivate(
     route: ActivatedRouteSnapshot,
