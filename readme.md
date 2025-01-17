@@ -24,6 +24,8 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 
 🌞Karanlık / Aydınlık tema seçenekleri arasında geçiş yapılabilir.
 
+🔎 Klasörler ve dosyalar aranabilir
+
 
 ### Arayüz
 
@@ -41,6 +43,9 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 
 ![devices](https://github.com/user-attachments/assets/0904da0a-1f52-4ccc-a686-0c4f9e679035)
 
+![searchResults](https://github.com/user-attachments/assets/d96705d2-7917-400e-ae6b-54c08e0e214c)
+
+![emptyResult](https://github.com/user-attachments/assets/f38d35eb-d81b-4359-b3e3-cded1d48aa48)
 
 
 
