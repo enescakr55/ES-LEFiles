@@ -37,7 +37,12 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 
 ![list](https://github.com/user-attachments/assets/649a1845-957d-4751-bbae-3791d9ea0f34)
 
+![preview](https://github.com/user-attachments/assets/ed020068-5453-40f9-96b9-7924a637f5ea)
+
 ![devices](https://github.com/user-attachments/assets/0904da0a-1f52-4ccc-a686-0c4f9e679035)
+
+
+
 
 
 
