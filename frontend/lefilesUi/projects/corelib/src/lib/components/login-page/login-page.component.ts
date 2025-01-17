@@ -9,9 +9,10 @@ import { ErrorHandlerService } from '../../services/handler/error-handler.servic
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+    selector: 'lib-login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.css'],
+    standalone: false
 })
 export class LoginPageComponent implements OnInit {
   loginForm:FormGroup;

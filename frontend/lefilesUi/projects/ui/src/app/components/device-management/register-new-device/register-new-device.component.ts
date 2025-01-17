@@ -5,9 +5,10 @@ import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-ser
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-register-new-device',
-  templateUrl: './register-new-device.component.html',
-  styleUrls: ['./register-new-device.component.css']
+    selector: 'app-register-new-device',
+    templateUrl: './register-new-device.component.html',
+    styleUrls: ['./register-new-device.component.css'],
+    standalone: false
 })
 export class RegisterNewDeviceComponent implements OnInit {
   registerDeviceForm:FormGroup

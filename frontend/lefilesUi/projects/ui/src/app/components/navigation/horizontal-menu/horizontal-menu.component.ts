@@ -5,9 +5,10 @@ import { StorageService } from 'projects/corelib/src/lib/services/storage/storag
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-horizontal-menu',
-  templateUrl: './horizontal-menu.component.html',
-  styleUrls: ['./horizontal-menu.component.css']
+    selector: 'app-horizontal-menu',
+    templateUrl: './horizontal-menu.component.html',
+    styleUrls: ['./horizontal-menu.component.css'],
+    standalone: false
 })
 export class HorizontalMenuComponent implements OnInit {
   currentPath: string = location.pathname;

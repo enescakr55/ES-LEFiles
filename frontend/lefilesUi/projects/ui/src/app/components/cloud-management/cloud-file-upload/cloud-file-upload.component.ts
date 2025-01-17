@@ -5,9 +5,10 @@ import { WatchService } from '../../../services/watch.service';
 declare var window:any;
 //Ana sayfada indirmeleri yönetmek için bir arayüz eklenecek. Buradaki işlemler window'da herhangi bir parametreye yönlendirilecek. (mevcut part, toplam part,dosya adı, iptal seçeneği)...
 @Component({
-  selector: 'app-cloud-file-upload',
-  templateUrl: './cloud-file-upload.component.html',
-  styleUrls: ['./cloud-file-upload.component.css']
+    selector: 'app-cloud-file-upload',
+    templateUrl: './cloud-file-upload.component.html',
+    styleUrls: ['./cloud-file-upload.component.css'],
+    standalone: false
 })
 export class CloudFileUploadComponent implements OnInit {
 

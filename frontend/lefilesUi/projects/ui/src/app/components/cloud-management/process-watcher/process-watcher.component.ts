@@ -4,9 +4,10 @@ import { WatchService } from '../../../services/watch.service';
 import { Subscription } from 'rxjs';
 declare var window:any;
 @Component({
-  selector: 'app-process-watcher',
-  templateUrl: './process-watcher.component.html',
-  styleUrls: ['./process-watcher.component.css']
+    selector: 'app-process-watcher',
+    templateUrl: './process-watcher.component.html',
+    styleUrls: ['./process-watcher.component.css'],
+    standalone: false
 })
 export class ProcessWatcherComponent implements OnInit,OnDestroy {
   fileProgress:FileProgressItem[] = window["file_progress"];

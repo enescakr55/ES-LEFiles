@@ -6,9 +6,10 @@ import { ViewComponentModalService } from 'projects/corelib/src/lib/services/com
 import { ErrorHandlerService } from 'projects/corelib/src/lib/services/handler/error-handler.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent implements OnInit {
   title = 'ui';

@@ -3,9 +3,10 @@ import { DeviceManagementService } from '../../../services/device-management/dev
 import { ClientRegistrationTokenItemModel } from '../../../models/device-management/registrationTokenItem';
 
 @Component({
-  selector: 'app-client-registration-tokens',
-  templateUrl: './client-registration-tokens.component.html',
-  styleUrls: ['./client-registration-tokens.component.css']
+    selector: 'app-client-registration-tokens',
+    templateUrl: './client-registration-tokens.component.html',
+    styleUrls: ['./client-registration-tokens.component.css'],
+    standalone: false
 })
 export class ClientRegistrationTokensComponent implements OnInit {
   registrationTokenItems:ClientRegistrationTokenItemModel[];

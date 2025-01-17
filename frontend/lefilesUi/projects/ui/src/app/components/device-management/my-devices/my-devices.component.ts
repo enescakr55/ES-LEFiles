@@ -3,9 +3,10 @@ import { DeviceManagementService } from '../../../services/device-management/dev
 import { MyClientItemResponse } from '../../../models/device-management/myClientsItemResponse';
 
 @Component({
-  selector: 'app-my-devices',
-  templateUrl: './my-devices.component.html',
-  styleUrls: ['./my-devices.component.css']
+    selector: 'app-my-devices',
+    templateUrl: './my-devices.component.html',
+    styleUrls: ['./my-devices.component.css'],
+    standalone: false
 })
 export class MyDevicesComponent implements OnInit {
   myDevices:MyClientItemResponse[];

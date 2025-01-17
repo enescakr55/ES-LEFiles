@@ -3,9 +3,10 @@ import { CloudManagementService } from '../../../services/cloud-management/cloud
 import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-service.service';
 
 @Component({
-  selector: 'app-delete-folder-from-cloud',
-  templateUrl: './delete-folder-from-cloud.component.html',
-  styleUrls: ['./delete-folder-from-cloud.component.css']
+    selector: 'app-delete-folder-from-cloud',
+    templateUrl: './delete-folder-from-cloud.component.html',
+    styleUrls: ['./delete-folder-from-cloud.component.css'],
+    standalone: false
 })
 export class DeleteFolderFromCloudComponent implements OnInit {
   @Input() folderId:string;

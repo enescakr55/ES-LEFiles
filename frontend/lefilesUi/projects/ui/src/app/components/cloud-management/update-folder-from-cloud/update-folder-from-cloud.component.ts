@@ -7,9 +7,10 @@ import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-ser
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-update-folder-from-cloud',
-  templateUrl: './update-folder-from-cloud.component.html',
-  styleUrls: ['./update-folder-from-cloud.component.css']
+    selector: 'app-update-folder-from-cloud',
+    templateUrl: './update-folder-from-cloud.component.html',
+    styleUrls: ['./update-folder-from-cloud.component.css'],
+    standalone: false
 })
 export class UpdateFolderFromCloudComponent implements OnInit {
   @Input() folderId:string;

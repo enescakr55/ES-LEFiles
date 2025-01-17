@@ -8,9 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorHandlerService } from '../../services/handler/error-handler.service';
 
 @Component({
-  selector: 'lib-register-page',
-  templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.css']
+    selector: 'lib-register-page',
+    templateUrl: './register-page.component.html',
+    styleUrls: ['./register-page.component.css'],
+    standalone: false
 })
 export class RegisterPageComponent implements OnInit {
   registerForm:FormGroup

@@ -3,9 +3,10 @@ import { CloudManagementService } from '../../../services/cloud-management/cloud
 import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-service.service';
 
 @Component({
-  selector: 'app-delete-file-from-cloud',
-  templateUrl: './delete-file-from-cloud.component.html',
-  styleUrls: ['./delete-file-from-cloud.component.css']
+    selector: 'app-delete-file-from-cloud',
+    templateUrl: './delete-file-from-cloud.component.html',
+    styleUrls: ['./delete-file-from-cloud.component.css'],
+    standalone: false
 })
 export class DeleteFileFromCloudComponent implements OnInit {
   @Input() fileId:string;

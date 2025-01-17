@@ -6,9 +6,10 @@ import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-ser
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-create-folder-to-cloud',
-  templateUrl: './create-folder-to-cloud.component.html',
-  styleUrls: ['./create-folder-to-cloud.component.css']
+    selector: 'app-create-folder-to-cloud',
+    templateUrl: './create-folder-to-cloud.component.html',
+    styleUrls: ['./create-folder-to-cloud.component.css'],
+    standalone: false
 })
 export class CreateFolderToCloudComponent implements OnInit {
   createFolderForm:FormGroup;

@@ -15,9 +15,10 @@ import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-ser
 import { FolderItemDetailsResponse } from '../../models/file-management/folderItemDetailsResponse';
 
 @Component({
-  selector: 'app-cloud-management',
-  templateUrl: './cloud-management.component.html',
-  styleUrls: ['./cloud-management.component.css']
+    selector: 'app-cloud-management',
+    templateUrl: './cloud-management.component.html',
+    styleUrls: ['./cloud-management.component.css'],
+    standalone: false
 })
 export class CloudManagementComponent implements OnInit {
   parentFolder: string = null;

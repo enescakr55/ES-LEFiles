@@ -4,9 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-preview-file',
-  templateUrl: './preview-file.component.html',
-  styleUrls: ['./preview-file.component.css']
+    selector: 'app-preview-file',
+    templateUrl: './preview-file.component.html',
+    styleUrls: ['./preview-file.component.css'],
+    standalone: false
 })
 export class PreviewFileComponent implements OnInit {
   @Input() fileId:string;

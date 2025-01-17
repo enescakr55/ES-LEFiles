@@ -3,9 +3,10 @@ import { CloudManagementService } from '../../../services/cloud-management/cloud
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-view-thumbnail',
-  templateUrl: './view-thumbnail.component.html',
-  styleUrls: ['./view-thumbnail.component.css']
+    selector: 'app-view-thumbnail',
+    templateUrl: './view-thumbnail.component.html',
+    styleUrls: ['./view-thumbnail.component.css'],
+    standalone: false
 })
 export class ViewThumbnailComponent implements OnInit {
   @Input() fileItemId:string;

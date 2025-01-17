@@ -4,9 +4,10 @@ import { ViewComponentModalService } from '../../services/componentModal/view-co
 
 declare var bootstrap: any;
 @Component({
-  selector: 'lib-component-modal',
-  templateUrl: './component-modal.component.html',
-  styleUrls: ['./component-modal.component.css']
+    selector: 'lib-component-modal',
+    templateUrl: './component-modal.component.html',
+    styleUrls: ['./component-modal.component.css'],
+    standalone: false
 })
 export class ComponentModalComponent implements OnInit, AfterViewInit {
   @Input() titleTranslationKey: string;
