@@ -198,7 +198,7 @@
         </div>
         <div class="details-contents ui-text-primary"
           *ngIf="fileDetails != null && selectedItem != null && selectedItem.type == 1 && fileDetailsLoading == false && fileDetailsError == false && multipleSelection == false">
-          <app-preview-file [elStyle]="'max-width:150px; height:auto; border-radius:12px; margin-bottom:16px;'"
+          <app-preview-file style="width: 100%;" [elStyle]="'max-width:150px; height:auto; border-radius:12px; width:100%; margin-bottom:16px;'"
             *ngIf="fileDetails.preview == true" [fileId]="selectedItem.id"></app-preview-file>
           <div class="details-icon-container" *ngIf="fileDetails.icon && fileDetails.preview == false">
             <i [class]="fileDetails.icon+' details-icon'"></i>

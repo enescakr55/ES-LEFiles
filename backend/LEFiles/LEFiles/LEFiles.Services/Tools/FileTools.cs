@@ -25,11 +25,13 @@ namespace LEFiles.Services.Tools
     {
       if (extension != null)
       {
-        var isImage = FileExtensionTypes.Images.Any(x => x.ToLowerInvariant() == extension.ToLowerInvariant());
+        /*var isImage = FileExtensionTypes.Images.Any(x => x.ToLowerInvariant() == extension.ToLowerInvariant());
         if (isImage == true)
         {
           return true;
-        }
+        }*/
+        var allowPreview = FileExtensionTypes.Viewables.Any(x => x.ToLowerInvariant() == extension.ToLowerInvariant());
+        return allowPreview;
       }
       return false;
     }

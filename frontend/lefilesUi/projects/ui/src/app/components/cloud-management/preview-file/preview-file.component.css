@@ -1,6 +1,15 @@
 .preview-image {
     max-width: 100%;
 }
-.preview-image-container {
+.preview-audio {
+    max-width: 90%;
+    margin: 12px;
+    border: 2px solid rgb(58, 58, 58);
+    width: 90%;
+    border-radius: 0px;
+    background-color: rgb(244, 236, 236);
+}
+.preview-container {
     text-align: center;
+    width: 100%;
 }

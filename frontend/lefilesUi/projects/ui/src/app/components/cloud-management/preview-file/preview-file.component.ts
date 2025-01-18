@@ -11,8 +11,10 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class PreviewFileComponent implements OnInit {
   @Input() fileId:string;
-  imagePreview:SafeResourceUrl;
+  type:string;
+  fileResource:SafeResourceUrl;
   @Input() elStyle:string;
+  loading:boolean;
   constructor(private cloudManagementService:CloudManagementService,private activatedRoute:ActivatedRoute,private domSanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
@@ -21,11 +23,23 @@ export class PreviewFileComponent implements OnInit {
         if(this.fileId == null){
           this.fileId = param["id"];
         }
-
-        this.cloudManagementService.getImagePreview(this.fileId).subscribe({
+        this.loading = true;
+        this.cloudManagementService.getPreviewData(this.fileId).subscribe({
           next:(data)=>{
-            var img = URL.createObjectURL(data);
-            this.imagePreview = this.domSanitizer.bypassSecurityTrustResourceUrl(img);
+            console.log(data.size)
+            if(data.type == "image/png"){
+              this.type = "image";
+            }else if(data.type == "audio/mpeg"){
+              this.type = "audio";
+            }
+            var dataObj = URL.createObjectURL(data);
+            this.loading = false;
+            console.log(data.type);
+            console.log(this.type);
+
+            this.fileResource = this.domSanitizer.bypassSecurityTrustResourceUrl(dataObj);
+          },error:(err)=>{
+            this.loading = false;
           }
         })
       }

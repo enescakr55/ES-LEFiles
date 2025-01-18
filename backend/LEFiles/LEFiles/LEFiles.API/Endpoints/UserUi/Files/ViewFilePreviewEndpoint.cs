@@ -52,8 +52,11 @@ namespace LEFiles.API.Endpoints.UserUi.Files
       var filePath = fileUpload.FilePath;
       if(fileUpload.Extension != null){
         var isImage = FileExtensionTypes.Images.Any(x => x.ToLowerInvariant() == fileUpload.Extension.ToLowerInvariant());
+        var isAudio = FileExtensionTypes.Audios.Any(x => x.ToLowerInvariant() == fileUpload.Extension.ToLowerInvariant());
         if(isImage == true){
           fileType = "image";
+        }else if(isAudio == true){
+          fileType = "audio";
         }
       }
 
@@ -61,6 +64,10 @@ namespace LEFiles.API.Endpoints.UserUi.Files
       {
         var fileInfo = new FileInfo($"{filePath}");
         await SendFileAsync(fileInfo, "image/png", null, true, ct);
+        return;
+      }else if(fileUpload != null && fileUpload.FilePath != null && fileType == "audio" && File.Exists(fileUpload.FilePath)){
+        var fileInfo = new FileInfo($"{filePath}");
+        await SendFileAsync(fileInfo, "audio/mpeg", null, true, ct);
         return;
       }
       await SendErrorResult(500);
