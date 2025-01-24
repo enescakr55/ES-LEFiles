@@ -98,5 +98,6 @@
     "cloudManagement.search":"Ara",
     "common.unknownError":"Bilinmeyen bir hata oluştu",
     "cloudManagement.searchResults":"Arama Sonuçları",
-    "cloudManagement.searchResultIsEmpty":"Sonuç bulunamadı"
+    "cloudManagement.searchResultIsEmpty":"Sonuç bulunamadı",
+    "cloudManagement.folderDetails.contentCount":"İçerik Sayısı"
 }

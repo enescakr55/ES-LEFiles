@@ -426,6 +426,10 @@
     width: 80px;
     transition: 1s;
 }
+.search-input:required:valid{
+    width: 150px;
+    transition: 1s;
+}
 .search-input:focus {
     width: 150px;
     transition: 1s;

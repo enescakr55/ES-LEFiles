@@ -115,7 +115,7 @@
             </div>
             <div class="search-bar">
               <div class="search-input-container">
-                <input type="text" id="searh-input" class="search-input" #searchInput (keydown)="searchInputKeydown(searchInput,$event)" placeholder="{{'cloudManagement.search' | translate}}">
+                <input type="text" [required]="true" id="searh-input" class="search-input" #searchInput (keydown)="searchInputKeydown(searchInput,$event)" placeholder="{{'cloudManagement.search' | translate}}">
               </div>
               <div class="search-btn-container" (click)="searchBySearchParam(searchInput.value)">
                 <i class="bi bi-search"></i>
@@ -236,6 +236,10 @@
               <b class="file-detail-item-label">{{'cloudManagement.fileDetails.fileSize' | translate}}</b><br />
               <font class="file-detail-item-value">~{{fileDetails.fileSize}} MB</font>
             </div>-->
+            <div class="file-detail-item">
+              <b class="file-detail-item-label">{{'cloudManagement.folderDetails.contentCount' | translate}}</b><br />
+              <font class="file-detail-item-value">{{folderDetails.contentCount}}</font>
+            </div>
             <div class="file-detail-item">
               <b class="file-detail-item-label">{{'cloudManagement.folderDetails.createdAt' | translate}}</b><br />
               <font class="file-detail-item-value">{{folderDetails.createdAt | date}}</font>

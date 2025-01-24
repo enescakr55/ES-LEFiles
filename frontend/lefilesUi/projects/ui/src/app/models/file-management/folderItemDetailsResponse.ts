@@ -3,5 +3,6 @@ export interface FolderItemDetailsResponse {
     name:string,
     createdAt:Date,
     lastUpdatedAt:Date,
-    shared:boolean
+    shared:boolean,
+    contentCount:number
 }

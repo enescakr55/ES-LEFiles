@@ -12,6 +12,7 @@ namespace LEFiles.Services.ServiceModels.UserInterface.Folders.Responses
     public string Name { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; }
     public DateTime? LastUpdatedAt { get; set; }
+    public int ContentCount { get; set; }
     public bool Shared { get; set; }
   }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -115,6 +116,19 @@ namespace LEFiles.DataAccess
         entity.HasOne<User>().WithMany().HasForeignKey(x => x.UserId);
         entity.HasOne<Client>().WithMany().HasForeignKey(x => x.ClientId);
 
+      });
+      modelBuilder.Entity<SharedItem>(entity =>
+      {
+        entity.HasKey(x => x.Id);
+        entity.HasIndex(x => x.Id).IsUnique();
+        entity.HasIndex(x => x.AccessKey).IsUnique();
+        entity.Property(x => x.Id).HasMaxLength(50).IsRequired();
+        entity.Property(x => x.AccessKey).HasMaxLength(50).IsRequired();
+        entity.Property(x => x.ItemId).HasMaxLength(50).IsRequired();
+        entity.Property(x => x.Data).HasMaxLength(20000);
+        entity.Property(x => x.Password).HasMaxLength(50).IsRequired(false);
+        entity.Property(x => x.CreatedAt).IsRequired(true);
+        entity.Property(x => x.EndDate).IsRequired(false);
       });
       return modelBuilder;
     }

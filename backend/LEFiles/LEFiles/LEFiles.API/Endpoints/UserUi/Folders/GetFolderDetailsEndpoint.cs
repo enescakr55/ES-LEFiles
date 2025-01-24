@@ -41,12 +41,15 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         await SendErrorResult(404,"Folder not found");
         return;
       }
+      var folderCount = await _context.FolderItems.Where(x => x.ParentFolderId == folderId && x.UserId == userId).CountAsync();
+      var fileCount = await _context.FileItems.Where(x => x.ParentFolderId == folderId && x.UserId == userId).CountAsync();
       var folderDetails = new FolderDetailsResponse
       {
         CreatedAt = folder.CreatedAt,
         FolderId = folder.FolderId,
         LastUpdatedAt = folder.LastUpdatedAt,
-        Name = folder.FolderName
+        Name = folder.FolderName,
+        ContentCount = folderCount + fileCount
       };
       await SendAsync(new SuccessDataResult<FolderDetailsResponse>(folderDetails));
     }

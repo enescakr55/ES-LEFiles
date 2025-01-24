@@ -50,5 +50,6 @@ namespace LEFiles.DataAccess
     public DbSet<FolderItem> FolderItems { get; set; }
     public DbSet<WaitableRequest> WaitableRequests { get; set; }
     public DbSet<FileUploadItem> FileUploadItems { get; set; }
+    public DbSet<SharedItem> SharedItems { get; set; }
   }
 }
