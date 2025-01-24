@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Data.Migrations.Pos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Data.Migrations.Mysql", "LEFiles.Data.Migrations.Mysql\LEFiles.Data.Migrations.Mysql.csproj", "{43809B7A-80AB-4DA4-8F93-F2B4FA26563E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Common", "D:\Development\ES-LEFiles\LEFiles\common\LEFiles.Common\LEFiles.Common.csproj", "{5BB2618E-9329-4D36-8290-3A37303854C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LEFiles.Common", "C:\Users\enesc\ES-LEFiles\LEFiles\common\LEFiles.Common\LEFiles.Common.csproj", "{5BB2618E-9329-4D36-8290-3A37303854C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
