@@ -430,6 +430,12 @@
     width: 150px;
     transition: 1s;
 }
+.item-detail-button {
+    background-color: transparent;
+    background: transparent;
+    border: none;
+    outline: none;
+}
 .search-input:focus {
     width: 150px;
     transition: 1s;

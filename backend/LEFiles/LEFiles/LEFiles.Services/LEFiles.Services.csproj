@@ -14,10 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\common\LEFiles.Common\LEFiles.Common.csproj" />
     <ProjectReference Include="..\LEFiles.Core\LEFiles.Core.csproj" />
     <ProjectReference Include="..\LEFiles.DataAccess\LEFiles.DataAccess.csproj" />
     <ProjectReference Include="..\LEFiles.Models\LEFiles.Models.csproj" />
-    <ProjectReference Include="D:\Development\ES-LEFiles\LEFiles\common\LEFiles.Common\LEFiles.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

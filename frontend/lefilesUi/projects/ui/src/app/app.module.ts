@@ -32,6 +32,8 @@ import { DeleteFileFromCloudComponent } from './components/cloud-management/dele
 import { ProcessWatcherComponent } from './components/cloud-management/process-watcher/process-watcher.component';
 import { ViewThumbnailComponent } from './components/cloud-management/view-thumbnail/view-thumbnail.component';
 import { PreviewFileComponent } from './components/cloud-management/preview-file/preview-file.component';
+import { RenameFileComponent } from './components/cloud-management/rename-file/rename-file.component';
+import { ViewSharedItemDetailsComponent } from './components/cloud-management/view-shared-item-details/view-shared-item-details.component';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
@@ -44,6 +46,7 @@ export function HttpLoaderFactory(http:HttpClient){
         RegisterNewDeviceComponent,
         VerticalMenuComponent,
         HorizontalMenuComponent,
+        RenameFileComponent,
         ClientRegistrationTokensComponent,
         MyDevicesComponent,
         ManageDevicesComponent,
@@ -55,7 +58,8 @@ export function HttpLoaderFactory(http:HttpClient){
         DeleteFileFromCloudComponent,
         ProcessWatcherComponent,
         ViewThumbnailComponent,
-        PreviewFileComponent
+        PreviewFileComponent,
+        ViewSharedItemDetailsComponent
     ],
     exports: [],
     bootstrap: [AppComponent], imports: [BrowserModule,

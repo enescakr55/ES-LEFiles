@@ -1,0 +1,14 @@
+<div class="modal-form-container">
+    <form [formGroup]="renameFileForm">
+      <input type="hidden" class="form-control" id="fileId" placeholder="" formControlName="fileId">
+      <div class="mb-3">
+          <label for="fileName" class="form-label">{{'cloudManagement.newFileName' | translate}}</label>
+          <input type="text" class="form-control" id="fileName" placeholder="" formControlName="fileName">
+        </div>
+        <div style="text-align: right;">
+          <button class="btn btn-sm btn-primary" (click)="renameFile()">{{'cloudManagement.rename' | translate}}</button>
+        </div>
+      </form>
+  </div>
+  
+  

@@ -25,6 +25,7 @@ namespace LEFiles.Services.ServiceModels.UserInterface.Folders.Responses
     public string? Extension { get; set; }
     public bool? ThumbnailExists { get; set; }
     public bool? AllowPreview { get; set; } = false;
+    public bool? ShowDetailPreview { get; set; }
     public string? Icon { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastUpdatedAt { get; set; }

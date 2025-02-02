@@ -115,6 +115,7 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         AllowPreview = FileTools.IsAllowPreview(a.Extension),
         Extension = a.Extension,
         Icon = FileTools.GetIcon(a.Extension),
+        ShowDetailPreview = FileTools.IsDetailPreviewAvailabe(a.Extension),
         Shared = a.Shared,
         ThumbnailExists = FileTools.IsThumbnailExists(a.FileId) //Thumbnaillerin başka yerlerde depolanma olasılığına karşı servis oluşturulacak.
       }).ToListAsync();

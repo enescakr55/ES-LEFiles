@@ -48,6 +48,7 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         CreatedAt = folder.CreatedAt,
         FolderId = folder.FolderId,
         LastUpdatedAt = folder.LastUpdatedAt,
+        DetailPreview = false,
         Name = folder.FolderName,
         ContentCount = folderCount + fileCount
       };

@@ -34,13 +34,22 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(400);
         return;
       }
-      var file = await _context.FileItems.SingleOrDefaultAsync(x => x.FileId == req.FileId && x.UserId == userId,ct);
+      var file = await _context.FileItems.Include(x=>x.FileUploadItem).SingleOrDefaultAsync(x => x.FileId == req.FileId && x.UserId == userId,ct);
       if(file == null){
         await SendErrorResult(404);
         return;
       }
+      var fileUploadItem = file.FileUploadItem;
+      if (fileUploadItem == null)
+      {
+        await SendErrorResult(404);
+        return;
+      }
+      fileUploadItem.FileName = req.FileName;
       file.FileName = req.FileName;
       _context.Update(file);
+      _context.Update(fileUploadItem);
+      await _context.SaveChangesAsync(ct);
       await _context.SaveChangesAsync(ct);
       await SendAsync(new SuccessResult("cloudManagement.files.fileRenamedSuccessfully"));
     }

@@ -12,6 +12,7 @@ import { CopyFilesRequest } from '../../models/cloud-management/copyFilesRequest
 import { FolderItemDetailsResponse } from '../../models/file-management/folderItemDetailsResponse';
 import { MoveFolderRequest } from '../../models/cloud-management/moveFolderRequest';
 import { FilesystemSearchResult } from '../../models/cloud-management/filesystemSearchResult';
+import { RenameFileRequest } from '../../models/cloud-management/renameFileRequest';
 
 
 @Injectable({
@@ -137,6 +138,10 @@ moveFolder(request:MoveFolderRequest){
 searchFilesystem(q:string){
   var apiUrl = environment.apiUrl;
   return this.httpClient.get<DataResponseModel<FilesystemSearchResult>>(`${apiUrl}my-cloud/filesystem/search?q=${q}`);
+}
+renameFile(request:RenameFileRequest){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/${request.fileId}/rename`,request);
 }
 
 }

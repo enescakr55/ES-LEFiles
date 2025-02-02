@@ -13,6 +13,8 @@ import { PreviewFileComponent } from './preview-file/preview-file.component';
 import { FileItemDetailsResponse } from '../../models/file-management/fileItemDetailsResponse';
 import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-service.service';
 import { FolderItemDetailsResponse } from '../../models/file-management/folderItemDetailsResponse';
+import { RenameFileComponent } from './rename-file/rename-file.component';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-cloud-management',
@@ -139,15 +141,21 @@ export class CloudManagementComponent implements OnInit {
   selectedFileCount(){
     return this.selectedItems.filter(x=>x.type == 1).length;
   }
-  getFiles() {
-    var viewtype = this.fileView == true ? 'f' : 'h';
-    var filters = this.typeFilters.length != 0 ? this.typeFilters.join(',') : null;
-    this.cloudManagementService.getFileSystemEntries(this.parentFolder, { filters: filters, viewtype: viewtype }).subscribe({
-      next: (response) => {
-        this.fileSystemEntries = response.data;
-        this.openingFolder = null;
-      }
+  getFiles():Promise<boolean> {
+    return new Promise((resolve,reject)=>{
+      var viewtype = this.fileView == true ? 'f' : 'h';
+      var filters = this.typeFilters.length != 0 ? this.typeFilters.join(',') : null;
+      this.cloudManagementService.getFileSystemEntries(this.parentFolder, { filters: filters, viewtype: viewtype }).subscribe({
+        next: (response) => {
+          this.fileSystemEntries = response.data;
+          this.openingFolder = null;
+          resolve(true);
+        },error:(err)=>{
+          reject(false);
+        }
+      })
     })
+
   }
   previewFile(file:FileSystemEntryItemResponse = undefined) {
     this.componentModal.showModal("cloudManagement.preview", "component", PreviewFileComponent, { fileId: file == undefined ? this.selectedItem.id : file.id }, { width: "medium" });
@@ -155,6 +163,15 @@ export class CloudManagementComponent implements OnInit {
   homeFolder() {
     this.parentFolder = null;
     this.getFiles();
+  }
+  renameFile(){
+    this.componentModal.showModal("cloudManagement.renameFile","component",RenameFileComponent, {fileName:this.selectedItem.name,fileId:this.selectedItem.id}).then(()=>{
+      this.getFiles().then(()=>{
+        this.selectedItem = this.fileSystemEntries.entries.find(x=>x.id == this.selectedItem.id);
+        this.getFileDetails(this.selectedItem);
+      });
+      
+    })
   }
   createFolder() {
     this.componentModal.showModal("cloudManagement.createFolder", "component", CreateFolderToCloudComponent, { folderId: this.parentFolder }).then(() => {
@@ -226,6 +243,9 @@ export class CloudManagementComponent implements OnInit {
     if ($ev.target !== $ev.currentTarget) {
       return;
     }
+    this.deselectAllProcess();
+  }
+  deselectAllProcess(){
     this.selectedItem = null;
     this.selectedItems = [];
     this.fileDetails = null;

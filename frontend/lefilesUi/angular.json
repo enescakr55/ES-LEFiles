@@ -5,7 +5,12 @@
   "projects": {
     "ui": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css",
+          "standalone": false
+        }
+      },
       "root": "projects/ui",
       "sourceRoot": "projects/ui/src",
       "prefix": "app",

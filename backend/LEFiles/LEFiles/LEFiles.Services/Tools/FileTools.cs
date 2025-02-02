@@ -1,4 +1,5 @@
-﻿using LEFiles.Common.Constraints;
+﻿
+using LEFiles.Common.Constraints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,19 @@ namespace LEFiles.Services.Tools
           return true;
         }*/
         var allowPreview = FileExtensionTypes.Viewables.Any(x => x.ToLowerInvariant() == extension.ToLowerInvariant());
+        return allowPreview;
+      }
+      return false;
+    }    public static bool IsDetailPreviewAvailabe(string extension)
+    {
+      if (extension != null)
+      {
+        /*var isImage = FileExtensionTypes.Images.Any(x => x.ToLowerInvariant() == extension.ToLowerInvariant());
+        if (isImage == true)
+        {
+          return true;
+        }*/
+        var allowPreview = FileExtensionTypes.ShowDetailPreview.Any(x => x.ToLowerInvariant() == extension.ToLowerInvariant());
         return allowPreview;
       }
       return false;

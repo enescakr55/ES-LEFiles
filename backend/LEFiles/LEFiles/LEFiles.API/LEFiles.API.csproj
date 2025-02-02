@@ -27,13 +27,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\common\LEFiles.Common\LEFiles.Common.csproj" />
     <ProjectReference Include="..\LEFiles.Core\LEFiles.Core.csproj" />
     <ProjectReference Include="..\LEFiles.Data.Migrations.Mysql\LEFiles.Data.Migrations.Mysql.csproj" />
     <ProjectReference Include="..\LEFiles.Data.Migrations.Postgres\LEFiles.Data.Migrations.Postgres.csproj" />
     <ProjectReference Include="..\LEFiles.DataAccess\LEFiles.DataAccess.csproj" />
     <ProjectReference Include="..\LEFiles.Models\LEFiles.Models.csproj" />
     <ProjectReference Include="..\LEFiles.Services\LEFiles.Services.csproj" />
-    <ProjectReference Include="D:\Development\ES-LEFiles\LEFiles\common\LEFiles.Common\LEFiles.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
