@@ -15,6 +15,7 @@ import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-ser
 import { FolderItemDetailsResponse } from '../../models/file-management/folderItemDetailsResponse';
 import { RenameFileComponent } from './rename-file/rename-file.component';
 import { Observable } from 'rxjs';
+import { ShareFileComponent } from './share-file/share-file.component';
 
 @Component({
     selector: 'app-cloud-management',
@@ -176,6 +177,11 @@ export class CloudManagementComponent implements OnInit {
   createFolder() {
     this.componentModal.showModal("cloudManagement.createFolder", "component", CreateFolderToCloudComponent, { folderId: this.parentFolder }).then(() => {
       this.getFiles();
+    })
+  }
+  shareFile(){
+    this.componentModal.showModal("cloudManagement.shareFile","component",ShareFileComponent,{fileId:this.selectedItem.id}).then(()=>{
+      this.getFileDetails(this.selectedItem);
     })
   }
   updateFolderModal() {

@@ -130,6 +130,18 @@ namespace LEFiles.DataAccess
         entity.Property(x => x.CreatedAt).IsRequired(true);
         entity.Property(x => x.EndDate).IsRequired(false);
       });
+      modelBuilder.Entity<EntryAccessItem>(entity =>
+      {
+        entity.HasKey(x => x.Id);
+        entity.HasIndex(x => x.Id).IsUnique();
+        entity.HasIndex(x => x.Code).IsUnique();
+        entity.Property(x=>x.Id).UseIdentityAlwaysColumn();
+        entity.Property(x=>x.Target).HasMaxLength(50).IsRequired();
+        entity.Property(x=>x.SubTarget).HasMaxLength(50).IsRequired(false);
+        entity.Property(x=>x.UserId).HasMaxLength(50).IsRequired(false);
+        entity.Property(x => x.Code).HasMaxLength(500).IsRequired();
+        entity.HasOne(x=>x.User).WithMany().HasForeignKey(x=>x.UserId).IsRequired(false).OnDelete(DeleteBehavior.Cascade);
+      });
       return modelBuilder;
     }
   }

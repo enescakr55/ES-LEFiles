@@ -13,6 +13,7 @@ import { FolderItemDetailsResponse } from '../../models/file-management/folderIt
 import { MoveFolderRequest } from '../../models/cloud-management/moveFolderRequest';
 import { FilesystemSearchResult } from '../../models/cloud-management/filesystemSearchResult';
 import { RenameFileRequest } from '../../models/cloud-management/renameFileRequest';
+import { ShareFileRequest } from '../../models/cloud-management/shareFileRequest';
 
 
 @Injectable({
@@ -142,6 +143,10 @@ searchFilesystem(q:string){
 renameFile(request:RenameFileRequest){
   var apiUrl = environment.apiUrl;
   return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/${request.fileId}/rename`,request);
+}
+shareFile(request:ShareFileRequest){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/${request.fileId}/share`,request);
 }
 
 }

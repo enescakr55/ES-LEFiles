@@ -229,6 +229,9 @@
               <font class="file-detail-item-value">{{fileDetails.shared ? ('cloudManagement.fileDetails.sharing' |
                 translate) : ('cloudManagement.fileDetails.notSharing' | translate)}}</font>
             </div>
+            <div class="file-actions">
+              <button class="ui-button ui-button-primary" (click)="shareFile()">{{'buttons.share' | translate}}</button>
+            </div>
           </div>
         </div>
 

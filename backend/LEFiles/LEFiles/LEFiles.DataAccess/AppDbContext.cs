@@ -35,6 +35,7 @@ namespace LEFiles.DataAccess
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
     if(ConnectModel.Provider == "postgres"){
         modelBuilder.HasPostgresExtension("uuid-ossp");
         modelBuilder.HasDefaultSchema(ConnectModel.Schema ?? "lefiles");
@@ -51,5 +52,6 @@ namespace LEFiles.DataAccess
     public DbSet<WaitableRequest> WaitableRequests { get; set; }
     public DbSet<FileUploadItem> FileUploadItems { get; set; }
     public DbSet<SharedItem> SharedItems { get; set; }
+    public DbSet<EntryAccessItem> EntryAccessItems { get; set; }
   }
 }

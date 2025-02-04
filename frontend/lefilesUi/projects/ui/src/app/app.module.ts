@@ -34,6 +34,7 @@ import { ViewThumbnailComponent } from './components/cloud-management/view-thumb
 import { PreviewFileComponent } from './components/cloud-management/preview-file/preview-file.component';
 import { RenameFileComponent } from './components/cloud-management/rename-file/rename-file.component';
 import { ViewSharedItemDetailsComponent } from './components/cloud-management/view-shared-item-details/view-shared-item-details.component';
+import { ShareFileComponent } from './components/cloud-management/share-file/share-file.component';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http,"/assets/langs/",".json")
 }
@@ -59,7 +60,8 @@ export function HttpLoaderFactory(http:HttpClient){
         ProcessWatcherComponent,
         ViewThumbnailComponent,
         PreviewFileComponent,
-        ViewSharedItemDetailsComponent
+        ViewSharedItemDetailsComponent,
+        ShareFileComponent
     ],
     exports: [],
     bootstrap: [AppComponent], imports: [BrowserModule,

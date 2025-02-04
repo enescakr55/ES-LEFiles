@@ -1,0 +1,28 @@
+<div class="share-file-container">
+    <div class="file-info">
+
+    </div>
+    <div class="share-form">
+        <form [formGroup]="shareForm">
+            <input id="fileId" name="fileId" formControlName="fileId" [value]="fileId" type="hidden">
+            <div class="form-item-container">
+                <label for="endDate">{{'shareFile.endDate' | translate}}</label>
+                <input class="form-control" id="end" name="end" formControlName="end" type="datetime-local">
+            </div>
+            <div class="form-item-container">
+                <label for="access">{{'shareFile.shareSecurity' | translate}}</label>
+                <select class="form-select" id="access" [value]="0" name="access" formControlName="access">
+                    <option [value]="0" [selected]="true">{{'shareFile.securityOptions.anonymous' | translate}}</option>
+                    <option [value]="1">{{'shareFile.securityOptions.onlyUsers' | translate}}</option>
+                    <option [value]="2">{{'shareFile.securityOptions.specificUsers' | translate}}</option>
+                </select>
+            </div>
+            <div class="form-item-container">
+                <label for="users">{{'shareFile.users' | translate}}</label>
+                <input class="form-control" id="users" name="users" formControlName="users" type="text" [placeholder]="'user1,user2,user3'">
+                <font class="users-field-desc">{{'shareFile.usersFieldDescription' | translate}}</font>
+            </div>
+            <button (click)="share()" class="btn btn-secondary btn-sm mt-2">{{'buttons.share' | translate}}</button>
+        </form>
+    </div>
+</div>

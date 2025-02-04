@@ -100,5 +100,13 @@
     "common.unknownError":"Bilinmeyen bir hata oluştu",
     "cloudManagement.searchResults":"Arama Sonuçları",
     "cloudManagement.searchResultIsEmpty":"Sonuç bulunamadı",
-    "cloudManagement.folderDetails.contentCount":"İçerik Sayısı"
+    "cloudManagement.folderDetails.contentCount":"İçerik Sayısı",
+    "cloudManagement.shareFile":"Dosya Paylaşımı",
+    "shareFile.endDate":"Sona Erme Tarihi",
+    "shareFile.shareSecurity":"Paylaşım Güvenliği",
+    "shareFile.securityOptions.anonymous":"Herkese açık",
+    "shareFile.securityOptions.onlyUsers":"Yalnızca üyeler",
+    "shareFile.securityOptions.specificUsers":"Belirli kullanıcılar",
+    "shareFile.usersFieldDescription":"Paylaşım güvenliği alanı belirli kullanıcılar olarak ayarlanırsa paylaşılan dosyaya erişim sağlayabilecek kullanıcıların kullanıcı adı bilgisi bu alana eklenmelidir, kullanıcı adları virgül ile ayrılmalıdır."
+    
 }

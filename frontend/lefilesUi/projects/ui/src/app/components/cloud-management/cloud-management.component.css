@@ -224,8 +224,14 @@
 .multiple-select-container.active {
     background-color: var(--entry-item-active-color);
 }
+.item-detail-button {
+    color:var(--ui-primary-item-text)
+}
 .folder-navigation-top-items {
     display: flex;
+}
+.file-actions {
+    margin-top: 12px;
 }
 .fileInfoText {
     font-size: 12px;

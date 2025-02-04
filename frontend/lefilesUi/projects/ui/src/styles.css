@@ -110,3 +110,20 @@
 .ui-text-secondary {
     color: var(--ui-text-secondary);
 }
+
+.ui-button {
+    border-radius: 0.25rem;
+    border: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.ui-button-primary {
+    background: rgb(0, 70, 183);
+    color: white;
+}
+.ui-button-primary:hover {
+    background: rgb(16, 87, 203);
+}
+.ui-button-small {
+    font-size: 13px;
+}
