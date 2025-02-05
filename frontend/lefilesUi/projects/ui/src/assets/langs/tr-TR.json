@@ -107,6 +107,8 @@
     "shareFile.securityOptions.anonymous":"Herkese açık",
     "shareFile.securityOptions.onlyUsers":"Yalnızca üyeler",
     "shareFile.securityOptions.specificUsers":"Belirli kullanıcılar",
-    "shareFile.usersFieldDescription":"Paylaşım güvenliği alanı belirli kullanıcılar olarak ayarlanırsa paylaşılan dosyaya erişim sağlayabilecek kullanıcıların kullanıcı adı bilgisi bu alana eklenmelidir, kullanıcı adları virgül ile ayrılmalıdır."
+    "shareFile.usersFieldDescription":"Paylaşım güvenliği alanı belirli kullanıcılar olarak ayarlanırsa paylaşılan dosyaya erişim sağlayabilecek kullanıcıların kullanıcı adı bilgisi bu alana eklenmelidir, kullanıcı adları virgül ile ayrılmalıdır.",
+    "shareFile.users":"Kullanıcılar",
+    "buttons.share":"Paylaş"
     
 }

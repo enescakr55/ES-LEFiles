@@ -42,7 +42,7 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(404);
         return;
       }
-      var sharingItems = _context.SharedItems.Where(x => x.ItemId == file.FileId && x.Type == SharedItemTypesEnum.FILE && x.EndDate > DateTime.UtcNow).Count();
+      var sharingItems = _context.SharedItems.Where(x => x.ItemId == file.FileId && x.Type == SharedItemTypesEnum.FILE && (x.EndDate > DateTime.UtcNow) || x.EndDate == null).Count();
       
       if(file.Shared == true && sharingItems > 0){
         await SendErrorResult(409, "File already sharing");

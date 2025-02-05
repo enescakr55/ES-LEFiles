@@ -5,6 +5,7 @@ using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
 using LEFiles.Services.ServiceModels.UserInterface.Files.Responses;
 using LEFiles.Services.Tools;
+using Microsoft.EntityFrameworkCore;
 
 namespace LEFiles.API.Endpoints.UserUi.Files
 {
@@ -36,6 +37,7 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(404);
         return;
       }
+      var currentlySharing = await _context.SharedItems.Where(x => x.ItemId == fileId && x.Type == Models.Enums.SharedItemTypesEnum.FILE && (x.EndDate == null || x.EndDate > DateTime.UtcNow)).CountAsync();
       var result = new FileDetailsResponse
       {
         CreatedAt = file.CreatedAt,
@@ -45,7 +47,7 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         Icon = FileTools.GetIcon(file.Extension),
         FileSize = file.FileSize,
         Preview = FileTools.IsAllowPreview(file.Extension),
-        Shared = file.Shared,
+        Shared = (file.Shared == true && currentlySharing > 0) ? true : false,
         Thumbnail = FileTools.IsThumbnailExists(file.FileId)
       };
       await SendAsync(new SuccessDataResult<FileDetailsResponse>(result));

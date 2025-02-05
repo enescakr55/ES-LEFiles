@@ -18,6 +18,7 @@ export class ShareFileComponent implements OnInit {
   shareForm:FormGroup;
   @Input() fileId:string;
   loading:boolean;
+  shareSecurity:number = 0;
   fileDetails:FileItemDetailsResponse;
   ngOnInit(): void {
     this.getFileDetails();
@@ -27,6 +28,7 @@ export class ShareFileComponent implements OnInit {
       access:[0],
       users:[null]
     })
+    this.shareForm.get("users").disable();
   }
 
   getFileDetails(){
@@ -39,6 +41,15 @@ export class ShareFileComponent implements OnInit {
         this.toastService.error("common.errorOccurred");
       }
     })
+  }
+  shareSecurityChanged(val:any){
+    this.shareSecurity = typeof(val) == "string" ? parseInt(val) : val;
+    if(this.shareSecurity == 2){
+      this.shareForm.get("users").enable();
+    }else{
+      this.shareForm.get("users").disable();
+      this.shareForm.get("users").setValue("");
+    }
   }
   share(){
     if(this.shareForm.valid){
