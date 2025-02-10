@@ -26,6 +26,8 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 
 🔎 Klasörler ve dosyalar aranabilir
 
+📡 Bulut sistemindeki dosyalar, anonim kullanıcılarla, yalnızca platform üyeleriyle ya da belirli kullanıcılarla paylaşılabilir. 
+
 
 ### Arayüz
 
@@ -46,6 +48,8 @@ Web arayüzü Angular, arka uç servisi ve client (Windows & Linux) uygulamalar�
 ![searchResults](https://github.com/user-attachments/assets/d96705d2-7917-400e-ae6b-54c08e0e214c)
 
 ![emptyResult](https://github.com/user-attachments/assets/f38d35eb-d81b-4359-b3e3-cded1d48aa48)
+
+![sharePage](https://github.com/user-attachments/assets/c8d06de6-8d06-4db7-8819-e5eb4a5b1604)
 
 
 
