@@ -1,1 +1,37 @@
-<p>view-shared-item-details works!</p>
+<div class="shared-item-info-page-wrapper">
+
+    <div class="shared-item-info-container" *ngIf="sharedItem != null">
+        <div class="shared-item-info-header">
+            <img class="shared-item-info-site-logo" [src]="'/assets/images/logo2.png'" />
+            <h5 class="shared-item-info-page-title">{{'sharedItems.sharedFileInfoPageTitle' | translate}}</h5>
+        </div>
+        <div class="shared-item-body">
+            <div class="shared-item-info-detail-container">
+                <div class="shared-item-icon-container">
+                    <i [class]="'shared-item-icon '+sharedItem.icon"></i>
+                </div>
+                <div class="shared-item-info-detail">
+                    <b class="detail-title">{{'sharedItem.sharedItemName' | translate}} : </b>
+                    <font class="detail-value">{{sharedItem.name}}</font>
+                </div>
+                <div class="shared-item-info-detail">
+                    <b class="detail-title">{{'sharedItem.size' | translate}} : </b>
+                    <font class="detail-value">{{sharedItem.size}} MB</font>
+                </div>
+                <div class="shared-item-info-detail">
+                    <b class="detail-title">{{'sharedItem.extension' | translate}} : </b>
+                    <font class="detail-value">{{sharedItem.extension}}</font>
+                </div>
+            </div>
+            <div>
+                <div class="shared-item-buttons">
+                    <button class="ui-button ui-button-primary ui-text-bold button-extras" (click)="downloadFile()">{{'sharedItem.download' |
+                        translate}}</button>
+                </div>
+                <div class="disclaimer-container">
+                    <font class="disclaimer-message">{{'sharedItem.disclaimerMessage' | translate}}</font>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

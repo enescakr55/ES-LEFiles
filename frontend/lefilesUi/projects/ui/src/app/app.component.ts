@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   title = 'ui';
   constructor(private translateService:TranslateService,private applicationRef: ApplicationRef,private componentModal:ViewComponentModalService, private containerRef: ViewContainerRef,private toastrService:ToastrService,private router:Router){}
   
-  hideMenuUrls:string[] = ["/login"];
+  hideMenuUrls:string[] = ["/login","/shared"];
   menuVisibility:boolean = true;
   showProgressViewer:boolean = false;
   ngOnInit(): void {

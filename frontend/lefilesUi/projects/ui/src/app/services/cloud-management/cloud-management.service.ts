@@ -14,6 +14,8 @@ import { MoveFolderRequest } from '../../models/cloud-management/moveFolderReque
 import { FilesystemSearchResult } from '../../models/cloud-management/filesystemSearchResult';
 import { RenameFileRequest } from '../../models/cloud-management/renameFileRequest';
 import { ShareFileRequest } from '../../models/cloud-management/shareFileRequest';
+import { SharingDetailsResponse } from '../../models/cloud-management/sharingDetailsResponse';
+import { SharingItemInfoResponse } from '../../models/cloud-management/sharingItemInfoResponse';
 
 
 @Injectable({
@@ -147,6 +149,22 @@ renameFile(request:RenameFileRequest){
 shareFile(request:ShareFileRequest){
   var apiUrl = environment.apiUrl;
   return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/${request.fileId}/share`,request);
+}
+fileSharingDetails(fileId:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<DataResponseModel<SharingDetailsResponse>>(`${apiUrl}my-cloud/files/${fileId}/sharing-details`);
+}
+folderSharingDetails(folderId:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<DataResponseModel<SharingDetailsResponse>>(`${apiUrl}my-cloud/folders/${folderId}/sharing-details`);
+}
+sharingItemInfo(sharedItemKey:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<DataResponseModel<SharingItemInfoResponse>>(`${apiUrl}shared/${sharedItemKey}/info`);
+}
+generateSharingItemAccessToken(sharedItemKey:string){
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.get<DataResponseModel<string>>(`${apiUrl}shared/${sharedItemKey}/token`)
 }
 
 }

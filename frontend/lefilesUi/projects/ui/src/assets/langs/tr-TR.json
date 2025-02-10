@@ -109,6 +109,23 @@
     "shareFile.securityOptions.specificUsers":"Belirli kullanıcılar",
     "shareFile.usersFieldDescription":"Paylaşım güvenliği alanı belirli kullanıcılar olarak ayarlanırsa paylaşılan dosyaya erişim sağlayabilecek kullanıcıların kullanıcı adı bilgisi bu alana eklenmelidir, kullanıcı adları virgül ile ayrılmalıdır.",
     "shareFile.users":"Kullanıcılar",
-    "buttons.share":"Paylaş"
+    "buttons.share":"Paylaş",
+    "cloudManagement.sharingDetails.sharingAccess":"Erişim Türü",
+    "cloudManagement.sharingDetails.sharingEnd":"Paylaşım Sonu",
+    "cloudManagement.sharingDetails.usersCanAccessToFile":"Erişebilecek Kullanıcılar",
+    "cloudManagement.sharingDetails.sharingDetailsTitle":"Paylaşım Detayları",
+    "cloudManagement.sharingDetails.sharingAccess.anonymous":"Herkese Açık",
+    "cloudManagement.sharingDetails.sharingAccess.onlyUsers":"Yalnızca Üyeler",
+    "cloudManagement.sharingDetails.sharingAccess.specificUsers":"Belirli Üyeler",
+    "cloudManagement.renameFile":"Dosyayı Yeniden Adlandır",
+    "cloudManagement.newFileName":"Yeni dosya adı",
+    "cloudManagement.rename":"Yeniden Adlandır",
+    "sharedItems.sharedItemInfoPageTitle":"Paylaşılan Öğe Detayları",
+    "sharedItems.sharedFileInfoPageTitle":"Paylaşılan Dosya Detayları",
+    "sharedItem.sharedItemName":"Paylaşılan Öğe",
+    "sharedItem.extension":"Uzantı",
+    "sharedItem.size":"Boyut",
+    "sharedItem.download":"Dosyayı İndir",
+    "sharedItem.disclaimerMessage":"İndirilen dosyalardan oluşabilecek zararlardan ESAY CLOUD sorumlu tutulamaz."
     
 }

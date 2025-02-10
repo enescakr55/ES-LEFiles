@@ -9,6 +9,7 @@ import { DeviceManagementService } from './services/device-management/device-man
 import { ManageDevicesComponent } from './components/device-management/manage-devices/manage-devices.component';
 import { CloudManagementComponent } from './components/cloud-management/cloud-management.component';
 import { PreviewFileComponent } from './components/cloud-management/preview-file/preview-file.component';
+import { ViewSharedItemDetailsComponent } from './components/cloud-management/view-shared-item-details/view-shared-item-details.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"devices",component:ManageDevicesComponent,pathMatch:"full",canActivate:[AuthGuard]},
   {path:"login",component:LoginPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
   {path:"register",component:RegisterPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
+  {path:"shared/:key/info",component:ViewSharedItemDetailsComponent,pathMatch:"full"}
 
 ];
 

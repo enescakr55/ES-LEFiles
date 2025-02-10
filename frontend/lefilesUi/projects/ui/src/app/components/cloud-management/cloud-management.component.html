@@ -229,6 +229,24 @@
               <font class="file-detail-item-value">{{fileDetails.shared ? ('cloudManagement.fileDetails.sharing' |
                 translate) : ('cloudManagement.fileDetails.notSharing' | translate)}}</font>
             </div>
+            
+            <div class="sharing-details-container" *ngIf="sharingDetails && loadingSharingDetails == false">
+              <font class="details-contents-sharing-details-title"><i class="bi bi-share-fill"></i> {{'cloudManagement.sharingDetails.sharingDetailsTitle' | translate}}</font>
+              <div class="sharing-detail-item" *ngIf="sharingDetails.access != null">
+                <b class="sharing-detail-item-title">{{'cloudManagement.sharingDetails.sharingAccess' | translate}}</b><br/>
+                <font class="sharing-detail-item-value">{{sharingDetails.access == 0 ? ('cloudManagement.sharingDetails.sharingAccess.anonymous' | translate) : sharingDetails.access == 1 ? ('cloudManagement.sharingDetails.sharingAccess.onlyUsers' | translate) : sharingDetails.access == 2 ? ('cloudManagement.sharingDetails.sharingAccess.specificUsers' | translate) : '' }}</font>
+              </div>
+              <div class="sharing-detail-item" *ngIf="sharingDetails.end">
+                <b class="sharing-detail-item-title">{{'cloudManagement.sharingDetails.sharingEnd' | translate}}</b><br/>
+                <font class="sharing-detail-item-value">{{sharingDetails.end | date : 'dd/MM/yyyy hh:mm'}}</font>
+              </div>
+              <div class="sharing-detail-item" *ngIf="sharingDetails.users && sharingDetails.users.length > 0">
+                <b class="sharing-detail-item-title">{{'cloudManagement.sharingDetails.usersCanAccessToFile' | translate}}</b><br/>
+                <ul class="list-group list-group-flush ">
+                  <li class="sharing-detail-list-group-user-item" *ngFor="let person of sharingDetails.users"><i class="bi bi-person-circle"></i> {{person.userName}}</li>
+                </ul>
+              </div>
+            </div>
             <div class="file-actions">
               <button class="ui-button ui-button-primary ui-text-bold" (click)="shareFile()"><i class="bi bi-share-fill"></i> {{'buttons.share' | translate}}</button>
             </div>

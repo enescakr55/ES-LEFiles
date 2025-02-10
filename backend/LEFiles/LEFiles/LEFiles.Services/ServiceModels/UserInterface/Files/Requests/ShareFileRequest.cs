@@ -12,6 +12,6 @@ namespace LEFiles.Services.ServiceModels.UserInterface.Files.Requests
     public string FileId { get; set; } = string.Empty;
     public DateTime? End { get; set; } = null;
     public SharedItemAccessTypesEnum Access { get; set; }
-    public string? Users = null;
+    public string? Users { get; set; } = null;
   }
 }

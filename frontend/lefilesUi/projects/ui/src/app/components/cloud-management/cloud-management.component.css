@@ -390,8 +390,36 @@
 .file-detail-item-value {
     font-size: 13px;
 }
+
 .file-detail-item-label {
     font-size: 13px;
+}
+.sharing-detail-item-title {
+    font-size: 13px;
+}
+.sharing-detail-item-value {
+    font-size: 13px;
+}
+.sharing-details-container {
+    padding-top: 12px;
+}
+.sharing-detail-list-group-user-item {
+
+        position: relative;
+        display: block;
+        padding: 0.5rem 1rem;
+        color: var(--ui-text-secondary);
+        text-decoration: none;
+        background-color: var(--ui-panel-background);
+        border: none;
+        list-style: none;
+    
+}
+.details-contents-sharing-details-title {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 18px;
 }
 .multiple-file-details {
     display: flex;

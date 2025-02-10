@@ -2,10 +2,12 @@
 using LEFiles.Core.Endpoints;
 using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
+using LEFiles.Models.Configuration;
 using LEFiles.Models.Entities;
 using LEFiles.Models.Enums;
 using LEFiles.Services.ServiceModels.UserInterface.Files.Requests;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace LEFiles.API.Endpoints.UserUi.Files
@@ -58,7 +60,7 @@ namespace LEFiles.API.Endpoints.UserUi.Files
           AccessKey = accessKey ?? accessGuid,
           AccessType = req.Access,
           CreatedAt = DateTime.UtcNow,
-          Data = "{}",
+          Data = CreateSharedItemData(req),
           EndDate = req.End,
           Id = Guid.NewGuid().ToString("N"),
           ItemId = file.FileId,
@@ -81,6 +83,29 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(500);
         return;
       }
+
+    }
+    private string CreateSharedItemData(ShareFileRequest req)
+    {
+      var sharedItemData = new SharedItemData();
+      if(req.Users != null){
+        try {
+          var splitList = req.Users.Split(",");
+          var usernames = splitList.Select(s => s.Trim().ToLowerInvariant());
+          var dbUsers = _context.Users.Where(x => usernames.Any(a => a == x.Username.ToLower())).Select(x => x.UserId).ToList();
+          sharedItemData.Users = dbUsers.ToArray();
+          var sharedItemDataString = JsonSerializer.Serialize(sharedItemData, typeof(SharedItemData), new JsonSerializerOptions
+          {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+          });
+          return sharedItemDataString;
+        }
+        catch{
+          return "{}";
+        }
+
+      }
+      return "{}";
 
     }
   }

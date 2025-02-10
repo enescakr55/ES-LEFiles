@@ -16,6 +16,7 @@ import { FolderItemDetailsResponse } from '../../models/file-management/folderIt
 import { RenameFileComponent } from './rename-file/rename-file.component';
 import { Observable } from 'rxjs';
 import { ShareFileComponent } from './share-file/share-file.component';
+import { SharingDetailsResponse } from '../../models/cloud-management/sharingDetailsResponse';
 
 @Component({
     selector: 'app-cloud-management',
@@ -41,7 +42,8 @@ export class CloudManagementComponent implements OnInit {
   selectedItems: FileSystemEntryItemResponse[] = []; //Multiple selection
   listView:boolean = false;
   movement: boolean = false; //Çoklu seçim
-
+  loadingSharingDetails:boolean = false;
+  sharingDetails:SharingDetailsResponse|null;
 
   //File Search
   searchText:string|null = null;
@@ -264,6 +266,11 @@ export class CloudManagementComponent implements OnInit {
         next: (response) => {
           this.fileDetails = response.data;
           this.fileDetailsLoading = false;
+          this.loadingSharingDetails = false;
+          this.sharingDetails = null;
+          if(this.fileDetails.shared){
+            this.getFileSharingDetails(entry.id);
+          }
         }, error: (err) => {
           this.fileDetailsLoading = false;
           this.fileDetailsError = true;
@@ -286,6 +293,28 @@ export class CloudManagementComponent implements OnInit {
       this.fileDetailsLoading = false;
     }
 
+  }
+  getFileSharingDetails(id:string){
+    this.loadingSharingDetails = true;
+    this.cloudManagementService.fileSharingDetails(id).subscribe({
+      next:(response)=>{
+        this.sharingDetails = response.data;
+        this.loadingSharingDetails = false;
+      },error:(err)=>{
+        this.loadingSharingDetails = false;
+      }
+    })
+  }
+  getFolderSharingDetails(id:string){
+    this.loadingSharingDetails = true;
+    this.cloudManagementService.folderSharingDetails(id).subscribe({
+      next:(response)=>{
+        this.sharingDetails = response.data;
+        this.loadingSharingDetails = false;
+      },error:(err)=>{
+        this.loadingSharingDetails = false;
+      }
+    })
   }
   acceptFilesForMovement(){
     this.copyProcess = false;
