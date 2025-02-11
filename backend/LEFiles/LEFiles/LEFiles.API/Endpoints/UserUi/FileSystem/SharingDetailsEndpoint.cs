@@ -55,6 +55,7 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
         }
         sharingDetails.Name = sharingFile.FileName;
         sharingDetails.End = sharingItem.EndDate;
+        sharingDetails.AccessKey = sharingItem.AccessKey;
         sharingDetails.Access = sharingItem.AccessType;
         if(sharingItem.AccessType == Models.Enums.SharedItemAccessTypesEnum.SPECIFIC_USERS){
           sharingDetails.Users = GetUsers(sharingItem.Data);

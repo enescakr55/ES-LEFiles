@@ -1,5 +1,6 @@
 ﻿using LEFiles.Core.Endpoints;
 using LEFiles.DataAccess;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace LEFiles.API.Endpoints.UserUi.FileSystem
@@ -36,7 +37,7 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
         await SendErrorResult(404);
         return;
       }
-      var tokenItem = _context.EntryAccessItems.SingleOrDefaultAsync(x => x.Expiration > DateTime.UtcNow && x.Code == accessToken && x.EntryType == Models.Enums.EntryTypesEnum.SHARED_FILE && x.Target == fileItem.FileId && x.SubTarget == sharedItem.Id);
+      var tokenItem = await _context.EntryAccessItems.SingleOrDefaultAsync(x => x.Expiration > DateTime.UtcNow && x.Code == accessToken && x.EntryType == Models.Enums.EntryTypesEnum.SHARED_FILE && x.Target == fileItem.FileId && x.SubTarget == sharedItem.Id);
       if(tokenItem == null){
         await SendErrorResult(403);
         return;

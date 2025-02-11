@@ -126,6 +126,9 @@
     "sharedItem.extension":"Uzantı",
     "sharedItem.size":"Boyut",
     "sharedItem.download":"Dosyayı İndir",
-    "sharedItem.disclaimerMessage":"İndirilen dosyalardan oluşabilecek zararlardan ESAY CLOUD sorumlu tutulamaz."
+    "sharedItem.disclaimerMessage":"İndirilen dosyalardan oluşabilecek zararlardan ESAY CLOUD sorumlu tutulamaz.",
+    "buttons.stopSharing":"Paylaşımı Durdur",
+    "cloudManagement.sharingDetails.copyLink":"Adresi kopyala",
+    "cloudManagement.sharedItemUrlCopiedSuccessfully":"Paylaşılan öğenin adresi panoya kopyalandı"
     
 }

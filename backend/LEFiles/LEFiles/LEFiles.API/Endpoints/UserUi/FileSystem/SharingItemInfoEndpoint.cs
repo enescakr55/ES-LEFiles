@@ -6,6 +6,7 @@ using LEFiles.DataAccess;
 using LEFiles.Models.Configuration;
 using LEFiles.Services.ServiceModels.UserInterface.FileSystem.Responses;
 using LEFiles.Services.Tools;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -20,10 +21,11 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
       _context = context;
     }
 
+    [AllowAnonymous]
+    [Authorize]
     public override void Configure()
     {
       Get(ApiUrl + "shared/{key}/info");
-      AllowAnonymous();
     }
     public override async Task HandleAsync(CancellationToken ct)
     {
@@ -78,7 +80,7 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
             await SendErrorResult(401);
             return;
           }
-          if(!grantedUsers.Any(x=>x.ToLowerInvariant() == currentUser.Username.ToLowerInvariant())){
+          if(!grantedUsers.Any(x=>x == currentUser.UserId)){
             await SendErrorResult(403,"sharedItem.fileViewSpecificUsersMessage");
             return;
           }

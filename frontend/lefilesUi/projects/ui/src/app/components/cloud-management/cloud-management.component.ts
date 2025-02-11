@@ -294,6 +294,15 @@ export class CloudManagementComponent implements OnInit {
     }
 
   }
+  copySharingUrl(){
+    var url = `${window.location.origin}/shared/${this.sharingDetails.accessKey}/info`;
+    navigator.clipboard.writeText(url).then(success=>{
+      this.toastService.success("cloudManagement.sharedItemUrlCopiedSuccessfully");
+    }).catch(err=>{
+      this.toastService.error("cloudManagement.pleaseCheckClipboardAccess");
+    })
+
+  }
   getFileSharingDetails(id:string){
     this.loadingSharingDetails = true;
     this.cloudManagementService.fileSharingDetails(id).subscribe({

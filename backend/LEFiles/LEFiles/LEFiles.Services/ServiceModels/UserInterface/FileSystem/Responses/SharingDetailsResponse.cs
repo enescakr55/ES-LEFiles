@@ -12,6 +12,7 @@ namespace LEFiles.Services.ServiceModels.UserInterface.FileSystem.Responses
     public string Name { get; set; } = string.Empty;
     public SharedItemAccessTypesEnum Access { get; set; }
     public DateTime? End { get; set; }
+    public string AccessKey { get; set; }
     public List<SharingDetailsUsersResponse>? Users { get; set; }
     public class SharingDetailsUsersResponse
     {

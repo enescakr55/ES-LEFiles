@@ -231,7 +231,7 @@
             </div>
             
             <div class="sharing-details-container" *ngIf="sharingDetails && loadingSharingDetails == false">
-              <font class="details-contents-sharing-details-title"><i class="bi bi-share-fill"></i> {{'cloudManagement.sharingDetails.sharingDetailsTitle' | translate}}</font>
+              <font class="details-contents-sharing-details-title"><i class="bi bi-share-fill"></i> {{'cloudManagement.sharingDetails.sharingDetailsTitle' | translate}}</font><button [title]="'cloudManagement.sharingDetails.copyLink' | translate" *ngIf="fileDetails && fileDetails.shared == true" class="ui-button ui-button-transparent ui-text-bold ms-1" (click)="copySharingUrl()"><i class="bi bi-copy"></i></button>
               <div class="sharing-detail-item" *ngIf="sharingDetails.access != null">
                 <b class="sharing-detail-item-title">{{'cloudManagement.sharingDetails.sharingAccess' | translate}}</b><br/>
                 <font class="sharing-detail-item-value">{{sharingDetails.access == 0 ? ('cloudManagement.sharingDetails.sharingAccess.anonymous' | translate) : sharingDetails.access == 1 ? ('cloudManagement.sharingDetails.sharingAccess.onlyUsers' | translate) : sharingDetails.access == 2 ? ('cloudManagement.sharingDetails.sharingAccess.specificUsers' | translate) : '' }}</font>
@@ -248,7 +248,8 @@
               </div>
             </div>
             <div class="file-actions">
-              <button class="ui-button ui-button-primary ui-text-bold" (click)="shareFile()"><i class="bi bi-share-fill"></i> {{'buttons.share' | translate}}</button>
+              <button *ngIf="fileDetails && fileDetails.shared == false" class="ui-button ui-button-primary ui-text-bold" (click)="shareFile()"><i class="bi bi-share-fill"></i> {{'buttons.share' | translate}}</button>
+              <button *ngIf="fileDetails && fileDetails.shared == true" class="ui-button ui-button-cancel ui-text-bold" (click)="shareFile()"><i class="bi bi-x-octagon-fill"></i> {{'buttons.stopSharing' | translate}}</button>
             </div>
           </div>
         </div>

@@ -5,10 +5,12 @@ using LEFiles.Core.Models.Results.Concrete;
 using LEFiles.DataAccess;
 using LEFiles.Models.Configuration;
 using LEFiles.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace LEFiles.API.Endpoints.UserUi.FileSystem
 {
@@ -20,11 +22,11 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
     {
       _context = context;
     }
-
+    [AllowAnonymous]
+    [Authorize]
     public override void Configure()
     {
       Get(ApiUrl + "shared/{key}/token");
-      AllowAnonymous();
     }
     public override async Task HandleAsync(CancellationToken ct)
     {
@@ -36,7 +38,7 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
         await SendErrorResult(400);
         return;
       }
-      var sharedItem = await _context.SharedItems.SingleOrDefaultAsync(x => x.AccessKey == accessKey && x.EndDate > DateTime.UtcNow);
+      var sharedItem = await _context.SharedItems.SingleOrDefaultAsync(x => x.AccessKey == accessKey && (x.EndDate == null || x.EndDate > DateTime.UtcNow));
       if (sharedItem == null)
       {
         await SendErrorResult(404);
@@ -76,7 +78,7 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
                 await SendErrorResult(401);
                 return;
               }
-              accessGranted = grantedUsers.Any(x => x.ToLowerInvariant() == currentUser.Username.ToLowerInvariant());
+              accessGranted = grantedUsers.Any(x => x == currentUser.UserId);
             }
 
           }
@@ -108,7 +110,8 @@ namespace LEFiles.API.Endpoints.UserUi.FileSystem
     }
     private string GenerateToken(int count)
     {
-      return Convert.ToBase64String(RandomNumberGenerator.GetBytes(count));
+      var token =  Convert.ToBase64String(RandomNumberGenerator.GetBytes(count));
+      return Regex.Replace(token, "[^a-zA-Z0-9]+", "", RegexOptions.Compiled);
     }
   }
 }
