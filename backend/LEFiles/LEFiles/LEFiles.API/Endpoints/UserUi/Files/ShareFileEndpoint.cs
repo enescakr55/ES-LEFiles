@@ -44,17 +44,22 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(404);
         return;
       }
-      var sharingItems = _context.SharedItems.Where(x => x.ItemId == file.FileId && x.Type == SharedItemTypesEnum.FILE && (x.EndDate > DateTime.UtcNow) || x.EndDate == null).Count();
+      var sharingItems = _context.SharedItems.Where(x => x.ItemId == file.FileId && x.Type == SharedItemTypesEnum.FILE && (x.EndDate > DateTime.UtcNow || x.EndDate == null)).Count();
       
       if(file.Shared == true && sharingItems > 0){
         await SendErrorResult(409, "File already sharing");
         return;
       }
+      //Remove old sharing entries (if endDate < currentDate)
+      var oldSharingItems = await _context.SharedItems.Where(x => x.ItemId == file.FileId && x.Type == SharedItemTypesEnum.FILE && x.EndDate < DateTime.UtcNow).ToListAsync();
+      
       var accessGuid = Guid.NewGuid().ToString("N");
       var accessKey = $"{Regex.Replace(file.FileName, @"[^A-Za-z_-]+", String.Empty)}_{accessGuid.Substring(2, 8)}";
       try
       {
         await _context.Database.BeginTransactionAsync();
+        _context.RemoveRange(oldSharingItems);
+        await _context.SaveChangesAsync();
         var shareModel = new SharedItem
         {
           AccessKey = accessKey ?? accessGuid,

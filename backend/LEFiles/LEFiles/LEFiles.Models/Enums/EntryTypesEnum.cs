@@ -8,8 +8,9 @@ namespace LEFiles.Models.Enums
 {
   public enum EntryTypesEnum
   {
-  FILE = 0,
-  FOLDER = 1,
+    FOLDER = 0,
+    FILE = 1,
+
   SHARED_FILE = 2,
   SHARED_FOLDER = 3
   }

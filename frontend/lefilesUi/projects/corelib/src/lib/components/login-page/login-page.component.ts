@@ -17,6 +17,10 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   loginForm:FormGroup;
   loading:boolean = false;
+  topMessageKey:string|null = null;
+  bottomMessageKey:string|null = null;
+  minimized:boolean = false;
+  modalView:boolean = false;
   constructor(private authBaseService:AuthBaseService,private router:Router,private storageService:StorageService,private formBuilder:FormBuilder,private toastService:ToastService) { }
 
   ngOnInit(): void {
@@ -42,7 +46,14 @@ export class LoginPageComponent implements OnInit {
             this.storageService.set("savedUsername",request.username);
           }
           this.loading = false;
-          this.router.navigate(["/main"]);
+          if(this.modalView == false){
+            this.router.navigate(["/main"]);
+          }else{
+            var closeBtn = document.getElementById("componentModal").querySelector("#modal-close-btn");
+            (closeBtn as HTMLButtonElement).click();
+            console.log(closeBtn);
+          }
+
         },error:(err)=>{
           this.loading = false;
           ErrorHandlerService.HandleError(err);

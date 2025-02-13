@@ -1,6 +1,7 @@
 global using FastEndpoints;
 global using IResult = LEFiles.Core.Models.Results.Abstract.IResult;
 using Global.CoreProject.Middlewares;
+using LEFiles.API.JwtTokenValidator;
 using LEFiles.DataAccess;
 using LEFiles.Models.Configuration;
 using LEFiles.Services.Contracts.Authentication;
@@ -60,10 +61,12 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddSignalR();
 var addAuth =builder.Services.AddAuthentication();
 builder.Services.AddSingleton<IConfiguration>(Configuration);
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<AppDbContext>();
 builder.Services.AddTransient<GlobalExceptionHandlerMiddleware>();
 builder.Services.AddTransient<IAuthenticationService, BasicAuthenticationService>();
 builder.Services.AddTransient<IClientService, ClientService>();
+builder.Services.AddTransient<JwtValidationService>();
 List<JWTConfig> jwts = new List<JWTConfig>();
 Configuration.GetSection("JwtConfiguration").Bind(jwts);
 builder.Services.AddSingleton<List<JWTConfig>>(jwts);
@@ -123,6 +126,7 @@ builder.Services
           .RequireAuthenticatedUser()
           .AddAuthenticationSchemes(schemes)
           .Build();
+        
     });
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 var app = builder.Build();
@@ -138,6 +142,7 @@ app.UseFastEndpoints();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
 //app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 //app.MapControllers();
 

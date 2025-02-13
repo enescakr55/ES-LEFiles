@@ -108,10 +108,6 @@ export class ComponentModalComponent implements OnInit, AfterViewInit {
     } catch {
       this.onLoadFrame($ev);
     }
-
-
-
-
   }
   close() {
     try {

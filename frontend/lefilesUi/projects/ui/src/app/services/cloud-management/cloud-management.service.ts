@@ -16,6 +16,7 @@ import { RenameFileRequest } from '../../models/cloud-management/renameFileReque
 import { ShareFileRequest } from '../../models/cloud-management/shareFileRequest';
 import { SharingDetailsResponse } from '../../models/cloud-management/sharingDetailsResponse';
 import { SharingItemInfoResponse } from '../../models/cloud-management/sharingItemInfoResponse';
+import { StopSharingRequest } from '../../models/cloud-management/stopSharingRequest';
 
 
 @Injectable({
@@ -165,6 +166,13 @@ sharingItemInfo(sharedItemKey:string){
 generateSharingItemAccessToken(sharedItemKey:string){
   var apiUrl = environment.apiUrl;
   return this.httpClient.get<DataResponseModel<string>>(`${apiUrl}shared/${sharedItemKey}/token`)
+}
+stopFileSharing(id:string){
+  var request:StopSharingRequest = {
+    itemId:id
+  }
+  var apiUrl = environment.apiUrl;
+  return this.httpClient.post<ResponseModel>(`${apiUrl}my-cloud/files/${id}/stopsharing`,request);
 }
 
 }

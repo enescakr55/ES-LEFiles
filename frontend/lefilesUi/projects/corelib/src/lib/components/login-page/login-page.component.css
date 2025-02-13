@@ -6,6 +6,19 @@
     align-items: center;
     height: 100vh;
 }
+.login-message-alert-container {
+    border-radius: 0.3rem;
+    width: 100%;
+    background: rgb(101, 183, 218);
+    color: white;
+    font-size: 13px;
+    padding: 8px 4px;
+    margin-top: -6px;
+    margin-bottom: 6px;
+}
+.minimized {
+    height: 600px;
+}
 .login-form {
     max-width:400px;
     width:100%;

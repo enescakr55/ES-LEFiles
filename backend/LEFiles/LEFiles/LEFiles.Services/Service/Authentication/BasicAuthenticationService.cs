@@ -63,19 +63,19 @@ namespace LEFiles.Services.Service.Authentication
 
       if (userItem == null)
       {
-        throw new HttpRequestException("", null, HttpStatusCode.NotFound);
+        throw new HttpRequestException("authentication.pleaseCheckUsernameAndPassword", null, HttpStatusCode.Unauthorized);
       }
 
       var passwordVerified = HashingHelper.VerifyPasswordHash(loginRequest.Password, userItem.PasswordHash, userItem.PasswordSalt);
 
       if (!passwordVerified)
       {
-        throw new HttpRequestException("", null, HttpStatusCode.Unauthorized);
+        throw new HttpRequestException("authentication.pleaseCheckUsernameAndPassword", null, HttpStatusCode.Unauthorized);
       }
 
       var userConfig = _jwtConfig.SingleOrDefault(x => x.TokenName == "UserBearer");
       if(userConfig == null) {
-        throw new HttpRequestException("User Jwt Configuration not found", null, HttpStatusCode.NotFound);
+        throw new HttpRequestException("serviceError.userJwtConfigurationNotFound", null, HttpStatusCode.NotFound);
       }
       var expiration = DateTime.UtcNow.AddMinutes(20);
       var jwtCreator = new JWTCreator(userConfig, userItem.UserId, new string[1] {"User"},expiration , new Dictionary<string, string>{ { "iss","LEFiles"} });

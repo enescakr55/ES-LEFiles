@@ -17,6 +17,7 @@ import { RenameFileComponent } from './rename-file/rename-file.component';
 import { Observable } from 'rxjs';
 import { ShareFileComponent } from './share-file/share-file.component';
 import { SharingDetailsResponse } from '../../models/cloud-management/sharingDetailsResponse';
+import { ErrorHandlerService } from 'projects/corelib/src/lib/services/handler/error-handler.service';
 
 @Component({
     selector: 'app-cloud-management',
@@ -350,10 +351,22 @@ export class CloudManagementComponent implements OnInit {
     if (itemIds.length > 0) {
       this.movement = true;
     } else {
-      this.toastService.error("coomon.pleaseSelectAtLeastOneFileForMovement");
+      this.toastService.error("common.pleaseSelectAtLeastOneFileForMovement");
     }
   }
-
+  stopFileSharing(){
+    var selectedItemId = this.selectedItem.id;
+    if(this.selectedItem.type == 1){
+      this.cloudManagementService.stopFileSharing(selectedItemId).subscribe({
+        next:(response)=>{
+          this.toastService.success("cloudManagement.fileSharingStoppedSuccessfully");
+          this.getFileDetails(this.selectedItem)
+        },error:(err)=>{
+          ErrorHandlerService.HandleError(err);
+        }
+      })
+    }
+  }
   copyFiles(){
     var destinationFolder = this.parentFolder;
     this.cloudManagementService.copyFiles({

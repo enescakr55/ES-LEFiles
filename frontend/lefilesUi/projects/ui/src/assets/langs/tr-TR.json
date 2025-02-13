@@ -129,6 +129,8 @@
     "sharedItem.disclaimerMessage":"İndirilen dosyalardan oluşabilecek zararlardan ESAY CLOUD sorumlu tutulamaz.",
     "buttons.stopSharing":"Paylaşımı Durdur",
     "cloudManagement.sharingDetails.copyLink":"Adresi kopyala",
-    "cloudManagement.sharedItemUrlCopiedSuccessfully":"Paylaşılan öğenin adresi panoya kopyalandı"
+    "cloudManagement.sharedItemUrlCopiedSuccessfully":"Paylaşılan öğenin adresi panoya kopyalandı",
+    "common.login":"Giriş Yap",
+    "fileSharing.pleaseLoginToAccessFile":"Paylaşılan dosyaya erişmek için giriş yapın."
     
 }

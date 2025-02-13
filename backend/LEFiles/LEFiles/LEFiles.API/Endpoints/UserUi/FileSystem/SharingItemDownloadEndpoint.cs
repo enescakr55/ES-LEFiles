@@ -1,24 +1,26 @@
-﻿using LEFiles.Core.Endpoints;
+﻿using LEFiles.API.JwtTokenValidator;
+using LEFiles.Core.Endpoints;
 using LEFiles.DataAccess;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace LEFiles.API.Endpoints.UserUi.FileSystem
 {
+  [HttpGet(ApiUrl + "shared/{key}/download")]
+
+  [AllowAnonymous]
   public class SharingItemDownloadEndpoint : BaseEndpointWithoutRequest<object>
   {
     private readonly AppDbContext _context;
+    private readonly JwtValidationService _jwtValidationService;
 
-    public SharingItemDownloadEndpoint(AppDbContext context)
+    public SharingItemDownloadEndpoint(AppDbContext context, JwtValidationService jwtValidationService)
     {
       _context = context;
+      _jwtValidationService = jwtValidationService;
     }
 
-    public override void Configure()
-    {
-      Get(ApiUrl + "shared/{key}/download");
-      AllowAnonymous();
-    }
+
     public override async Task HandleAsync(CancellationToken ct)
     {
       var sharedKey = Route<string>("key");

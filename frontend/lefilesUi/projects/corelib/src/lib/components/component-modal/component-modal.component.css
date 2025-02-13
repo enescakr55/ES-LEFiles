@@ -4,4 +4,5 @@
 .modal-body {
     padding: 0px;
     border-bottom: none;
+    border-radius: 0px 0px 15px 15px;
 }

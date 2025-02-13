@@ -1,4 +1,5 @@
 ﻿using Global.CoreProject.Extensions;
+using LEFiles.API.JwtTokenValidator;
 using LEFiles.Core.Endpoints;
 using LEFiles.Core.Models.Results.Abstract;
 using LEFiles.Core.Models.Results.Concrete;
@@ -14,24 +15,25 @@ using System.Text.RegularExpressions;
 
 namespace LEFiles.API.Endpoints.UserUi.FileSystem
 {
+  [HttpGet(ApiUrl + "shared/{key}/token")]
+  [AllowAnonymous]
+
   public class GenerateSharingItemAccessTokenEndpoint : BaseEndpointWithoutRequest<IDataResult<string>>
   {
     private readonly AppDbContext _context;
+    private readonly JwtValidationService _jwtValidationService;
 
-    public GenerateSharingItemAccessTokenEndpoint(AppDbContext context)
+    public GenerateSharingItemAccessTokenEndpoint(AppDbContext context, JwtValidationService jwtValidationService)
     {
       _context = context;
+      _jwtValidationService = jwtValidationService;
     }
-    [AllowAnonymous]
-    [Authorize]
-    public override void Configure()
-    {
-      Get(ApiUrl + "shared/{key}/token");
-    }
+
+
     public override async Task HandleAsync(CancellationToken ct)
     {
       string? accessToken = null;
-      var userId = User.GetUserId();
+      var userId = _jwtValidationService.GetUserId();
       var accessKey = Route<string>("key");
       if (accessKey == null)
       {

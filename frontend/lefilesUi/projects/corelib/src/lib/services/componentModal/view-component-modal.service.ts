@@ -27,6 +27,7 @@ export class ViewComponentModalService {
         this.removeDynamicComponent(componentRef);
       })
     });
+    
   }
   showModalWithComponent<T>(component:Type<T>,title:any,componentObject=null){
     const componentRef = createComponent(component,{environmentInjector:this.appRef.injector});

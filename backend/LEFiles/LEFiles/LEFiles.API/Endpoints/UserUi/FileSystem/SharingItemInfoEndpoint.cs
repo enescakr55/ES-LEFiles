@@ -1,4 +1,5 @@
 ﻿using Global.CoreProject.Extensions;
+using LEFiles.API.JwtTokenValidator;
 using LEFiles.Core.Endpoints;
 using LEFiles.Core.Models.Results.Abstract;
 using LEFiles.Core.Models.Results.Concrete;
@@ -12,24 +13,23 @@ using System.Text.Json;
 
 namespace LEFiles.API.Endpoints.UserUi.FileSystem
 {
+  [HttpGet(ApiUrl+"shared/{key}/info")]
+  [AllowAnonymous]
+
   public class SharingItemInfoEndpoint : BaseEndpointWithoutRequest<IDataResult<SharingItemInfoResponse>>
   {
     private readonly AppDbContext _context;
+    private readonly JwtValidationService _jwtValidationService;
 
-    public SharingItemInfoEndpoint(AppDbContext context)
+    public SharingItemInfoEndpoint(AppDbContext context, JwtValidationService jwtValidationService)
     {
       _context = context;
+      _jwtValidationService = jwtValidationService;
     }
 
-    [AllowAnonymous]
-    [Authorize]
-    public override void Configure()
-    {
-      Get(ApiUrl + "shared/{key}/info");
-    }
     public override async Task HandleAsync(CancellationToken ct)
     {
-      var userId = User.GetUserId();
+      var userId = _jwtValidationService.GetUserId();
       var key = Route<string>("key");
       var sharedItem = await _context.SharedItems.SingleOrDefaultAsync(x => x.AccessKey == key && (x.EndDate == null || x.EndDate > DateTime.UtcNow));
 

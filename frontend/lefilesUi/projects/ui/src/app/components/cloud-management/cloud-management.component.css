@@ -403,6 +403,9 @@
 .sharing-details-container {
     padding-top: 12px;
 }
+.shared-item-copy-link {
+    color: var(--ui-primary-item-text);
+}
 .sharing-detail-list-group-user-item {
 
         position: relative;
