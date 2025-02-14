@@ -39,7 +39,7 @@ export class ViewSharedItemDetailsComponent implements OnInit {
             this.getSharedItemInfo();
           })
         }else if(err.status == 403){
-          //unauthorized message
+          this.unauthorized = true;
         }else{
           //this.toastService.error("common.errorOccurred");
           //general error page

@@ -102,6 +102,11 @@ namespace LEFiles.API.Endpoints.UserUi.Files
               };
               _context.Add(fileEntry);
               _context.SaveChanges();
+              if(destFolder != null && req.Destination != null){
+                destFolder.LastUpdatedAt = DateTime.UtcNow;
+                _context.Update(destFolder);
+                _context.SaveChanges();
+              }
               var assembly = Assembly.GetEntryAssembly();
               if (assembly != null)
               {

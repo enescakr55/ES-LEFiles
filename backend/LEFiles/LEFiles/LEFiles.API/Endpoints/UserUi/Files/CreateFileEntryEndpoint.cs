@@ -32,8 +32,9 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(401);
         return;
       }
+      FolderItem? folder = null;
       if(folderId != null){
-        var folder = await _context.FolderItems.SingleOrDefaultAsync(x => x.FolderId == folderId && x.UserId == userId);
+        folder = await _context.FolderItems.SingleOrDefaultAsync(x => x.FolderId == folderId && x.UserId == userId);
         if(folder == null){
           await SendErrorResult(404);
           return;
@@ -44,7 +45,6 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         UserId = userId,
         CreatedAt = DateTime.UtcNow,
         Id = Guid.NewGuid().ToString(),
-        
         Provider = 0,
         Status = FileUploadStatus.ENTRYCREATED
       };
@@ -61,6 +61,10 @@ namespace LEFiles.API.Endpoints.UserUi.Files
 
       try {
         await _context.Database.BeginTransactionAsync();
+        if(folder != null){
+          folder.LastUpdatedAt = DateTime.UtcNow;
+          _context.Update(folder);
+        }
         await _context.AddAsync(fileUpload);
         await _context.AddAsync(fileItem);
         await _context.SaveChangesAsync();

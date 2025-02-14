@@ -36,6 +36,26 @@
 .shared-item-icon {
     font-size: 80px;
 }
+.cannotAllowTriangle {
+    color: rgb(207, 207, 0);
+    font-size: 80px;
+}
+.cannotAllowMessage {
+    font-size: 13px;
+    color: white;
+}
+.button-large {
+    font-size: 16px;
+    padding: 12px 25px;
+}
+.shared-item-unauthorized {
+    margin: auto;
+    text-align: center;
+    padding: 12px;
+    background-color: rgb(124, 0, 0);
+    margin: 60px;
+    border-radius: 0.345rem;
+}
 .button-extras {
     padding: 8px 25px;
     font-size: 16px;
@@ -72,4 +92,10 @@
         padding-top: 6px;
         padding-bottom: 6px;
     
+}
+.unauthorized-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

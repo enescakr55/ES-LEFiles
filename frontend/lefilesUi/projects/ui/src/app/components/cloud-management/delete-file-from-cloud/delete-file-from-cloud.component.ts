@@ -19,6 +19,8 @@ export class DeleteFileFromCloudComponent implements OnInit {
     this.cloudManagementService.deleteFile(this.fileId,this.confirm).subscribe({
       next:(response)=>{
         this.toastService.success("common.deletedSuccessfully");
+        var closeBtn = document.getElementById("componentModal").querySelector("#modal-close-btn");
+        (closeBtn as HTMLButtonElement).click();
       },error:(err)=>{
         this.toastService.error("common.errorOccurred");
       }

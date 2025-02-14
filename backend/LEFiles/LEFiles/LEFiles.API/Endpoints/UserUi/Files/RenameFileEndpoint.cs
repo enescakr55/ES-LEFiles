@@ -45,6 +45,13 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendErrorResult(404);
         return;
       }
+      if(!string.IsNullOrEmpty(file.ParentFolderId)){
+        var folderItem = await _context.FolderItems.SingleOrDefaultAsync(x => x.UserId == userId && x.FolderId == file.ParentFolderId);
+        if(folderItem != null){
+          folderItem.LastUpdatedAt = DateTime.UtcNow;
+          _context.Update(folderItem);
+        }
+      }
       fileUploadItem.FileName = req.FileName;
       file.FileName = req.FileName;
       _context.Update(file);

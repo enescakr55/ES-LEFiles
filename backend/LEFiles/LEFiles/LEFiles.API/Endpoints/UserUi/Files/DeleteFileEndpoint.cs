@@ -56,6 +56,15 @@ namespace LEFiles.API.Endpoints.UserUi.Files
           File.Delete(fileItem.FileUploadItem.FilePath);
         }
       }
+      if(!string.IsNullOrEmpty(fileItem.ParentFolderId)){
+        var folderItem = await _context.FolderItems.SingleOrDefaultAsync(x => x.FolderId == fileItem.ParentFolderId && x.UserId == userId);
+        if(folderItem != null){
+          folderItem.LastUpdatedAt = DateTime.UtcNow;
+          _context.Update(folderItem);
+        }
+      }
+      
+     
       var fileUploadItem = fileItem.FileUploadItem;
       _context.Remove(fileItem);
       _context.Remove(fileUploadItem);

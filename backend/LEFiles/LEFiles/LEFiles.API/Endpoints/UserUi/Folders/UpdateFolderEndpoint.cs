@@ -30,7 +30,7 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
         return;
       }
       var folderId = Route<string>("folderId");
-      if(folderId == null) {
+      if(folderId == null || folderId != req.FolderId) {
         await SendErrorResult(400);
         return;
       }
@@ -46,6 +46,7 @@ namespace LEFiles.API.Endpoints.UserUi.Folders
       }
       folder.Shared = req.Shared;
       folder.FolderName = req.FolderName;
+      folder.LastUpdatedAt = DateTime.UtcNow;
       _context.Update(folder);
       await _context.SaveChangesAsync();
       await SendAsync(new SuccessResult());

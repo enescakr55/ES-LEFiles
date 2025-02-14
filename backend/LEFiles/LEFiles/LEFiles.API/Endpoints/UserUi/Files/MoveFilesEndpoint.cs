@@ -31,8 +31,9 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         return;
       }
       var folderId = req.Destination;
+      FolderItem? folder = null;
       if(folderId != null){
-        var folder = _context.FolderItems.SingleOrDefault(x => x.FolderId == folderId && x.UserId == userId);
+        folder = _context.FolderItems.SingleOrDefault(x => x.FolderId == folderId && x.UserId == userId);
         if(folder == null){
           await SendErrorResult(404, "Destination folder not found");
           return;
@@ -44,6 +45,10 @@ namespace LEFiles.API.Endpoints.UserUi.Files
       {
         file.ParentFolderId = folderId;
       });
+      if(files.Count > 0 && folderId != null && folder != null){
+        folder.LastUpdatedAt = DateTime.UtcNow;
+        _context.Update(folder);
+      }
       _context.UpdateRange(files);
       await _context.SaveChangesAsync();
       await SendAsync(new SuccessResult());

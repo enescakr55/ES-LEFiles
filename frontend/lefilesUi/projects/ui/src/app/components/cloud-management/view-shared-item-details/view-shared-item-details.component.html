@@ -1,11 +1,16 @@
 <div class="shared-item-info-page-wrapper">
 
-    <div class="shared-item-info-container" *ngIf="sharedItem != null">
-        <div class="shared-item-info-header">
+    <div class="shared-item-info-container" [class.unauthorized-container]="unauthorized">
+        <div class="shared-item-unauthorized" *ngIf="unauthorized">
+            <i class="bi bi-exclamation-triangle-fill cannotAllowTriangle"></i><br/>
+            <font class="cannotAllowMessage">{{'sharedItems.cannotAllowForAccessThisFile' | translate}}</font>
+        </div>
+        <button *ngIf="unauthorized" [routerLink]="'/main'" class="ui-button ui-button-primary button-large"><i class="bi bi-house-door-fill"></i> {{'common.homePage' | translate}}</button>
+        <div *ngIf="sharedItem != null" class="shared-item-info-header">
             <img class="shared-item-info-site-logo" [src]="'/assets/images/logo2.png'" />
             <h5 class="shared-item-info-page-title">{{'sharedItems.sharedFileInfoPageTitle' | translate}}</h5>
         </div>
-        <div class="shared-item-body">
+        <div *ngIf="sharedItem != null" class="shared-item-body">
             <div class="shared-item-info-detail-container">
                 <div class="shared-item-icon-container">
                     <i [class]="'shared-item-icon '+sharedItem.icon"></i>
