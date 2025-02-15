@@ -29,6 +29,7 @@ export class CloudManagementComponent implements OnInit {
   parentFolder: string = null;
   selectedItem: FileSystemEntryItemResponse | null = null;
   fileSystemEntries: FileAndFoldersResponse;
+  fileSystemEntriesLoadingError:boolean = false;
   loading: boolean = false;
   openingFolder: string | null;
   hierarchicalView: boolean = true;
@@ -63,7 +64,14 @@ export class CloudManagementComponent implements OnInit {
   constructor(private cloudManagementService: CloudManagementService, private toastService: ToastService, private watchService: WatchService, private componentModal: ViewComponentModalService) { }
 
   ngOnInit(): void {
-    this.getFiles();
+    this.loading = true;
+    this.getFiles()
+    .catch(()=>{
+      this.fileSystemEntriesLoadingError = true;
+    })
+    .finally(()=>{
+      this.loading = false;
+    });
     this.listenUploadProgress();
   }
   listenUploadProgress() {

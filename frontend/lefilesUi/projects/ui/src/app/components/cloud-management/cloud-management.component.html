@@ -131,6 +131,18 @@
           </div>
 
         </div>
+        <div class="file-system-loader" *ngIf="loading">
+          <div class="text-center">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div class="file-system-loading-error" *ngIf="fileSystemEntriesLoadingError">
+          <div class="alert alert-danger" role="alert">
+            {{'cloudManagement.throwedAnErrorWhileGettingFileEntries' | translate}}
+          </div>
+        </div>
         <div *ngIf="fileSystemEntries && fileSystemEntries.entries">
           <div class="folder-navigation-top-items">
             <div class="folder-navigation">
@@ -148,15 +160,13 @@
             <div class="multiple-select-container" [class.active]="multipleSelection"
               (click)="changeMultipleSelection()" [title]="'buttons.multipleSelect' | translate">
               <div class="multiple-select-item">
-                <!--<input class="form-check-input" #ref (change)="multipleSelection = ref.checked" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                {{}}
-              </label>-->
+
                 <i class="bi bi-ui-checks-grid ui-text-primary"></i>
               </div>
             </div>
           </div>
           <div class="file-entry-list" [class.listView]="listView" (click)="deselectAll($event)">
+            
             <div class="search-result-empty-container" *ngIf="searchText != null && searchText.length > 0 && fileSystemEntries.entries &&fileSystemEntries.entries.length == 0">
               <div class="search-result-empty-icon"><i class="bi bi-search"></i></div>
               <div class="search-result-empty-message">{{'cloudManagement.searchResultIsEmpty' | translate}}</div>

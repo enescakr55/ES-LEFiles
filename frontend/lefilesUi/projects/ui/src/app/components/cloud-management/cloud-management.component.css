@@ -403,6 +403,9 @@
 .sharing-details-container {
     padding-top: 12px;
 }
+.file-system-loader {
+    padding-top: 15vw;
+}
 .shared-item-copy-link {
     color: var(--ui-primary-item-text);
 }

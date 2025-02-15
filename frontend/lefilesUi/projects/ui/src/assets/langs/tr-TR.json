@@ -132,6 +132,7 @@
     "cloudManagement.sharedItemUrlCopiedSuccessfully":"Paylaşılan öğenin adresi panoya kopyalandı",
     "common.login":"Giriş Yap",
     "fileSharing.pleaseLoginToAccessFile":"Paylaşılan dosyaya erişmek için giriş yapın.",
-    "sharedItems.cannotAllowForAccessThisFile":"Bu dosyayı görüntülemenize izin verilmiyor. Bir hata olduğunu düşünüyorsanız lütfen dosyayı yayınlayan kişi ile iletişime geçin."
+    "sharedItems.cannotAllowForAccessThisFile":"Bu dosyayı görüntülemenize izin verilmiyor. Bir hata olduğunu düşünüyorsanız lütfen dosyayı yayınlayan kişi ile iletişime geçin.",
+    "cloudManagement.throwedAnErrorWhileGettingFileEntries":"Dosya listesi alınırken bir hata oluştu"
     
 }

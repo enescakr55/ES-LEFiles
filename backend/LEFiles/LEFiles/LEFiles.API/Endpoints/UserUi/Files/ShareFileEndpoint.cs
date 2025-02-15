@@ -82,6 +82,11 @@ namespace LEFiles.API.Endpoints.UserUi.Files
         await SendAsync(new SuccessResult());
         return;
       }
+      catch (HttpRequestException httpEx){
+        await _context.Database.RollbackTransactionAsync();
+        await SendErrorResult((int?)httpEx.StatusCode ?? 500,httpEx.Message);
+        return;
+      }
       catch (Exception ex)
       {
         await _context.Database.RollbackTransactionAsync();
@@ -93,12 +98,18 @@ namespace LEFiles.API.Endpoints.UserUi.Files
     private string CreateSharedItemData(ShareFileRequest req)
     {
       var sharedItemData = new SharedItemData();
-      if(req.Users != null){
+      if(req.Users == null && req.Access == SharedItemAccessTypesEnum.SPECIFIC_USERS){
+        throw new HttpRequestException("cloudManagement.shareFile.addAtLeastOneUserToShareFileWithSpecificUsers");
+      }
+      else if(req.Users != null){
         try {
           var splitList = req.Users.Split(",");
           var usernames = splitList.Select(s => s.Trim().ToLowerInvariant());
           var dbUsers = _context.Users.Where(x => usernames.Any(a => a == x.Username.ToLower())).Select(x => x.UserId).ToList();
           sharedItemData.Users = dbUsers.ToArray();
+          if((dbUsers == null || dbUsers.Count == 0) && req.Access == SharedItemAccessTypesEnum.SPECIFIC_USERS){
+            throw new HttpRequestException("cloudManagement.shareFile.addAtLeastOneUserToShareFileWithSpecificUsers");
+          }
           var sharedItemDataString = JsonSerializer.Serialize(sharedItemData, typeof(SharedItemData), new JsonSerializerOptions
           {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
