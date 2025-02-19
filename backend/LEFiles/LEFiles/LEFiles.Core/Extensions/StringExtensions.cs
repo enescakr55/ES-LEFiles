@@ -15,5 +15,11 @@ namespace Global.CoreProject.Extensions
 
       return str ?? "";
     }
+    public static string OnlyFirstCharUpper(this string? str){
+      if (!string.IsNullOrEmpty(str) && char.IsLower(str[0]))
+        return str.Length == 1 ? char.ToUpperInvariant(str[0]).ToString() : char.ToUpperInvariant(str[0]) + str[1..].ToLowerInvariant();
+
+      return str ?? "";
+    }
   }
 }

@@ -8,6 +8,7 @@ using LEFiles.Services.Contracts.Authentication;
 using LEFiles.Services.Contracts.Clients;
 using LEFiles.Services.Service.Authentication;
 using LEFiles.Services.Service.Clients;
+using LEFiles.Services.Service.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
@@ -65,6 +66,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<AppDbContext>();
 builder.Services.AddTransient<GlobalExceptionHandlerMiddleware>();
 builder.Services.AddTransient<IAuthenticationService, BasicAuthenticationService>();
+builder.Services.AddTransient<IUserManagementService, BasicUserManagementService>();
 builder.Services.AddTransient<IClientService, ClientService>();
 builder.Services.AddTransient<JwtValidationService>();
 List<JWTConfig> jwts = new List<JWTConfig>();
@@ -143,7 +145,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 //app.MapControllers();
 
 app.Run();

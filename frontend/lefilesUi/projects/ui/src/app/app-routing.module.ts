@@ -10,6 +10,7 @@ import { ManageDevicesComponent } from './components/device-management/manage-de
 import { CloudManagementComponent } from './components/cloud-management/cloud-management.component';
 import { PreviewFileComponent } from './components/cloud-management/preview-file/preview-file.component';
 import { ViewSharedItemDetailsComponent } from './components/cloud-management/view-shared-item-details/view-shared-item-details.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"devices",component:ManageDevicesComponent,pathMatch:"full",canActivate:[AuthGuard]},
   {path:"login",component:LoginPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
   {path:"register",component:RegisterPageComponent,pathMatch:"full",canActivate:[NotAuthGuard]},
-  {path:"shared/:key/info",component:ViewSharedItemDetailsComponent,pathMatch:"full"}
+  {path:"shared/:key/info",component:ViewSharedItemDetailsComponent,pathMatch:"full"},
+  {path:"profile",component:MyProfileComponent,pathMatch:"full",canActivate:[AuthGuard]}
 
 ];
 

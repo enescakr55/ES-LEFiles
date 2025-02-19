@@ -1,1 +1,64 @@
-<p>my-profile works!</p>
+<div class="profile-container">
+    <div class="py-5" *ngIf="profileDetails">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card text-center card-radius">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{'common.profileDetails' | translate}}</h5>
+                        <i class="bi bi-person-square profile-user-icon"></i>
+                        <h3 class="card-title">{{profileDetails.firstname}} {{profileDetails.lastname}}</h3>
+                        <p class="text-muted">{{profileDetails.email}}</p>
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <b>{{'common.registrationDate' | translate}} : </b> {{profileDetails.registrationDate | date : 'mm/YYYY'}}
+                    </div>
+                </div>
+                
+                <div class="card mt-4 p-4">
+                    <h5 class="card-title text-center">{{'common.updateProfileFormTitle' | translate}}</h5>
+                    <form [formGroup]="updateProfileForm">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">{{'profile.firstname' | translate}}</label>
+                            <input type="text" class="form-control" formControlName="firstname" id="firstName" placeholder="{{'placeholders.pleaseInputFirstName' | translate}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">{{'profile.lastname' | translate}}</label>
+                            <input type="text" class="form-control" formControlName="lastname" id="lastName" placeholder="{{'placeholders.pleaseInputLastName' | translate}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">{{'profile.emailAddress' | translate}}</label>
+                            <input type="email" class="form-control" formControlName="email" id="email" placeholder="{{'placeholders.pleaseInputEmailAddress' | translate}}">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" (click)="updateProfile()" class="btn btn-success">{{'button.update' | translate}}</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card mt-4 p-4">
+                    <h5 class="card-title text-center">{{'common.changePasswordFormTitle' | translate}}</h5>
+                    <form [formGroup]="changePasswordForm">
+                        <div class="mb-3">
+                            <label for="oldPassword" class="form-label">{{'changePassword.oldPassword' | translate}}</label>
+                            <input type="password" autocomplete="off" class="form-control" formControlName="oldPassword" id="oldPassword" placeholder="{{'placeholders.pleaseInputOldPassword' | translate}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">{{'changePassword.newPassword' | translate}}</label>
+                            <input type="password" autocomplete="off" class="form-control" formControlName="newPassword" id="newPassword" placeholder="{{'placeholders.pleaseInputNewPassword' | translate}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">{{'changePassword.newPasswordAgain' | translate}}</label>
+                            <input type="password" autocomplete="off" class="form-control" formControlName="newPasswordAgain" id="confirmPassword" placeholder="{{'placeholders.pleaseInputNewPasswordAgain' | translate}}">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" (click)="changePassword()" class="btn btn-danger">{{'button.changePassword' | translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

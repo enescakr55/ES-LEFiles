@@ -129,8 +129,6 @@ namespace LEFiles.API.Endpoints.UserUi.Files
             }
           }
         }
-
-
       }
 
       _context.FileUploadItems.Update(fileUploadItem);

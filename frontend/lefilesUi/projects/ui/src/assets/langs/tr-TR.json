@@ -133,6 +133,25 @@
     "common.login":"Giriş Yap",
     "fileSharing.pleaseLoginToAccessFile":"Paylaşılan dosyaya erişmek için giriş yapın.",
     "sharedItems.cannotAllowForAccessThisFile":"Bu dosyayı görüntülemenize izin verilmiyor. Bir hata olduğunu düşünüyorsanız lütfen dosyayı yayınlayan kişi ile iletişime geçin.",
-    "cloudManagement.throwedAnErrorWhileGettingFileEntries":"Dosya listesi alınırken bir hata oluştu"
+    "cloudManagement.throwedAnErrorWhileGettingFileEntries":"Dosya listesi alınırken bir hata oluştu",
+    "common.registrationDate":"Kayıt Tarihi",
+    "common.profileDetails":"Profil Detayları",
+    "common.updateProfileFormTitle":"Profili Güncelle",
+    "profile.firstname":"Ad",
+    "profile.lastname":"Soyad",
+    "profile.emailAddress":"E-Posta Adresi",
+    "button.update":"Güncelle",
+    "common.changePasswordFormTitle":"Şifre Değiştir",
+    "changePassword.oldPassword":"Eski Şifre",
+    "changePassword.newPassword":"Yeni Şifre",
+    "changePassword.newPasswordAgain":"Yeni Şifre (Tekrar)",
+    "placeholders.pleaseInputFirstName":"Adınızı giriniz",
+    "placeholders.pleaseInputLastName":"Soyadınızı giriniz",
+    "placeholders.pleaseInputEmailAddress":"E-Posta Adresinizi giriniz",
+    "placeholders.pleaseInputOldPassword":"Eski şifrenizi giriniz",
+    "placeholders.pleaseInputNewPassword":"Yeni şifrenizi giriniz",
+    "placeholders.pleaseInputNewPasswordAgain":"Tekrar yeni şifrenizi giriniz",
+    "button.changePassword":"Şifre Değiştir"
+    
     
 }
