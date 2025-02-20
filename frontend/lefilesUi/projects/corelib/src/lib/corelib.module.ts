@@ -9,6 +9,7 @@ import { TranslateLoader, TranslateModule, TranslatePipe, TranslateService, Tran
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommonModule } from '@angular/common';
 import { ComponentModalComponent } from './components/component-modal/component-modal.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 export function HttpLoaderFactory(http:HttpClient){
@@ -18,12 +19,14 @@ export function HttpLoaderFactory(http:HttpClient){
         CorelibComponent,
         LoginPageComponent,
         RegisterPageComponent,
-        ComponentModalComponent
+        ComponentModalComponent,
+        FooterComponent
     ],
     exports: [
         CorelibComponent,
         LoginPageComponent,
         RegisterPageComponent,
+        FooterComponent,
         TranslateModule,
         TranslatePipe
     ], imports: [ReactiveFormsModule,

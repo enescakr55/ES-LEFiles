@@ -9,6 +9,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fcf2ff", endColorstr="#e6cbff", GradientType=1);*/
     background: var(--ui-page-background);
 }
+.footer-container {
+    background: var(--ui-page-background);
+}
 
 .main-container {
     width: 100%;

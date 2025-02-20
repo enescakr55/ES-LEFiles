@@ -154,7 +154,10 @@
     "button.changePassword":"Şifre Değiştir",
     "common.myProfile":"Profilim",
     "profile.profileUpdatedSuccessfully":"Profil güncellendi",
-    "common.pleaseCheckForm":"Formu kontrol edin"
+    "common.pleaseCheckForm":"Formu kontrol edin",
+    "footer.menu.terms":"Kullanım Koşulları",
+    "footer.menu.privacy":"Gizlilik Politikası",
+    "footer.menu.docs":"Belgeler"
     
     
 }

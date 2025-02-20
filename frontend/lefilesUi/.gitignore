@@ -10,7 +10,8 @@
 /node_modules
 npm-debug.log
 yarn-error.log
-
+logo2.png
+/logo2.png
 # IDEs and editors
 .idea/
 .project
