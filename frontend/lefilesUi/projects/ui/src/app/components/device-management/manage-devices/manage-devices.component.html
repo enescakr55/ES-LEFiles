@@ -1,11 +1,8 @@
 <div class="main-page-container">
-    <div class="my-devices">
-        <h4>{{'devices.manageDevices' | translate}}</h4>
-    </div>
-    <div class="item-row">
+    <div class="item-row" style="background-color: var(--ui-panel-background);">
         <app-my-devices></app-my-devices>
     </div>
-    <div class="item-row">
+    <div class="item-row" style="background-color: var(--ui-panel-background);">
         <app-register-new-device (refresh)="tokens.refresh()"></app-register-new-device>
         <br/>
         <app-client-registration-tokens #tokens></app-client-registration-tokens>

@@ -1,8 +1,8 @@
 
 <div>
-    <h5>{{'devices.registerRequestTitle' | translate}}</h5>
+    <h5 class="ui-text-primary">{{'devices.registerRequestTitle' | translate}}</h5>
     <form class="mb-3" [formGroup]="registerDeviceForm">
-        <label for="clientName" class="form-label">{{'devices.deviceName' | translate}}</label>
+        <label for="clientName" class="form-label ui-text-primary">{{'devices.deviceName' | translate}}</label>
         <input type="text" class="form-control" id="clientName"
             [placeholder]="'devices.pleaseInputDeviceName' | translate" formControlName="clientName">
     </form>

@@ -151,7 +151,10 @@
     "placeholders.pleaseInputOldPassword":"Eski şifrenizi giriniz",
     "placeholders.pleaseInputNewPassword":"Yeni şifrenizi giriniz",
     "placeholders.pleaseInputNewPasswordAgain":"Tekrar yeni şifrenizi giriniz",
-    "button.changePassword":"Şifre Değiştir"
+    "button.changePassword":"Şifre Değiştir",
+    "common.myProfile":"Profilim",
+    "profile.profileUpdatedSuccessfully":"Profil güncellendi",
+    "common.pleaseCheckForm":"Formu kontrol edin"
     
     
 }

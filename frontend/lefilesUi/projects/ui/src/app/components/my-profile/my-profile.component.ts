@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { UserProfileService } from '../../services/user-profile/user-profile.service';
 import { ToastService } from 'projects/corelib/src/lib/services/toasts/toast-service.service';
 import { ProfileDetailsResponse } from '../../models/user-profile/profileDetailsResponse';
@@ -16,6 +16,8 @@ export class MyProfileComponent implements OnInit {
   loading:boolean;
   updateProfileForm:FormGroup;
   changePasswordForm:FormGroup;
+  updateProfileLoader:boolean = false;
+  changePasswordLoader:boolean = false;
   constructor(private formBuilder:FormBuilder,private userProfileService:UserProfileService,private toastService:ToastService) { }
 
   ngOnInit(): void {
@@ -56,12 +58,15 @@ export class MyProfileComponent implements OnInit {
   }
   updateProfile(){
     if(this.updateProfileForm.valid){
+      this.updateProfileLoader = true;
       var request = Object.assign({},this.updateProfileForm.value);
       this.userProfileService.updateProfile(request).subscribe({
         next:(response)=>{
           this.toastService.success("profile.profileUpdatedSuccessfully");
           this.getProfileDetails();
+          this.updateProfileLoader = false;
         },error:(err)=>{
+          this.updateProfileLoader = false;
           ErrorHandlerService.HandleError(err);
         }
       })
@@ -71,12 +76,15 @@ export class MyProfileComponent implements OnInit {
   }
   changePassword(){
     if(this.changePasswordForm.valid){
+      this.changePasswordLoader = true;
       var request = Object.assign({},this.changePasswordForm.value);
       this.userProfileService.changePassword(request).subscribe({
         next:(response)=>{
+          this.changePasswordLoader = false;
           this.toastService.success("profile.passwordChangedSuccessfully");
           this.getProfileDetails();
         },error:(err)=>{
+          this.changePasswordLoader = false;
           ErrorHandlerService.HandleError(err);
         }
       })
