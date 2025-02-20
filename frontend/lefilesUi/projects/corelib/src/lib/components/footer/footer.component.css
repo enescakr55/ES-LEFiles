@@ -1,6 +1,9 @@
 .footer-container {
     background-color: transparent;
     width: 100%;
+
+    border-top: 1px solid #e4e4e4;
+    
 }
 .footer-menu-container {
     width: 100%;
@@ -11,11 +14,15 @@
     color: var(--ui-text-secondary);
     margin-left: 6px;
     margin-right: 6px;
+    cursor: pointer;
+}
+.footer-menu-item-text:hover {
+    color: var(--ui-text-primary);
 }
 .footer-menu-items {
     width: 100%;
     text-align: center;
-    height: 35px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
